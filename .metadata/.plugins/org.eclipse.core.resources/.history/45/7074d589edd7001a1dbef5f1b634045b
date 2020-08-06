@@ -1,0 +1,45 @@
+package br.com.ztech.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.Transacao;
+import br.com.ztech.exception.ExtratoNotFoundException;
+import br.com.ztech.repository.TransacaoRepository;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class ExtratoService extends ContaService {
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+
+	public Page<Transacao> buscarTransacoes(Integer agencia, Long numeroConta,  Pageable pageable) {
+
+		final var conta = buscarConta(agencia, numeroConta);
+
+		return buscarTransacoes( conta , pageable );
+
+	}
+
+	public Page<Transacao> buscarTransacoes(Long id,  Pageable pageable) {
+
+		final var conta = buscarContaPorId(id);
+
+		return buscarTransacoes( conta , pageable );
+
+	}
+
+	public Page<Transacao> buscarTransacoes(Conta conta, Pageable pageable) {
+
+		log.info("buscarTransacoes {}", conta);
+
+		return transacaoRepository.findByContaAgenciaAndContaNumeroContaOrderByDataDesc(conta.getAgencia(), conta.getNumeroConta(), pageable)
+				.orElseThrow(() -> new ExtratoNotFoundException());
+	}	
+
+}

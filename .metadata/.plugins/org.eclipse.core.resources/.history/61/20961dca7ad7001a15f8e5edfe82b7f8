@@ -1,0 +1,36 @@
+package br.com.ztech.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class TipoTransacao {
+	
+	@Id
+	private Integer id;
+	
+	@Column(nullable=false)
+	private String nome;
+	
+	public TipoTransacao() {}
+	
+	public TipoTransacao(Integer id) {
+		this.id = id;
+	}
+	
+	public TipoTransacao(Integer id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
+
+}

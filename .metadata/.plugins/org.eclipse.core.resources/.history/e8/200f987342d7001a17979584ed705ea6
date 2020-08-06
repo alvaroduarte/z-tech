@@ -1,0 +1,60 @@
+package br.com.ztech.repository;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.domain.Conta;
+
+@RunWith(SpringRunner.class)
+@DataJpaTest
+public class ContaRepositoryTest {
+
+	@Autowired
+	private ContaRepository contaRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
+	@Test
+	public void saveContaTest() {
+		
+		var clienteMock1 = new Cliente("Alvaro Duarte", "15723132008");
+		
+		clienteMock1 = clienteRepository.save(clienteMock1);
+		
+		Conta conta = new Conta(100, Long.valueOf(88888), clienteMock1);
+		
+		conta = contaRepository.save(conta);
+	
+		assertThat(conta).isNotNull();
+		
+ 	}
+	
+	@Test
+	public void contaFindByClienteCpfTest() {
+		
+		var clienteMock1 = new Cliente("Alvaro Duarte", "15723132008");
+		
+		clienteMock1 = clienteRepository.save(clienteMock1);
+		
+		var contaClienteMock1 = new Conta(100, Long.valueOf(88888), clienteMock1);
+		
+		contaClienteMock1 = contaRepository.save(contaClienteMock1);
+	
+		assertThat(contaClienteMock1).isNotNull();
+		
+		var conta = contaRepository.findByClienteCpf("15723132008");
+		
+		assertThat(conta.get().getAgencia()).isEqualTo(contaClienteMock1.getAgencia());
+		assertThat(conta.get().getNumeroConta()).isEqualTo(contaClienteMock1.getNumeroConta());
+		assertThat(conta.get().getCliente().getNome()).isEqualTo("Alvaro Duarte");
+		assertThat(conta.get().getCliente().getCpf()).isEqualTo("15723132008");
+		
+ 	}
+}

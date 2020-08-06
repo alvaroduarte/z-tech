@@ -1,0 +1,28 @@
+package br.com.ztech.controller.request;
+
+import java.io.Serializable;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+public class DepositarContaRequest implements Serializable  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7289874194846403307L;
+	
+	@NotEmpty
+	@NotNull
+	private String valor;
+	
+	private String teste;
+
+	public String getValor() {
+		return valor;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="z-tech-conta-bancodigital" tests="12" started="12" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.ztech.repository.ContaRepositoryTest" time="1.926" displayname="ContaRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]">
+    <testcase name="contaFindByClienteCpfTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="1.289" displayname="contaFindByClienteCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contaFindByClienteCpfTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="contafindByAgenciaAndNumeroContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.534" displayname="contafindByAgenciaAndNumeroContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contafindByAgenciaAndNumeroContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="saveContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.103" displayname="saveContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:saveContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.TransacaoRepositoryTest" time="0.319" displayname="TransacaoRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]">
+    <testcase name="saveTransacaoTest" classname="br.com.ztech.repository.TransacaoRepositoryTest" time="0.319" displayname="saveTransacaoTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]/[test:saveTransacaoTest(br.com.ztech.repository.TransacaoRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.ClienteRepositoryTest" time="21.408" displayname="ClienteRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]">
+    <testcase name="saveAndfindByCpfTest" classname="br.com.ztech.repository.ClienteRepositoryTest" time="21.408" displayname="saveAndfindByCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]/[test:saveAndfindByCpfTest(br.com.ztech.repository.ClienteRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.DepositarControllerTest" time="10.921" displayname="DepositarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]">
+    <testcase name="depositarTest" classname="br.com.ztech.controller.DepositarControllerTest" time="10.921" displayname="depositarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]/[test:depositarTest(br.com.ztech.controller.DepositarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.TransferirControllerTest" time="9.842" displayname="TransferirControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]">
+    <testcase name="transferirTest" classname="br.com.ztech.controller.TransferirControllerTest" time="9.842" displayname="transferirTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]/[test:transferirTest(br.com.ztech.controller.TransferirControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.RetirarControllerTest" time="9.253" displayname="RetirarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]">
+    <testcase name="retirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="0.477" displayname="retirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:retirarTest(br.com.ztech.controller.RetirarControllerTest)]"/>
+    <testcase name="depositarAndRetirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="8.776" displayname="depositarAndRetirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:depositarAndRetirarTest(br.com.ztech.controller.RetirarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.ContaControllerTest" time="5.488" displayname="ContaControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]">
+    <testcase name="abrirContaTest" classname="br.com.ztech.controller.ContaControllerTest" time="0.139" displayname="abrirContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:abrirContaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+    <testcase name="contaTest" classname="br.com.ztech.controller.ContaControllerTest" time="5.349" displayname="contaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:contaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.ZTechBancoApplicationTests" time="0.049" displayname="ZTechBancoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]">
+    <testcase name="contextLoads" classname="br.com.ztech.ZTechBancoApplicationTests" time="0.049" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

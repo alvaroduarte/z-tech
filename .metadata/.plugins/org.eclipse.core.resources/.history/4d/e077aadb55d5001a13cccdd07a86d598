@@ -1,0 +1,18 @@
+package br.com.ztech.eum;
+
+public enum ConfiguracaoPorcentagemEnum {
+	
+
+	DONUS_PORCETAGEM_BONUS(1),
+	DONUS_PORCETAGEM_CUSTO_RETIRADA_DINHEIRO(2);
+	
+	private Integer valor;
+
+	ConfiguracaoPorcentagemEnum(Integer valor) {
+		this.valor = valor;
+	}
+
+	public Integer getValor() {
+		return valor;
+	}
+}

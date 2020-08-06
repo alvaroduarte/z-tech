@@ -1,0 +1,47 @@
+package br.com.ztech.service;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import br.com.ztech.controller.ContaController;
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.exception.ClienteJaCadastradoException;
+import br.com.ztech.exception.ClienteNotFoundException;
+import br.com.ztech.repository.ClienteRepository;
+
+@Service
+public class ClienteService {
+	
+	private Logger logger = LogManager.getLogger(ContaController.class);
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+
+	public Cliente buscarClientePorCpf(String cpf) {
+		
+		logger.info("buscarClientePorCpf {}", cpf);
+		
+		return  clienteRepository.findByCpf(cpf).orElseThrow(() -> new ClienteNotFoundException());
+	}
+	
+	public void verificaClienteBaseDados(String cpf) {
+		
+		logger.info("verificaClienteBaseDados {}", cpf);
+		
+		clienteRepository.findByCpf(cpf).ifPresent(c -> { throw new ClienteJaCadastradoException(); });
+		
+	}
+	
+	public Cliente salvar(Cliente cliente) {
+		
+		logger.info("salvar {}", cliente);
+		
+		final var retorno = clienteRepository.save(cliente);
+		
+		logger.debug("{} Salvo com sucesso!", retorno);
+		
+		return retorno;
+		
+	}
+}

@@ -1,0 +1,48 @@
+package br.com.ztech.service;
+
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.exception.ClienteJaCadastradoException;
+
+public class ClienteServiceTest {
+
+	private ClienteService clienteService = Mockito.mock(ClienteService.class);
+		
+	@Test
+	void buscarClientePorCpfTest() {
+		
+		Cliente clienteMock = new Cliente("Amanda da Silva de Oliveira", "90884981053");
+		
+		Mockito.when(this.clienteService.buscarClientePorCpf("90884981053")).thenReturn(clienteMock);
+		
+		Assert.assertEquals("90884981053", this.clienteService.buscarClientePorCpf("90884981053").getCpf());
+		
+		
+	}
+	
+	@Test
+	void validaCadastroClienteTest() {		
+		
+		Mockito.doThrow(new ClienteJaCadastradoException()).when(this.clienteService).validaCadastroCliente("90884981053");
+		
+		this.clienteService.validaCadastroCliente("90884981099");
+			
+	}
+	
+	@Test
+	void salvarClienteTest() {	
+		
+		Cliente clienteMock = new Cliente("Amanda da Silva de Oliveira", "90884981053");
+		
+		Mockito.when(this.clienteService.salvar(Mockito.any())).thenReturn(clienteMock);
+		
+		var clienteMockRetorno = this.clienteService.salvar(new Cliente());
+		
+		Assert.assertNotNull(clienteMockRetorno);
+		
+	}
+	
+}

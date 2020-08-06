@@ -1,0 +1,48 @@
+package br.com.ztech.controller.request;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.validation.constraints.NotNull;
+
+public class TransferenciaContaRequest implements Serializable  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7289874194846403307L;
+	
+	@NotNull
+	private Integer agencia;
+	
+	@NotNull
+	private Integer numeroConta;
+	
+	@NotNull
+	private BigDecimal valor;
+	
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public Integer getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(Integer agencia) {
+		this.agencia = agencia;
+	}
+
+	public Integer getConta() {
+		return numeroConta;
+	}
+
+	public void setConta(Integer conta) {
+		this.numeroConta = conta;
+	}
+}

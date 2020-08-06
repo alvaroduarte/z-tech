@@ -1,0 +1,20 @@
+package br.com.ztech.controller.request;
+
+import java.util.List;
+import javax.validation.constraints.NotEmpty;
+
+public class ClienteRequest {
+	
+	private Long id;
+	
+	@NotNull
+	@NotEmpty
+	private String nome;
+	
+	@NotNull
+	private Long cpf;
+	
+    
+	
+	
+}

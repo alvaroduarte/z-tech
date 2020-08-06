@@ -1,0 +1,135 @@
+package br.com.ztech.controller;
+
+import javax.validation.Valid;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.dto.ExtratoDto;
+import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
+import br.com.ztech.controller.dto.converter.TransacoesConverterExtratoDto;
+import br.com.ztech.controller.request.AbrirContaRequest;
+import br.com.ztech.controller.request.TransferenciaContaRequest;
+import br.com.ztech.controller.request.converter.AbrirContaRequestConverterCliente;
+import br.com.ztech.service.ContaService;
+import br.com.ztech.service.TransacaoService;
+
+@RestController
+@RequestMapping("conta")
+public class ContaController {
+	
+	private final static Logger logger = LogManager.getLogger(ContaController.class);
+	
+	@Autowired
+	private ContaService contaService;
+	
+	@Autowired
+	private TransacaoService trasancaoService;
+	
+	@Autowired
+	private ContaConverterContaDto contaConverterContaDto;
+	
+	@Autowired
+	private TransacoesConverterExtratoDto transacoesConverterExtratoDto;
+	
+	@Autowired
+	private AbrirContaRequestConverterCliente clienteRequestConverterCliente;
+	
+	@PostMapping
+	public ResponseEntity<ContaDto> abrirConta(@RequestBody @Valid AbrirContaRequest abrirContaRequest) {
+		
+		logger.info("abrirConta {}", abrirContaRequest);
+
+		var conta = contaService.abrirConta(clienteRequestConverterCliente.convert(abrirContaRequest));
+		
+		logger.info("Conta aberta com sucesso! {}", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/{cpf}")
+	public ResponseEntity<ContaDto> conta(@PathVariable String cpf) {	
+		
+		logger.info("conta cpf {}", cpf);
+
+		var conta = contaService.buscarConta(cpf);
+		
+		logger.info("{} encontrado com sucesso!", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
+	}
+	
+	@GetMapping("/{agencia}/{numeroConta}")
+	public ResponseEntity<ContaDto> conta(@PathVariable Integer agencia, @PathVariable Integer numeroConta) {	
+		
+		logger.info("conta agencia {}, numeroConta{}", agencia, numeroConta);
+
+		var conta = contaService.buscarConta(agencia, numeroConta);
+		
+		logger.info("{} encontrado com sucesso!", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
+	}
+	
+	@PutMapping("/transferir/{agencia}/{numeroConta}")
+	public ResponseEntity<ContaDto> transferir(@PathVariable Integer agencia, 
+			@PathVariable Integer numeroConta, 
+				@RequestBody @Valid TransferenciaContaRequest transferenciaContaRequest) {
+		
+		logger.info("transferir agencia {}, conta {}, {}", agencia, numeroConta, transferenciaContaRequest);
+		
+		var conta = contaService.buscarConta(agencia, numeroConta);
+		
+		var contaDestino = contaService.buscarConta(agencia, numeroConta);
+		
+		var valorMovimentacao = transferenciaContaRequest.getValor();
+		
+		var contaAtualizada = contaService.transferir(conta, valorMovimentacao, contaDestino);
+		
+		logger.info("Transferencia efetuado com sucesso na {}", contaAtualizada);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+	}
+	
+	@PutMapping("/transferir/{cpf}")
+	public ResponseEntity<ContaDto> transferir(@PathVariable String cpf, 
+			@RequestBody @Valid TransferenciaContaRequest transferenciaContaRequest) {
+		
+		logger.info("transferir cpf {}, {}", cpf, transferenciaContaRequest);
+		
+		var conta = contaService.buscarConta(cpf);
+		
+		var contaDestino = contaService.buscarConta(agencia, numeroConta);
+		
+		var valorMovimentacao = transferenciaContaRequest.getValor();
+		
+		var contaAtualizada = contaService.transferir(conta, valorMovimentacao, contaDestino);
+		
+		logger.info("Transferencia efetuado com sucesso na {}", contaAtualizada);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+	}
+	
+	@GetMapping("/extrato/{agencia}/{numeroConta}")
+	public ResponseEntity<ExtratoDto> extrato(@PathVariable Integer agencia, @PathVariable Integer numeroConta) {	
+		
+		logger.info("extrato agencia {}, numeroConta{}", agencia, numeroConta);
+
+		var transacoes = trasancaoService.buscarTransacoes(agencia, numeroConta);
+		
+		logger.info("Extrato encontrado com sucesso!");
+		
+		return new ResponseEntity<>( transacoesConverterExtratoDto.convert( transacoes ), HttpStatus.CREATED);
+	}
+}

@@ -1,0 +1,20 @@
+package br.com.ztech;
+
+import javax.annotation.security.RunAs;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunAs(SpringRunner.class)
+@SpringBootTest
+class ZTechBancoApplicationTests {
+
+	@Test
+	void contextLoads() {
+		
+		
+		
+	}
+
+}

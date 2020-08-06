@@ -1,0 +1,71 @@
+package br.com.ztech.controller;
+
+import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS;
+
+import javax.validation.Valid;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
+import br.com.ztech.controller.request.MovimentacaoContaRequest;
+import br.com.ztech.service.RetirarService;
+
+@RestController
+@RequestMapping("conta")
+public class RetirarController {
+	
+	private final static Logger logger = LogManager.getLogger(RetirarController.class);
+	
+	@Autowired
+	private RetirarService retirarService;
+	
+	@Autowired
+	private ContaConverterContaDto contaConverterContaDto;
+	
+	@PutMapping("/retirar/{agencia}/{numeroConta}")
+	public ResponseEntity<ContaDto> retirar(@PathVariable Integer agencia, 
+			@PathVariable Integer numeroConta, 
+				@RequestBody @Valid MovimentacaoContaRequest movimentacaoContaRequest) {
+		
+		logger.info("retirar agencia {}, numeroConta {}, {}", agencia, numeroConta, movimentacaoContaRequest);
+		
+		final var configuracaoPorcentagem = retirarService.getConfiguracaoPorcentagem(BONUS.getValor());
+		
+		final var conta = retirarService.buscarConta(agencia, numeroConta);
+		
+		final var valorMovimentacao = movimentacaoContaRequest.getValor();
+		
+		final var contaAtualizada = retirarService.retirar(conta, valorMovimentacao);
+		
+		logger.info("Deposito efetuado com sucesso na {}", contaAtualizada );
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+	}
+	
+	@PutMapping("/retirar/{cpf}")
+	public ResponseEntity<ContaDto> retirar(@PathVariable String cpf,
+			@RequestBody @Valid MovimentacaoContaRequest movimentacaoContaRequest) {
+		
+		logger.info("retirar cpf {}, {}", cpf, movimentacaoContaRequest);
+		
+		final var conta = retirarService.buscarConta(cpf);
+		
+		final var valorMovimentacao = movimentacaoContaRequest.getValor();
+		
+		final var contaAtualizada = retirarService.retirar(conta, valorMovimentacao);
+		
+		logger.info("Deposito efetuado com sucesso na {}", contaAtualizada );
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+	}
+}

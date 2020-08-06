@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="z-tech-conta-bancodigital" tests="12" started="12" failures="2" errors="0" ignored="0">
+  <testsuite name="br.com.ztech.repository.ContaRepositoryTest" time="0.785" displayname="ContaRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]">
+    <testcase name="contaFindByClienteCpfTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.646" displayname="contaFindByClienteCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contaFindByClienteCpfTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="contafindByAgenciaAndNumeroContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.127" displayname="contafindByAgenciaAndNumeroContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contafindByAgenciaAndNumeroContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="saveContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.012" displayname="saveContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:saveContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.TransacaoRepositoryTest" time="0.084" displayname="TransacaoRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]">
+    <testcase name="saveTransacaoTest" classname="br.com.ztech.repository.TransacaoRepositoryTest" time="0.084" displayname="saveTransacaoTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]/[test:saveTransacaoTest(br.com.ztech.repository.TransacaoRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.ClienteRepositoryTest" time="10.138" displayname="ClienteRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]">
+    <testcase name="saveAndfindByCpfTest" classname="br.com.ztech.repository.ClienteRepositoryTest" time="10.138" displayname="saveAndfindByCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]/[test:saveAndfindByCpfTest(br.com.ztech.repository.ClienteRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.DepositarControllerTest" time="5.358" displayname="DepositarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]">
+    <testcase name="depositarTest" classname="br.com.ztech.controller.DepositarControllerTest" time="5.358" displayname="depositarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]/[test:depositarTest(br.com.ztech.controller.DepositarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.TransferirControllerTest" time="0.43" displayname="TransferirControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]">
+    <testcase name="transferirTest" classname="br.com.ztech.controller.TransferirControllerTest" time="0.43" displayname="transferirTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]/[test:transferirTest(br.com.ztech.controller.TransferirControllerTest)]">
+      <failure>
+        <expected>100.00</expected>
+        <actual>1.0E+2</actual>
+        org.opentest4j.AssertionFailedError: &#13;
+Expecting:&#13;
+ &lt;1.0E+2&gt;&#13;
+to be equal to:&#13;
+ &lt;100.00&gt;&#13;
+but was not.&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#13;
+	at br.com.ztech.controller.TransferirControllerTest.transferirTest(TransferirControllerTest.java:165)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)&#13;
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.RetirarControllerTest" time="0.313" displayname="RetirarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]">
+    <testcase name="retirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="0.227" displayname="retirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:retirarTest(br.com.ztech.controller.RetirarControllerTest)]"/>
+    <testcase name="depositarAndRetirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="0.086" displayname="depositarAndRetirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:depositarAndRetirarTest(br.com.ztech.controller.RetirarControllerTest)]">
+      <failure>
+        <expected>474.50</expected>
+        <actual>449.75</actual>
+        org.opentest4j.AssertionFailedError: &#13;
+Expecting:&#13;
+ &lt;449.75&gt;&#13;
+to be equal to:&#13;
+ &lt;474.50&gt;&#13;
+but was not.&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#13;
+	at br.com.ztech.controller.RetirarControllerTest.depositarAndRetirarTest(RetirarControllerTest.java:136)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)&#13;
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.ContaControllerTest" time="10.335" displayname="ContaControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]">
+    <testcase name="abrirContaTest" classname="br.com.ztech.controller.ContaControllerTest" time="0.188" displayname="abrirContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:abrirContaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+    <testcase name="contaTest" classname="br.com.ztech.controller.ContaControllerTest" time="10.147" displayname="contaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:contaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.ZTechBancoApplicationTests" time="0.02" displayname="ZTechBancoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]">
+    <testcase name="contextLoads" classname="br.com.ztech.ZTechBancoApplicationTests" time="0.02" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

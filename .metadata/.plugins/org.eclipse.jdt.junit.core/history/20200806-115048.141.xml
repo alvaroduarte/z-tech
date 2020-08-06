@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="z-tech-conta-bancodigital" tests="16" started="13" failures="2" errors="4" ignored="0">
+  <testsuite name="br.com.ztech.service.DepositarServiceTest" time="0.0" displayname="DepositarServiceTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.service.DepositarServiceTest]">
+    <testcase name="br.com.ztech.service.DepositarServiceTest" classname="br.com.ztech.service.DepositarServiceTest" time="0.0" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.service.DepositarServiceTest]/[test:initializationError(br.com.ztech.service.DepositarServiceTest)]">
+      <error>java.lang.Exception: Method depositarTest() should be public&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoid(FrameworkMethod.java:96)&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoidNoArg(FrameworkMethod.java:74)&#13;
+	at org.junit.runners.ParentRunner.validatePublicVoidNoArgMethods(ParentRunner.java:155)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateTestMethods(BlockJUnit4ClassRunner.java:208)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateInstanceMethods(BlockJUnit4ClassRunner.java:188)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:128)&#13;
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:416)&#13;
+	at org.junit.runners.ParentRunner.&lt;init&gt;(ParentRunner.java:84)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.&lt;init&gt;(BlockJUnit4ClassRunner.java:65)&#13;
+	at org.junit.internal.builders.JUnit4Builder.runnerForClass(JUnit4Builder.java:10)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder$DefensiveJUnit4Builder.runnerForClass(DefensiveAllDefaultPossibilitiesBuilder.java:128)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder.runnerForClass(DefensiveAllDefaultPossibilitiesBuilder.java:56)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolveTestClass(ClassSelectorResolver.java:66)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolve(ClassSelectorResolver.java:47)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.lambda$resolve$2(EngineDiscoveryRequestResolution.java:129)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:174)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:120)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolveCompletely(EngineDiscoveryRequestResolution.java:87)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.run(EngineDiscoveryRequestResolution.java:80)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolver.resolve(EngineDiscoveryRequestResolver.java:112)&#13;
+	at org.junit.vintage.engine.discovery.VintageDiscoverer.discover(VintageDiscoverer.java:42)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.discover(VintageTestEngine.java:62)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverEngineRoot(DefaultLauncher.java:177)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverRoot(DefaultLauncher.java:164)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discover(DefaultLauncher.java:120)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.&lt;init&gt;(JUnit5TestReference.java:46)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.createTest(JUnit5TestLoader.java:96)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.loadTests(JUnit5TestLoader.java:48)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:526)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.ContaRepositoryTest" incomplete="true" displayname="ContaRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]">
+    <testcase name="br.com.ztech.repository.ContaRepositoryTest" classname="br.com.ztech.repository.ContaRepositoryTest" incomplete="true" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:initializationError(br.com.ztech.repository.ContaRepositoryTest)%5B0%5D]"/>
+    <testcase name="br.com.ztech.repository.ContaRepositoryTest" classname="br.com.ztech.repository.ContaRepositoryTest" incomplete="true" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:initializationError(br.com.ztech.repository.ContaRepositoryTest)%5B1%5D]"/>
+    <testcase name="br.com.ztech.repository.ContaRepositoryTest" classname="br.com.ztech.repository.ContaRepositoryTest" incomplete="true" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:initializationError(br.com.ztech.repository.ContaRepositoryTest)%5B2%5D]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.TransacaoRepositoryTest" time="0.0" displayname="TransacaoRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]">
+    <testcase name="br.com.ztech.repository.TransacaoRepositoryTest" classname="br.com.ztech.repository.TransacaoRepositoryTest" time="0.0" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]/[test:initializationError(br.com.ztech.repository.TransacaoRepositoryTest)]">
+      <error>java.lang.Exception: Method saveTransacaoTest() should be public&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoid(FrameworkMethod.java:96)&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoidNoArg(FrameworkMethod.java:74)&#13;
+	at org.junit.runners.ParentRunner.validatePublicVoidNoArgMethods(ParentRunner.java:155)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateTestMethods(BlockJUnit4ClassRunner.java:208)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateInstanceMethods(BlockJUnit4ClassRunner.java:188)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:128)&#13;
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:416)&#13;
+	at org.junit.runners.ParentRunner.&lt;init&gt;(ParentRunner.java:84)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.&lt;init&gt;(BlockJUnit4ClassRunner.java:65)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.&lt;init&gt;(SpringJUnit4ClassRunner.java:137)&#13;
+	at org.springframework.test.context.junit4.SpringRunner.&lt;init&gt;(SpringRunner.java:49)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder$DefensiveAnnotatedBuilder.buildRunner(DefensiveAllDefaultPossibilitiesBuilder.java:113)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder.runnerForClass(DefensiveAllDefaultPossibilitiesBuilder.java:56)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolveTestClass(ClassSelectorResolver.java:66)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolve(ClassSelectorResolver.java:47)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.lambda$resolve$2(EngineDiscoveryRequestResolution.java:129)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:174)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:120)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolveCompletely(EngineDiscoveryRequestResolution.java:87)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.run(EngineDiscoveryRequestResolution.java:80)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolver.resolve(EngineDiscoveryRequestResolver.java:112)&#13;
+	at org.junit.vintage.engine.discovery.VintageDiscoverer.discover(VintageDiscoverer.java:42)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.discover(VintageTestEngine.java:62)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverEngineRoot(DefaultLauncher.java:177)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverRoot(DefaultLauncher.java:164)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discover(DefaultLauncher.java:120)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.&lt;init&gt;(JUnit5TestReference.java:46)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.createTest(JUnit5TestLoader.java:96)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.loadTests(JUnit5TestLoader.java:48)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:526)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.ClienteRepositoryTest" time="0.0" displayname="ClienteRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]">
+    <testcase name="br.com.ztech.repository.ClienteRepositoryTest" classname="br.com.ztech.repository.ClienteRepositoryTest" time="0.0" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]/[test:initializationError(br.com.ztech.repository.ClienteRepositoryTest)]">
+      <error>java.lang.Exception: Method saveAndfindByCpfTest() should be public&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoid(FrameworkMethod.java:96)&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoidNoArg(FrameworkMethod.java:74)&#13;
+	at org.junit.runners.ParentRunner.validatePublicVoidNoArgMethods(ParentRunner.java:155)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateTestMethods(BlockJUnit4ClassRunner.java:208)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateInstanceMethods(BlockJUnit4ClassRunner.java:188)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:128)&#13;
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:416)&#13;
+	at org.junit.runners.ParentRunner.&lt;init&gt;(ParentRunner.java:84)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.&lt;init&gt;(BlockJUnit4ClassRunner.java:65)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.&lt;init&gt;(SpringJUnit4ClassRunner.java:137)&#13;
+	at org.springframework.test.context.junit4.SpringRunner.&lt;init&gt;(SpringRunner.java:49)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder$DefensiveAnnotatedBuilder.buildRunner(DefensiveAllDefaultPossibilitiesBuilder.java:113)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder.runnerForClass(DefensiveAllDefaultPossibilitiesBuilder.java:56)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolveTestClass(ClassSelectorResolver.java:66)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolve(ClassSelectorResolver.java:47)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.lambda$resolve$2(EngineDiscoveryRequestResolution.java:129)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:174)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:120)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolveCompletely(EngineDiscoveryRequestResolution.java:87)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.run(EngineDiscoveryRequestResolution.java:80)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolver.resolve(EngineDiscoveryRequestResolver.java:112)&#13;
+	at org.junit.vintage.engine.discovery.VintageDiscoverer.discover(VintageDiscoverer.java:42)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.discover(VintageTestEngine.java:62)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverEngineRoot(DefaultLauncher.java:177)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverRoot(DefaultLauncher.java:164)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discover(DefaultLauncher.java:120)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.&lt;init&gt;(JUnit5TestReference.java:46)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.createTest(JUnit5TestLoader.java:96)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.loadTests(JUnit5TestLoader.java:48)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:526)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.DepositarControllerTest" time="6.247" displayname="DepositarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]">
+    <testcase name="depositarTest" classname="br.com.ztech.controller.DepositarControllerTest" time="6.247" displayname="depositarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]/[test:depositarTest(br.com.ztech.controller.DepositarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.TransferirControllerTest" time="4.785" displayname="TransferirControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]">
+    <testcase name="transferirTest" classname="br.com.ztech.controller.TransferirControllerTest" time="4.785" displayname="transferirTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]/[test:transferirTest(br.com.ztech.controller.TransferirControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.RetirarControllerTest" time="4.124" displayname="RetirarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]">
+    <testcase name="retirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="0.139" displayname="retirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:retirarTest(br.com.ztech.controller.RetirarControllerTest)]"/>
+    <testcase name="depositarAndRetirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="3.985" displayname="depositarAndRetirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:depositarAndRetirarTest(br.com.ztech.controller.RetirarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.ContaControllerTest" time="3.997" displayname="ContaControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]">
+    <testcase name="abrirContaTest" classname="br.com.ztech.controller.ContaControllerTest" time="0.137" displayname="abrirContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:abrirContaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+    <testcase name="contaTest" classname="br.com.ztech.controller.ContaControllerTest" time="3.86" displayname="contaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:contaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.ZTechBancoApplicationTests" time="0.017" displayname="ZTechBancoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]">
+    <testcase name="contextLoads" classname="br.com.ztech.ZTechBancoApplicationTests" time="0.017" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+  <testsuite name="Unrooted Tests" time="0.001" displayname="Unrooted Tests">
+    <testcase name="br.com.ztech.repository.ContaRepositoryTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.001" dynamicTest="true" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[dynamic:initializationError(br.com.ztech.repository.ContaRepositoryTest)]">
+      <error>java.lang.Exception: Method contaFindByClienteCpfTest() should be public&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoid(FrameworkMethod.java:96)&#13;
+	at org.junit.runners.model.FrameworkMethod.validatePublicVoidNoArg(FrameworkMethod.java:74)&#13;
+	at org.junit.runners.ParentRunner.validatePublicVoidNoArgMethods(ParentRunner.java:155)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateTestMethods(BlockJUnit4ClassRunner.java:208)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.validateInstanceMethods(BlockJUnit4ClassRunner.java:188)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:128)&#13;
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:416)&#13;
+	at org.junit.runners.ParentRunner.&lt;init&gt;(ParentRunner.java:84)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.&lt;init&gt;(BlockJUnit4ClassRunner.java:65)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.&lt;init&gt;(SpringJUnit4ClassRunner.java:137)&#13;
+	at org.springframework.test.context.junit4.SpringRunner.&lt;init&gt;(SpringRunner.java:49)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder$DefensiveAnnotatedBuilder.buildRunner(DefensiveAllDefaultPossibilitiesBuilder.java:113)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)&#13;
+	at org.junit.vintage.engine.discovery.DefensiveAllDefaultPossibilitiesBuilder.runnerForClass(DefensiveAllDefaultPossibilitiesBuilder.java:56)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolveTestClass(ClassSelectorResolver.java:66)&#13;
+	at org.junit.vintage.engine.discovery.ClassSelectorResolver.resolve(ClassSelectorResolver.java:47)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.lambda$resolve$2(EngineDiscoveryRequestResolution.java:129)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:174)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolve(EngineDiscoveryRequestResolution.java:120)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.resolveCompletely(EngineDiscoveryRequestResolution.java:87)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolution.run(EngineDiscoveryRequestResolution.java:80)&#13;
+	at org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolver.resolve(EngineDiscoveryRequestResolver.java:112)&#13;
+	at org.junit.vintage.engine.discovery.VintageDiscoverer.discover(VintageDiscoverer.java:42)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.discover(VintageTestEngine.java:62)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverEngineRoot(DefaultLauncher.java:177)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discoverRoot(DefaultLauncher.java:164)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.discover(DefaultLauncher.java:120)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.&lt;init&gt;(JUnit5TestReference.java:46)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.createTest(JUnit5TestLoader.java:96)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader.loadTests(JUnit5TestLoader.java:48)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:526)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="br.com.ztech.repository.ContaRepositoryTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.0" dynamicTest="true" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[dynamic:initializationError(br.com.ztech.repository.ContaRepositoryTest)]">
+      <failure>org.opentest4j.MultipleFailuresError: Multiple Failures (2 failures)&#13;
+	java.lang.Exception: Method contaFindByClienteCpfTest() should be public&#13;
+	java.lang.Exception: Method contafindByAgenciaAndNumeroContaTest() should be public&#13;
+	at org.junit.vintage.engine.execution.TestRun.getStoredResultOrSuccessful(TestRun.java:179)&#13;
+	at org.junit.vintage.engine.execution.RunListenerAdapter.fireExecutionFinished(RunListenerAdapter.java:211)&#13;
+	at org.junit.vintage.engine.execution.RunListenerAdapter.testFinished(RunListenerAdapter.java:177)&#13;
+	at org.junit.vintage.engine.execution.RunListenerAdapter.testFinished(RunListenerAdapter.java:76)&#13;
+	at org.junit.runner.notification.SynchronizedRunListener.testFinished(SynchronizedRunListener.java:56)&#13;
+	at org.junit.runner.notification.RunNotifier$7.notifyListener(RunNotifier.java:190)&#13;
+	at org.junit.runner.notification.RunNotifier$SafeNotifier.run(RunNotifier.java:72)&#13;
+	at org.junit.runner.notification.RunNotifier.fireTestFinished(RunNotifier.java:187)&#13;
+	at org.junit.internal.runners.ErrorReportingRunner.runCause(ErrorReportingRunner.java:66)&#13;
+	at org.junit.internal.runners.ErrorReportingRunner.run(ErrorReportingRunner.java:38)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="br.com.ztech.repository.ContaRepositoryTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.0" dynamicTest="true" displayname="initializationError" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[dynamic:initializationError(br.com.ztech.repository.ContaRepositoryTest)]">
+      <failure>org.opentest4j.MultipleFailuresError: Multiple Failures (3 failures)&#13;
+	java.lang.Exception: Method contaFindByClienteCpfTest() should be public&#13;
+	java.lang.Exception: Method contafindByAgenciaAndNumeroContaTest() should be public&#13;
+	java.lang.Exception: Method saveContaTest() should be public&#13;
+	at org.junit.vintage.engine.execution.TestRun.getStoredResultOrSuccessful(TestRun.java:179)&#13;
+	at org.junit.vintage.engine.execution.RunListenerAdapter.fireExecutionFinished(RunListenerAdapter.java:211)&#13;
+	at org.junit.vintage.engine.execution.RunListenerAdapter.testFinished(RunListenerAdapter.java:177)&#13;
+	at org.junit.vintage.engine.execution.RunListenerAdapter.testFinished(RunListenerAdapter.java:76)&#13;
+	at org.junit.runner.notification.SynchronizedRunListener.testFinished(SynchronizedRunListener.java:56)&#13;
+	at org.junit.runner.notification.RunNotifier$7.notifyListener(RunNotifier.java:190)&#13;
+	at org.junit.runner.notification.RunNotifier$SafeNotifier.run(RunNotifier.java:72)&#13;
+	at org.junit.runner.notification.RunNotifier.fireTestFinished(RunNotifier.java:187)&#13;
+	at org.junit.internal.runners.ErrorReportingRunner.runCause(ErrorReportingRunner.java:66)&#13;
+	at org.junit.internal.runners.ErrorReportingRunner.run(ErrorReportingRunner.java:38)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</failure>
+    </testcase>
+  </testsuite>
+</testrun>

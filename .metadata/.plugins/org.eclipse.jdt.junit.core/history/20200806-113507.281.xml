@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="z-tech-conta-bancodigital" tests="12" started="12" failures="0" errors="4" ignored="0">
+  <testsuite name="br.com.ztech.repository.ContaRepositoryTest" time="1.266" displayname="ContaRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]">
+    <testcase name="contaFindByClienteCpfTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="1.008" displayname="contaFindByClienteCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contaFindByClienteCpfTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="contafindByAgenciaAndNumeroContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.232" displayname="contafindByAgenciaAndNumeroContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contafindByAgenciaAndNumeroContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="saveContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.026" displayname="saveContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:saveContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.TransacaoRepositoryTest" time="0.111" displayname="TransacaoRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]">
+    <testcase name="saveTransacaoTest" classname="br.com.ztech.repository.TransacaoRepositoryTest" time="0.111" displayname="saveTransacaoTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]/[test:saveTransacaoTest(br.com.ztech.repository.TransacaoRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.ClienteRepositoryTest" time="11.097" displayname="ClienteRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]">
+    <testcase name="saveAndfindByCpfTest" classname="br.com.ztech.repository.ClienteRepositoryTest" time="11.097" displayname="saveAndfindByCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]/[test:saveAndfindByCpfTest(br.com.ztech.repository.ClienteRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.DepositarControllerTest" time="2.205" displayname="DepositarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]">
+    <testcase name="depositarTest" classname="br.com.ztech.controller.DepositarControllerTest" time="2.205" displayname="depositarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]/[test:depositarTest(br.com.ztech.controller.DepositarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.TransferirControllerTest" time="0.006" displayname="TransferirControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]">
+    <testcase name="transferirTest" classname="br.com.ztech.controller.TransferirControllerTest" time="0.006" displayname="transferirTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]/[test:transferirTest(br.com.ztech.controller.TransferirControllerTest)]">
+      <error>java.lang.IllegalStateException: Failed to load ApplicationContext&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)&#13;
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:95)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:79)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:54)&#13;
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.14509087778085491810.0] specified for the base directory is not a directory&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)&#13;
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)&#13;
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)&#13;
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)&#13;
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)&#13;
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:124)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)&#13;
+	... 46 more&#13;
+Caused by: java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.14509087778085491810.0] specified for the base directory is not a directory&#13;
+	at org.apache.catalina.startup.Tomcat.initBaseDir(Tomcat.java:868)&#13;
+	at org.apache.catalina.startup.Tomcat.getServer(Tomcat.java:657)&#13;
+	at org.apache.catalina.startup.Tomcat.getService(Tomcat.java:589)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:182)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)&#13;
+	... 54 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.RetirarControllerTest" time="1.119" displayname="RetirarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]">
+    <testcase name="retirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="0.002" displayname="retirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:retirarTest(br.com.ztech.controller.RetirarControllerTest)]">
+      <error>java.lang.IllegalStateException: Failed to load ApplicationContext&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)&#13;
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:95)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:79)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:54)&#13;
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.4776965802666028892.0] specified for the base directory is not a directory&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)&#13;
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)&#13;
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)&#13;
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)&#13;
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)&#13;
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:124)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)&#13;
+	... 46 more&#13;
+Caused by: java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.4776965802666028892.0] specified for the base directory is not a directory&#13;
+	at org.apache.catalina.startup.Tomcat.initBaseDir(Tomcat.java:868)&#13;
+	at org.apache.catalina.startup.Tomcat.getServer(Tomcat.java:657)&#13;
+	at org.apache.catalina.startup.Tomcat.getService(Tomcat.java:589)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:182)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)&#13;
+	... 54 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="depositarAndRetirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="0.002" displayname="depositarAndRetirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:depositarAndRetirarTest(br.com.ztech.controller.RetirarControllerTest)]">
+      <error>java.lang.IllegalStateException: Failed to load ApplicationContext&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)&#13;
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:95)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:79)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:54)&#13;
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)&#13;
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)&#13;
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)&#13;
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)&#13;
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)&#13;
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:124)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)&#13;
+	... 46 more&#13;
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:125)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.&lt;init&gt;(TomcatWebServer.java:87)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:437)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:191)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)&#13;
+	... 54 more&#13;
+Caused by: org.apache.catalina.LifecycleException: A child container failed during start&#13;
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:928)&#13;
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)&#13;
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)&#13;
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421)&#13;
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)&#13;
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)&#13;
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)&#13;
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:106)&#13;
+	... 59 more&#13;
+Caused by: java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: A child container failed during start&#13;
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)&#13;
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)&#13;
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)&#13;
+	... 67 more&#13;
+Caused by: org.apache.catalina.LifecycleException: A child container failed during start&#13;
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:928)&#13;
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:841)&#13;
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)&#13;
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)&#13;
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)&#13;
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)&#13;
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)&#13;
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)&#13;
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)&#13;
+	... 67 more&#13;
+Caused by: java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to start component [org.apache.catalina.webresources.StandardRoot@75591913]&#13;
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)&#13;
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)&#13;
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)&#13;
+	... 75 more&#13;
+Caused by: org.apache.catalina.LifecycleException: Failed to start component [org.apache.catalina.webresources.StandardRoot@75591913]&#13;
+	at org.apache.catalina.util.LifecycleBase.handleSubClassException(LifecycleBase.java:440)&#13;
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:198)&#13;
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:4792)&#13;
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4928)&#13;
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)&#13;
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)&#13;
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)&#13;
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)&#13;
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)&#13;
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)&#13;
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)&#13;
+	... 75 more&#13;
+Caused by: java.lang.IllegalArgumentException: The main resource set specified [C:\Users\User\AppData\Local\Temp\tomcat-docbase.8299154967014997987.0] is not valid&#13;
+	at org.apache.catalina.webresources.StandardRoot.createMainResourceSet(StandardRoot.java:751)&#13;
+	at org.apache.catalina.webresources.StandardRoot.startInternal(StandardRoot.java:708)&#13;
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)&#13;
+	... 84 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.ContaControllerTest" time="5.995" displayname="ContaControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]">
+    <testcase name="abrirContaTest" classname="br.com.ztech.controller.ContaControllerTest" time="0.001" displayname="abrirContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:abrirContaTest(br.com.ztech.controller.ContaControllerTest)]">
+      <error>java.lang.IllegalStateException: Failed to load ApplicationContext&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)&#13;
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)&#13;
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)&#13;
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)&#13;
+	at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:43)&#13;
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.15474273493551642687.0] specified for the base directory is not a directory&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)&#13;
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)&#13;
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)&#13;
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)&#13;
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)&#13;
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:124)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)&#13;
+	... 46 more&#13;
+Caused by: java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.15474273493551642687.0] specified for the base directory is not a directory&#13;
+	at org.apache.catalina.startup.Tomcat.initBaseDir(Tomcat.java:868)&#13;
+	at org.apache.catalina.startup.Tomcat.getServer(Tomcat.java:657)&#13;
+	at org.apache.catalina.startup.Tomcat.getService(Tomcat.java:589)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:182)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)&#13;
+	... 54 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="contaTest" classname="br.com.ztech.controller.ContaControllerTest" time="5.988" displayname="contaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:contaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.ZTechBancoApplicationTests" time="0.053" displayname="ZTechBancoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]">
+    <testcase name="contextLoads" classname="br.com.ztech.ZTechBancoApplicationTests" time="0.053" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

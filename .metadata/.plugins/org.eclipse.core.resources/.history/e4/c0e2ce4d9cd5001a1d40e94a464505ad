@@ -1,0 +1,40 @@
+package br.com.ztech.controller.dto.converter;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import br.com.ztech.controller.dto.ClienteDto;
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.domain.Conta;
+
+@Configuration
+public class ContaConverterContaDto implements Converter<Conta, ContaDto> {
+	
+	private final static Logger logger = LogManager.getLogger(TransacoesConverterExtratoDto.class);
+	
+	@Override
+	public ContaDto convert(Conta source) {
+		
+		logger.info("ContaConverterContaDto convert {}", source);
+		
+		
+		final var clienteDto = new ClienteDto(source.getCliente().getNome(), source.getCliente().getCpf());
+		
+		final var contaDto = new ContaDto(clienteDto, source.getAgencia(), source.getNumeroConta(), source.getSaldo());
+		
+		
+		ContaDto dto = new ContaDto();
+		dto.setAgencia(source.getAgencia());
+		dto.setConta(source.getNumeroConta());
+		dto.setSaldo(source.getSaldo());
+		dto.setCliente(new ClienteDto());
+		dto.getCliente().setNome(source.getCliente().getNome());
+		dto.getCliente().setCpf(source.getCliente().getCpf());
+	
+		logger.info("{}", dto);
+		
+		return dto;
+	}
+}

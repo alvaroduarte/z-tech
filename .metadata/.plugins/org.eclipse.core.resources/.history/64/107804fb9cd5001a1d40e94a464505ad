@@ -1,0 +1,28 @@
+package br.com.ztech.controller.dto;
+
+import java.math.BigDecimal;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class ContaExtratoDto {
+
+	private Integer agencia;
+	private Integer conta;
+	
+	public ContaExtratoDto () {}
+	
+	public ContaExtratoDto (Integer agencia, Integer conta) {
+		
+		this.agencia = agencia;
+		this.conta = conta;
+	
+	}
+
+}

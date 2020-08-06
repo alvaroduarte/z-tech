@@ -1,0 +1,116 @@
+package br.com.ztech.service;
+
+import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS_DEPOSITO;
+import static br.com.ztech.eum.TipoTransacaoEnum.DEPOSITO_DINHEIRO;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.TipoTransacao;
+import br.com.ztech.domain.Transacao;
+import br.com.ztech.repository.ContaRepository;
+import br.com.ztech.repository.TransacaoRepository;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class DepositarService extends ContaService {
+
+	@Autowired
+	private ContaRepository contaRepository;
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+
+	public Conta depositar(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao) {
+		
+		final var conta = buscarConta(agencia, numeroConta);
+		
+		return depositar( conta , valorMovimentacao );
+	
+	}
+	
+	public Conta depositar(Long id, BigDecimal valorMovimentacao) {
+		
+		final var conta = buscarContaPorId(id);
+		
+		return depositar( conta , valorMovimentacao );
+	
+	}
+
+	@Transactional
+	public Conta depositar(Conta conta, BigDecimal valorMovimentacao) {
+
+		log.info("depositar {}, valorMovimentacao {}", conta, valorMovimentacao);
+		
+		final var porcentagemBonusDeposito = buscarConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor()).getPorcentagem();
+
+		final var valorSaldo = conta.getSaldo();
+
+		final var valorBonus = calculoBonusDeposito(porcentagemBonusDeposito, valorMovimentacao);
+
+		final var valorSaldoAtualizado = calculaSaldoDeposito(valorSaldo, valorMovimentacao, valorBonus);
+		
+		final var valorTransacao = calculoValorTransacao(valorMovimentacao, valorBonus); 
+
+		log.info("{}, porcentagemBonusDeposito {}, valorSaldo {}, valorBonus {}, valorTransacao {}, valorSaldoAtualizado {}", 
+				conta, 
+				porcentagemBonusDeposito, 
+				valorSaldo, 
+				valorBonus, 
+				valorTransacao,
+				valorSaldoAtualizado);
+
+		conta.setSaldo( valorSaldoAtualizado );
+
+		conta = contaRepository.save(conta);
+		
+		final var transacao = Transacao.builder()
+				.data(LocalDateTime.now())
+				.valorSaldo(valorSaldo)
+				.valorMovimentacao(valorMovimentacao)
+				.porcentagemMovimentacao(porcentagemBonusDeposito)
+				.valorTransacao(valorTransacao)
+				.valorSaldoAtualizado(valorSaldoAtualizado)
+				.conta(conta)
+				.tipoTransacao(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo()))
+				.build();
+		
+		transacaoRepository.save(transacao);	
+		
+		log.info("deposito efetuado com sucesso na {}", conta);
+
+		return conta;
+	}
+
+	private BigDecimal calculaSaldoDeposito(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorBonus) {
+
+		log.info("calculaSaldoDeposito valorSaldo {}, valorMovimentacao {},  valorBonus {}", valorSaldo, valorMovimentacao, valorBonus);
+
+		final var saldoAtualizado = valorSaldo.add(valorMovimentacao).add(valorBonus).setScale(2, RoundingMode.HALF_UP);
+
+		log.info("saldoAtualizado {}", saldoAtualizado);
+
+		return saldoAtualizado;
+	}
+
+	private BigDecimal calculoBonusDeposito(BigDecimal valorPorcentagemBonusDeposito, BigDecimal valor) {
+
+		log.info("calculoBonusDeposito valorPorcentagemBonusDeposito {}, valor {}", valorPorcentagemBonusDeposito, valor);
+
+		final var valorCalculado = valor.multiply(valorPorcentagemBonusDeposito).divide(new BigDecimal(100));
+
+		log.info("valorCalculado {}", valorCalculado);
+
+		return valorCalculado;
+
+	}
+
+}

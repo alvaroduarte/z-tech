@@ -1,0 +1,151 @@
+1596339980079	Rename enum constant 'DONUS_BONUS'
+1596340001155	Rename enum constant 'DONUS_CUSTO_RETIRADA_DINHEIRO'
+1596340820053	Rename method 'calculoBonus'
+1596341159517	Copy compilation unit
+1596341215627	Move compilation unit
+1596341220529	Move compilation unit
+1596341225433	Move compilation unit
+1596341238311	Rename type 'AgenciaEnum'
+1596341246506	Rename type 'TipoTransacaoEnum'
+1596341258280	Rename type 'ValoDonusBonusEnum'
+1596341279923	Rename type 'ValoDonusBonus'
+1596341492245	Rename type 'TipoTransacao'
+1596341580422	Rename type 'TipoTransacaoEum'
+1596341639945	Rename type 'Agencia'
+1596341652887	Rename type 'ValoDonusBonusDebito'
+1596341944192	Rename method 'verificaExisteContaAbertaCliente'
+1596343681393	Rename enum constant 'TRANSFERENCIA_DINHEIRO'
+1596343700341	Rename enum constant 'ENTRADA_DINHEIRO_POR_TRANSFERENCIA'
+1596343808022	Rename type 'AgenciaEnum'
+1596344187234	Rename type 'TransacoesConverterExtradoDto'
+1596346160409	Rename local variable 'valorSaldoAtual'
+1596346425878	Rename local variable 'valorPorcentagem'
+1596346491203	Rename local variable 'valorPorcentagemBonus'
+1596347117399	Rename local variable 'retorno'
+1596347846095	Rename local variable 'valorCustoRetiradaDinheiro'
+1596347869180	Rename local variable 'valorRetiradaDinheiro'
+1596347910388	Rename local variable 'valorSaldoAtual'
+1596347945618	Rename local variable 'retorno'
+1596348537075	Rename method 'sacarConta'
+1596348576866	Rename method 'calculoDebeito'
+1596348607954	Rename method 'calculoValorRetirada'
+1596349010769	Rename method 'retirarConta'
+1596349021941	Rename method 'depositarConta'
+1596349321061	Rename local variable 'retornoConta'
+1596349354491	Rename local variable 'retornoContaDestino'
+1596349679148	Rename local variable 'retornoAtualizada'
+1596349936570	Rename local variable 'saldoOriemAtualizado'
+1596349951197	Rename local variable 'saldoDestinoAtualizado'
+1596403495641	Delete element
+1596403504705	Delete element
+1596404822676	Rename method 'findByAgenciaAndConta'
+1596404843488	Rename package 'br.com.ztech.token.eum'
+1596404910264	Rename method 'findByContaAgenciaAndContaConta'
+1596408901200	Rename local variable 'valorPorcentagemBonus'
+1596408909251	Rename local variable 'porcentagemBonus'
+1596409954702	Copy compilation unit
+1596410522655	Rename local variable 'depositarContaRequest'
+1596410552235	Rename local variable 'depositarContaRequest'
+1596410568010	Rename local variable 'depositarContaRequest'
+1596410775402	Copy compilation unit
+1596410997951	Rename local variable 'valorPorcentagemRetirada'
+1596411339254	Rename local variable 'valorTransacao'
+1596411513418	Rename local variable 'valorTransacao'
+1596412251003	Rename field 'conta'
+1596412262457	Rename field 'numeroConta'
+1596412306271	Copy compilation unit
+1596412984880	Copy compilation unit
+1596413481319	Copy compilation unit
+1596415420776	Copy compilation unit
+1596416104272	Copy compilation unit
+1596416121366	Delete element
+1596416132468	Copy compilation unit
+1596420107469	Rename type 'TransacaoService'
+1596420117263	Rename field 'trasancaoService'
+1596420649321	Copy compilation unit
+1596420660869	Delete element
+1596427728970	Delete element
+1596429201242	Delete element
+1596429212285	Copy compilation unit
+1596430835733	Delete element
+1596430845239	Copy compilation unit
+1596431392399	Rename type 'CriadorTransacao'
+1596431676836	Rename type 'BuilderTransacao'
+1596433059490	Rename type 'TransacaoBuilder'
+1596433117265	Delete element
+1596435852205	Rename type 'Agencia'
+1596435872989	Copy compilation unit
+1596435887837	Copy compilation unit
+1596436722413	Rename type 'Configuracao'
+1596436735752	Rename type 'ConfiguracaoRepository'
+1596437076160	Copy compilation unit
+1596437444175	Delete element
+1596437461930	Copy compilation unit
+1596438312783	Delete element
+1596464411069	Delete element
+1596468035363	Copy compilation unit
+1596468917302	Rename local variable 'contaExtratoDto'
+1596470136661	Delete element
+1596472993536	Rename type 'TransacaoBuilder'
+1596474831639	Rename type 'TipoTransacaoDto'
+1596474892864	Copy compilation unit
+1596477196966	Rename local variable 'transacao'
+1596479732785	Copy compilation unit
+1596498958456	Rename method 'getNovoNumeroConta'
+1596506955065	Delete element
+1596506966134	Rename type 'ErroFormularioPadraoDto'
+1596507077599	Rename method 'verificaExisteCadastroCliente'
+1596508349647	Rename type 'SaldoInsuficienteNotFoundException'
+1596524298454	Rename enum constant 'BONUS'
+1596524567309	Rename method 'validaCadastroCliente'
+1596524577941	Rename method 'validaCadastroClienteAtivoNoBanco'
+1596527414129	Rename method 'findByContaAgenciaAndContaNumeroConta'
+1596527451021	Rename method 'findByContaAgenciaAndContaNumeroContaOrderByData'
+1596527494994	Rename method 'findByContaAgenciaAndContaNumeroContaOrderByDataAsc'
+1596561783682	Delete element
+1596562144157	Copy compilation unit
+1596562569637	Rename type 'ContaRepository'
+1596562955066	Move compilation unit
+1596562978397	Delete element
+1596570194676	Rename method 'getConfiguracaoPorcentagem'
+1596570253392	Rename method 'findConfiguracaoPorcentagem'
+1596585526671	Move compilation unit
+1596594720055	Delete element
+1596594723503	Delete element
+1596595909113	Rename local variable 'clienteMock1'
+1596595954752	Rename local variable 'clienteMock1Retorno'
+1596602827996	Delete element
+1596608352876	Rename resource 'drop_all.sql'
+1596609154732	Rename local variable 'responseGetConta'
+1596610169391	Rename local variable 'request'
+1596610216610	Rename local variable 'requestEntity'
+1596610234247	Rename local variable 'requestEntityAbrirContaRequest'
+1596610253493	Rename local variable 'response'
+1596639242075	Rename local variable 'reesponseDepositarConta'
+1596639600153	Rename method 'depositarTeste'
+1596639733624	Copy compilation unit
+1596639778847	Rename method 'depositarTest'
+1596641319159	Rename local variable 'requestEntityDespositarConta'
+1596641446971	Rename local variable 'responseDepositarConta'
+1596643640968	Rename local variable 'configuracaoPorcentagem'
+1596643964264	Copy compilation unit
+1596644245694	Rename local variable 'request'
+1596644259312	Rename local variable 'requestEntity'
+1596644276900	Rename local variable 'responseTesteUmaContaPorCliente'
+1596647781772	Copy compilation unit
+1596648811558	Rename method 'getNumeroContaTest'
+1596648915723	Rename local variable 'conta'
+1596649358727	Copy compilation unit
+1596662629904	Copy compilation unit
+1596662781710	Delete element
+1596673846862	Delete element
+1596678865459	Copy file
+1596679462106	Rename resource 'data.sql'
+1596679830125	Rename resource 'ztech_bancodigital.sql'
+1596687765922	Rename method 'buscarConta'
+1596688404029	Rename local variable 'cliente'
+1596688429150	Rename local variable 'responseGetCpf'
+1596689618927	Copy compilation unit
+1596721627833	Copy compilation unit
+1596730206346	Copy compilation unit
+1596730943517	Copy compilation unit

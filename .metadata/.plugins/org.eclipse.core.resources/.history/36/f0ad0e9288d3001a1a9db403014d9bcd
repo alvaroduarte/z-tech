@@ -1,0 +1,8 @@
+package br.com.ztech.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ClienteService {
+
+}

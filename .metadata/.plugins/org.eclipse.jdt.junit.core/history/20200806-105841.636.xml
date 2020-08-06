@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TransacaoRepositoryTest" project="z-tech-conta-bancodigital" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.ztech.repository.TransacaoRepositoryTest" time="0.778" displayname="TransacaoRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]">
+    <testcase name="saveTransacaoTest" classname="br.com.ztech.repository.TransacaoRepositoryTest" time="0.778" displayname="saveTransacaoTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]/[test:saveTransacaoTest(br.com.ztech.repository.TransacaoRepositoryTest)]"/>
+  </testsuite>
+</testrun>

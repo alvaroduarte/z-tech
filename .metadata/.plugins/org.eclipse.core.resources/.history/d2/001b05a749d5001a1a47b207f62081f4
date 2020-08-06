@@ -1,0 +1,70 @@
+package br.com.ztech.domain;
+
+import java.math.BigDecimal;
+
+
+public class TransacaoBuilder {
+	
+	private BigDecimal valorSaldo;
+	private BigDecimal valorMovimentacao;
+	private BigDecimal porcentagemMovimentacao;
+	private BigDecimal valorTransacao;
+	private BigDecimal valorSaldoAtualizado; 
+	private Conta conta; 
+	private Conta contaTrasancao; 
+	private TipoTransacao tipoTransacao;
+	
+	
+	public TransacaoBuilder valorSaldo(BigDecimal valorSaldo) {
+		this.valorSaldo = valorSaldo;
+		return this;
+	}
+	
+	public TransacaoBuilder valorMovimentacao(BigDecimal valorMovimentacao) {
+		this.valorMovimentacao = valorMovimentacao;
+		return this;
+	}
+	
+	public TransacaoBuilder porcentagemMovimentacao(BigDecimal porcentagemMovimentacao) {
+		this.porcentagemMovimentacao = porcentagemMovimentacao;
+		return this;
+	}
+	
+	public TransacaoBuilder valorTransacao(BigDecimal valorTransacao) {
+		this.valorTransacao = porcentagemMovimentacao;
+		return this;
+	}
+	
+	public TransacaoBuilder valorSaldoAtualizado(BigDecimal valorSaldoAtualizado) {
+		this.valorSaldoAtualizado = valorSaldoAtualizado;
+		return this;
+	}
+	
+	public TransacaoBuilder conta(Conta conta) {
+		this.conta = conta;
+		return this;
+	}
+	
+	public TransacaoBuilder contaTrasancao(Conta contaTrasancao) {
+		this.contaTrasancao = contaTrasancao;
+		return this;
+	}
+	
+	public TransacaoBuilder contaTrasancao(TipoTransacao tipoTransacao) {
+		this.tipoTransacao = tipoTransacao;
+		return this;
+	}
+	
+	
+	public Transacao build() {
+		return new Transacao(
+				valorSaldo, 
+					valorMovimentacao, 
+						porcentagemMovimentacao, 
+							valorTransacao, 
+								valorSaldoAtualizado, 
+									conta, 
+										contaTrasancao, 
+											tipoTransacao);
+	}
+}

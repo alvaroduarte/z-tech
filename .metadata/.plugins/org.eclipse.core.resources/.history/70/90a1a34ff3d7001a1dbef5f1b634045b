@@ -1,0 +1,10 @@
+package br.com.ztech.service;
+
+import org.mockito.InjectMocks;
+
+public class DepositarServiceTest {
+	
+	@InjectMocks
+    private DepositarService depositarService;
+
+}

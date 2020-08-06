@@ -1,0 +1,15 @@
+package br.com.ztech.service;
+
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.domain.Cliente;
+
+@Service
+public class ClienteService {
+
+	public void buscarCliente(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

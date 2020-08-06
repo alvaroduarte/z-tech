@@ -1,0 +1,16 @@
+package br.com.ztech;
+
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import br.com.ztech.repository.ContaRepository;
+
+
+@DataJpaTest
+public interface ContaRepositoryTest {
+	
+	//@MockBean
+	//private ContaRepository contaRepositorwerwerwey;
+	//org.junit.runn
+	
+	
+}

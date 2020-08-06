@@ -1,0 +1,59 @@
+package br.com.ztech.controller;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.ztech.controller.dto.ExtratoDto;
+import br.com.ztech.controller.dto.converter.TransacoesConverterExtratoDto;
+import br.com.ztech.service.ExtratoService;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RestController
+@RequestMapping("conta")
+public class ExtratoController {
+
+	@Autowired
+	private ExtratoService extratoService;
+
+	@Autowired
+	private TransacoesConverterExtratoDto transacoesConverterExtratoDto;
+
+	@GetMapping("/extrato/{agencia}/{numeroConta}")
+	public ResponseEntity<Page<ExtratoDto>> extrato(@PathVariable Integer agencia, @PathVariable(required = true ) Long numeroConta, Pageable pageable) {	
+
+		logger.info("extrato agencia {}, numeroConta {}", agencia, numeroConta);
+
+		final var conta = extratoService.buscarConta(agencia, numeroConta);
+
+		final var transacoes = extratoService.buscarTransacoes(conta, pageable);
+
+		logger.info("Extrato encontrado com sucesso!");
+		
+		
+		return new ResponseEntity<>( transacoesConverterExtratoDto.convert( transacoes ), HttpStatus.OK);
+	}
+
+	@GetMapping("/extrato/{cpf}")
+	public ResponseEntity<Page<ExtratoDto>> extrato(@PathVariable  String cpf, Pageable pageable) {	
+
+		logger.info("extrato cpf {}", cpf);
+
+		final var conta = extratoService.buscarConta(cpf);
+
+		final var transacoes = extratoService.buscarTransacoes(conta, pageable);
+
+		logger.info("Extrato encontrado com sucesso!");
+
+		return new ResponseEntity<>( transacoesConverterExtratoDto.convert( transacoes ), HttpStatus.OK);
+	}
+}

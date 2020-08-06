@@ -1,0 +1,25 @@
+package br.com.ztech.controller.request;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.validation.constraints.NotNull;
+
+public class TransferenciaContaRequest implements Serializable  {
+	
+
+	
+	@NotNull
+	private Integer agencia;
+	
+	@NotNull
+	private Long conta;
+	
+	@NotNull
+	private BigDecimal valor;
+	
+
+	
+	
+	
+}

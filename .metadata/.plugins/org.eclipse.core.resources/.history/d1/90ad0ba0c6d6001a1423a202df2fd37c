@@ -1,0 +1,67 @@
+package br.com.ztech.service;
+
+import java.util.Arrays;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.junit.rules.ExpectedException;
+import org.junit.Rule;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.exception.ClienteJaCadastradoException;
+
+@RunWith(SpringRunner.class)
+@DataJpaTest
+public class ClienteServiceTest {
+	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+
+	@Autowired
+	private ClienteService clienteService;
+		
+	@Test
+	void buscarClientePorCpfTest() {
+		
+		var clienteMock = new Cliente("Alvaro Duarte", "15723132008");
+		
+		clienteService.salvar(clienteMock);
+		
+		var clienteMock1Retorno  = clienteService.buscarClientePorCpf("15723132008");
+		
+		
+		//Mockito.when(this.clienteService.buscarClientePorCpf("90884981053")).thenReturn(clienteMock);
+		
+		Assert.assertEquals("90884981053", this.clienteService.buscarClientePorCpf("90884981053").getCpf());
+		
+		
+	}
+	
+	/*@Test
+	void validaCadastroClienteTest() {		
+		
+		Mockito.doThrow(new ClienteJaCadastradoException()).when(this.clienteService).validaCadastroCliente("90884981053");
+		
+		this.clienteService.validaCadastroCliente("90884981099");
+			
+	}
+	
+	@Test
+	void salvarClienteTest() {	
+		
+		Cliente clienteMock = new Cliente("Amanda da Silva de Oliveira", "90884981053");
+		
+		Mockito.when(this.clienteService.salvar(Mockito.any())).thenReturn(clienteMock);
+		
+		var clienteMockRetorno = this.clienteService.salvar(new Cliente());
+		
+		Assert.assertNotNull(clienteMockRetorno);
+		
+	}*/
+	
+}

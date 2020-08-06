@@ -1,0 +1,47 @@
+package br.com.ztech.controller;
+
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.request.AbrirContaRequest;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+
+public class ContaControllerTest {
+
+	@Autowired
+	private TestRestTemplate restTemplate;
+
+	@LocalServerPort
+	private int port;
+
+	@Test
+	public void  abrirContaTest() {
+		//ResponseEntity<String>  response = restTemplate.getForEntity("/conta/100/10100", String.class);
+		//assertThat(response.getStatusCode()).isEqualTo(404);
+
+		var request = new AbrirContaRequest("Alvaro Duarte", "98933075038");
+
+		HttpEntity<AbrirContaRequest> requestEntity = new HttpEntity<>(request);
+
+		var response = restTemplate.exchange(
+				"/conta",
+				HttpMethod.POST,
+				requestEntity,
+				ContaDto.class);
+		
+		Assertions.assertThat(response.getBody().getCliente().getCpf()).isEqualTo("98933075038");
+		Assertions.assertThat(response.getBody().getCliente().getNome()).isEqualTo("Alvaro Duarte");
+	}
+
+}

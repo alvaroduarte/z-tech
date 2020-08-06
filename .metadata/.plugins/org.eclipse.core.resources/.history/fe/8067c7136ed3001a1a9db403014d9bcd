@@ -1,0 +1,3 @@
+server.port=8081
+#Chave Public usada para validar o Token
+security.oauth2.resource.jwt.key-value=-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgIfSIqBDyP3bJYoAJdlBoiku1upGT3lB6EIa5PdTeb+M5HOR9EOEPvRkXAAf1oZ0xK90OKu9vd0rVy9QrCJxi9Treu+enfpzJ13k6ZBghc5hsQ79mXCCV0RkkgFHeIqyVWzKk1/PQBJmaRsy87MZofGqwob7ZL6GDovs4CkWXf+JPMsfJ8S7MQoSbs9lRCkenLrQP2ha/vNXRVd/pUaMG/0g0sbaJk9fXkOgr5ZJuYjIoq3WPjtic7AhWp0jWn1NaCQM0p2OFJ4/dSH7Iy7VxIjtP25S4pn71LT6VLJJt2btObGpcH2ZEcHAFMsq/j6PWLugINcmCTqIwDG7izB7OQIDAQAB-----END PUBLIC KEY-----

@@ -1,0 +1,21 @@
+package br.com.ztech.service;
+
+import lombok.Builder;
+import lombok.ToString;
+
+@Builder
+@ToString
+public class Employee {
+   private final String empName;
+   private final int salary;
+}
+
+//   Main.java
+
+public class Main {
+
+public static void main(String[] args) {
+    Employee emp = Employee.builder().empName("Deendaya").salary(100).build();
+    System.out.println(emp);
+  }
+}

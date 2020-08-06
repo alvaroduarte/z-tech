@@ -1,0 +1,112 @@
+package br.com.ztech.service;
+
+import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.CUSTO_RETIRADA;
+import static br.com.ztech.eum.TipoTransacaoEnum.RETIRAR_DINHEIRO;
+
+import java.math.BigDecimal;
+
+import javax.transaction.Transactional;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.TipoTransacao;
+import br.com.ztech.domain.Transacao.Builder;
+import br.com.ztech.repository.ContaRepository;
+import br.com.ztech.repository.TransacaoRepository;
+
+@Service
+public class RetirarService extends ContaService {
+
+	private final static Logger logger = LogManager.getLogger(RetirarService.class);
+
+	@Autowired
+	private ContaRepository contaRepository;
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+	
+	public Conta retirar(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao) {
+		
+		return retirar( buscarConta(agencia, numeroConta) , valorMovimentacao);
+	
+	}
+	
+	public Conta retirar(String cpf, BigDecimal valorMovimentacao) {
+		
+		return retirar( buscarConta(cpf) , valorMovimentacao);
+	}
+
+	@Transactional
+	public Conta retirar(Conta conta, BigDecimal valorMovimentacao) {
+
+		logger.info("retirar conta {}, valorMovimentacao {}", conta, valorMovimentacao);
+		
+		final var porcentagemRetirada = buscarConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor()).getPorcentagem();
+
+		final var valorSaldo = conta.getSaldo();
+
+		final var valorRetirada = calculoRetirada( porcentagemRetirada, valorMovimentacao ); 
+		
+		final var valorSaldoAtualizado = calculaSaldoRetirada( valorSaldo, valorMovimentacao, valorRetirada );
+		
+		final var valorTransacao = calculoValorTransacao(valorMovimentacao, valorRetirada);
+
+		logger.info("{}, valorSaldo {}, porcentagemRetirada {}, valorRetirada {}, valorTransacao {}, valorSaldoAtualizado {}", 
+				conta, 
+				valorSaldo, 
+				porcentagemRetirada, 
+				valorRetirada, 
+				valorTransacao,
+				valorSaldoAtualizado);
+
+		validaValorSaldo(valorSaldoAtualizado);
+
+		conta.setSaldo(valorSaldoAtualizado);
+
+		conta = contaRepository.save(conta);
+		
+		final var transacao = new Builder()
+				.valorSaldo(valorSaldo)
+				.valorMovimentacao(valorMovimentacao)
+				.porcentagemMovimentacao(porcentagemRetirada)
+				.valorTransacao(valorTransacao)
+				.valorSaldoAtualizado(valorSaldoAtualizado)
+				.conta(conta)
+				.tipoTransacao(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo()))
+				.build();
+
+		transacaoRepository.save(transacao);
+
+		logger.info("retirada efetuado com sucesso na {}, {}", conta, transacao);
+
+		return conta;
+	}
+
+	private BigDecimal calculaSaldoRetirada(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorRetirada) {
+
+		logger.info("calculaSaldoRetirada valorSaldo {}, valorMovimentacao {},  valorRetirada {}", valorSaldo, valorMovimentacao, valorRetirada);
+
+		final var saldoAtualizado = valorSaldo.subtract( valorMovimentacao ).subtract( valorRetirada );
+
+		logger.info("saldoAtualizado {}", saldoAtualizado);
+
+		return saldoAtualizado;
+	}
+	
+
+	private BigDecimal calculoRetirada(BigDecimal valorPorcentagemRetirada, BigDecimal valor) {
+
+		logger.info("calculoDebeito valor {}", valor);
+
+		final var valorCalculado = valor.multiply(valorPorcentagemRetirada).divide(new BigDecimal(100));
+
+		logger.info("valorCalculado {}", valorCalculado);
+
+		return valorCalculado;
+
+	}
+}

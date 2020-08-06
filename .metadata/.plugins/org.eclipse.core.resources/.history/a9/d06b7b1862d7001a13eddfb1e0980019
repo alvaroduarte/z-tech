@@ -1,0 +1,16 @@
+package br.com.ztech.eum;
+
+public enum ContextEnum {
+
+	AGENCIA_PADRAO(100);
+
+	private String nome;
+
+	ContextEnum(String nome) {
+		this.nome = nome;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+}

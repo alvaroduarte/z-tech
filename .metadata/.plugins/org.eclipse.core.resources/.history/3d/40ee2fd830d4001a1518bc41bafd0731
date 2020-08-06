@@ -1,0 +1,12 @@
+package br.com.ztech.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.ztech.domain.Transacao;
+
+public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
+	
+	
+	findByConta(Conta conta);
+
+}

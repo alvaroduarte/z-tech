@@ -1,0 +1,21 @@
+package br.com.ztech.erro.handler;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class ErroFormularioDto {
+	
+	private String campo;
+	private String mesagem;
+	
+	public ErroFormularioDto(String campo, String mensagem) {
+		this.campo = campo;
+		this.mesagem = mensagem;
+	}
+}

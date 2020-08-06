@@ -1,0 +1,86 @@
+package br.com.ztech.controller.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import br.com.ztech.domain.Transacao;
+
+public class ExtratoDto {
+	
+	private LocalDateTime data;
+	private BigDecimal valorSaldo;
+	private BigDecimal valorMovimentacao;
+	private BigDecimal porcentagemMovimentacao;
+	private BigDecimal valorTransacao;
+	private BigDecimal valorSaldoAtualizado; 
+	//private ContaDto conta; 
+	//private ContaDto contaTrasancao; 
+	//private TipoTransacaoDto tipoTransacao;
+	
+	public  ExtratoDto(Transacao transacao) {
+		this.data = transacao.getData();
+		this.valorSaldo = transacao.getValorSaldo();
+		this.valorMovimentacao = transacao.getValorMovimentacao();
+		this.porcentagemMovimentacao = transacao.getPorcentagemMovimentacao();
+		this.valorTransacao = transacao.getValorTransacao();
+		this.valorSaldoAtualizado = transacao.getValorSaldoAtualizado();
+		
+	
+	}
+	
+	
+	public LocalDateTime getData() {
+		return data;
+	}
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
+	public BigDecimal getValorSaldo() {
+		return valorSaldo;
+	}
+	public void setValorSaldo(BigDecimal valorSaldo) {
+		this.valorSaldo = valorSaldo;
+	}
+	public BigDecimal getValorMovimentacao() {
+		return valorMovimentacao;
+	}
+	public void setValorMovimentacao(BigDecimal valorMovimentacao) {
+		this.valorMovimentacao = valorMovimentacao;
+	}
+	public BigDecimal getPorcentagemMovimentacao() {
+		return porcentagemMovimentacao;
+	}
+	public void setPorcentagemMovimentacao(BigDecimal porcentagemMovimentacao) {
+		this.porcentagemMovimentacao = porcentagemMovimentacao;
+	}
+	public BigDecimal getValorTransacao() {
+		return valorTransacao;
+	}
+	public void setValorTransacao(BigDecimal valorTransacao) {
+		this.valorTransacao = valorTransacao;
+	}
+	public BigDecimal getValorSaldoAtualizado() {
+		return valorSaldoAtualizado;
+	}
+	public void setValorSaldoAtualizado(BigDecimal valorSaldoAtualizado) {
+		this.valorSaldoAtualizado = valorSaldoAtualizado;
+	}
+	/*public ContaDto getConta() {
+		return conta;
+	}
+	public void setConta(ContaDto conta) {
+		this.conta = conta;
+	}
+	public ContaDto getContaTrasancao() {
+		return contaTrasancao;
+	}
+	public void setContaTrasancao(ContaDto contaTrasancao) {
+		this.contaTrasancao = contaTrasancao;
+	}
+	public TipoTransacaoDto getTipoTransacao() {
+		return tipoTransacao;
+	}
+	public void setTipoTransacao(TipoTransacaoDto tipoTransacao) {
+		this.tipoTransacao = tipoTransacao;
+	}*/
+}	

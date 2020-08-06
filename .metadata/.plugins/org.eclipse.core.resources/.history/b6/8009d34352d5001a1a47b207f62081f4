@@ -1,0 +1,12 @@
+package br.com.ztech.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.domain.Configuracao;
+
+public interface ConfiguracaoRepository extends JpaRepository<Configuracao, Long> {
+
+}

@@ -1,0 +1,23 @@
+package br.com.ztech.controller.dto;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class TipoTransacaoDto {
+
+	private String nome;
+	private ContaDto contaTransferencia;
+	
+	public TipoTransacaoDto() {}
+	
+	public TipoTransacaoDto(String nome) {
+		this.nome = nome;
+	}
+	
+}

@@ -1,0 +1,41 @@
+package br.com.ztech.controller.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import br.com.ztech.domain.Transacao;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class ExtratoDto {
+	
+	private LocalDateTime data;
+	private BigDecimal valorSaldo;
+	private BigDecimal valorMovimentacao;
+	private BigDecimal porcentagemMovimentacao;
+	private BigDecimal valorTransacao;
+	private BigDecimal valorSaldoAtualizado; 
+	private ContaDto conta; 
+	private ContaDto contaTrasancao; 
+	private TipoTransacaoDto tipoTransacao;
+	
+	public  ExtratoDto(Transacao transacao) {
+		this.data = transacao.getData();
+		this.valorSaldo = transacao.getValorSaldo();
+		this.valorMovimentacao = transacao.getValorMovimentacao();
+		this.porcentagemMovimentacao = transacao.getPorcentagemMovimentacao();
+		this.valorTransacao = transacao.getValorTransacao();
+		this.valorSaldoAtualizado = transacao.getValorSaldoAtualizado();
+		this.conta = transacao.getConta();
+		this.contaTrasancao = transacao.getContaTrasancao();
+		
+	
+	}
+	
+}	

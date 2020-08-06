@@ -1,0 +1,17 @@
+package br.com.ztech.controller.dto;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class ContaDto {
+
+	private Integer agencia;
+	private Integer digito;
+	private Integer numeroConta;
+	private BigDecimal saldo;
+	
+}

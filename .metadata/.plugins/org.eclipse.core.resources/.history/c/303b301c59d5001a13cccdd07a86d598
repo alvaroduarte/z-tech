@@ -1,0 +1,108 @@
+package br.com.ztech.service;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
+
+import javax.transaction.Transactional;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.TipoTransacao;
+import br.com.ztech.domain.Transacao;
+import static br.com.ztech.eum.TipoTransacaoEnum.TRANSFERENCIA_SAIDA_DINHEIRO;
+import static br.com.ztech.eum.TipoTransacaoEnum.TRANSFERENCIA_ENTRADA_DINHEIRO;
+import br.com.ztech.repository.ContaRepository;
+import br.com.ztech.repository.TransacaoRepository;
+
+@Service
+public class TransferirService extends ContaService {
+
+	private final static Logger logger = LogManager.getLogger(TransferirService.class);
+
+	@Autowired
+	private ContaRepository contaRepository;
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+
+	@Transactional
+	public Conta transferir(Conta conta, BigDecimal valorMovimentacao, Conta contaDestino) {
+
+		logger.info("transferir {}, valorMovimentacao {}, {}", conta, valorMovimentacao, contaDestino);
+
+		final var valorSaldo = conta.getSaldo();
+
+		final var valorSaldoDestino = contaDestino.getSaldo();
+
+		final var valorSaldoOriemAtualizado = calculaSaldoTransferenciaOrigem(valorSaldo, valorMovimentacao);
+
+		validaValorSaldo(valorSaldoOriemAtualizado);
+
+		conta.setSaldo(valorSaldoOriemAtualizado);
+
+		final var contaAtualizada = contaRepository.save(conta);
+
+		final var valorSaldoDestinoAtualizado = calculaSaldoTransferenciaDestino(valorSaldoDestino, valorMovimentacao);
+
+		contaDestino.setSaldo(valorSaldoDestinoAtualizado);
+
+		final var contaDestinoAtualizada = contaRepository.save(contaDestino);
+		
+		logger.info("{}, {}, valorSaldo {}, valorSaldoDestino {}, valorSaldoOriemAtualizado {}, valorSaldoDestinoAtualizado {}", 
+				contaAtualizada, 
+				contaDestinoAtualizada, 
+				valorSaldo, 
+				valorSaldoDestino, 
+				valorSaldoOriemAtualizado, 
+				valorSaldoDestinoAtualizado);
+		
+		final var transacaoConta = new Transacao.TransacaoBuilder()
+				.valorSaldo(valorSaldo)
+				.valorMovimentacao(valorMovimentacao)
+				.valorSaldoAtualizado(valorSaldoOriemAtualizado)
+				.conta(contaAtualizada)
+				.contaTrasancao(contaDestinoAtualizada)
+				.tipoTransacao(new TipoTransacao(TRANSFERENCIA_SAIDA_DINHEIRO.getCodigo())).build();
+		
+		final var transacaoContaDestino = new Transacao.TransacaoBuilder()
+				.valorSaldo(valorSaldoDestino)
+				.valorMovimentacao(valorMovimentacao)
+				.valorSaldoAtualizado(valorSaldoDestinoAtualizado)
+				.conta(contaDestinoAtualizada)
+				.contaTrasancao(contaAtualizada)
+				.tipoTransacao(new TipoTransacao(TRANSFERENCIA_ENTRADA_DINHEIRO.getCodigo())).build();
+		
+		transacaoRepository.saveAll(Arrays.asList( transacaoConta, transacaoContaDestino));
+
+		logger.info("Transferencia efetuado com sucesso da {} para {} no valor de {}", contaAtualizada, contaDestinoAtualizada, valorMovimentacao);
+
+		return contaAtualizada;
+	}
+
+	public static BigDecimal calculaSaldoTransferenciaOrigem(BigDecimal valorSaldo, BigDecimal valorMovimentacao) {
+
+		logger.info("calculaSaldoTransferenciaOrigem valorSaldo {}, valorMovimentacao {}", valorSaldo, valorMovimentacao);
+
+		var saldoAtualizado = valorSaldo.subtract(valorMovimentacao);
+
+		logger.info("saldoAtualizado {}", saldoAtualizado);
+
+		return saldoAtualizado;
+	}
+
+	public static BigDecimal calculaSaldoTransferenciaDestino(BigDecimal saldo, BigDecimal valorMovimentacao) {
+
+		logger.info("calculaSaldoTransferenciaDestino saldo {}, valorMovimentacao {}", saldo, valorMovimentacao);
+
+		var saldoAtualizado = saldo.add(valorMovimentacao);
+
+		logger.info("saldoAtualizado {}", saldoAtualizado);
+
+		return saldoAtualizado;
+	}
+
+}

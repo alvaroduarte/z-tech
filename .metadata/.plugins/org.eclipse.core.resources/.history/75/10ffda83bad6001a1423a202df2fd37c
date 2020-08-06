@@ -1,0 +1,15 @@
+package br.com.ztech.repository;
+
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+
+@RunWith
+public class ContaRepositoryTest {
+	
+	private ContaRepository contaRepository = Mockito.mock(ContaRepository.class);
+	
+	
+	
+	
+	
+}

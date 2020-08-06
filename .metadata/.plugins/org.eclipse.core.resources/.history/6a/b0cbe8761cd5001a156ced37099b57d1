@@ -1,0 +1,35 @@
+package br.com.ztech.service;
+
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.controller.ContaController;
+import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.Transacao;
+import br.com.ztech.exception.ExtratoNotFoundException;
+import br.com.ztech.repository.TransacaoRepository;
+
+@Service
+public class TransacaoService extends ContaService {
+	
+	private final static Logger logger = LogManager.getLogger(ContaController.class);
+	
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+
+	public List<Transacao> buscarTransacoes(Conta conta) {
+		
+		validaCpf("10124769799");
+		
+		logger.info("buscarTransacoes {}", conta);
+		
+		return transacaoRepository.findByContaAgenciaAndContaNumeroConta(conta.getAgencia(), conta.getNumeroConta())
+				.orElseThrow(() -> new ExtratoNotFoundException());
+		
+	}	
+	
+}

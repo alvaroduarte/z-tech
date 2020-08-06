@@ -1,0 +1,19 @@
+package br.com.ztech.token.eum;
+
+public enum TipoTransacaoEnum {
+
+	DEPOSITO_DINHEIRO(1),
+	RETIRAR_DINHEIRO(2),
+	TRANSFERENCIA_SAIDA_DINHEIRO(3),
+	ENTRADA_DINHEIRO_POR_TRANSFERENCIA(4);
+
+	private Integer codigo;
+
+	TipoTransacaoEnum(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+}

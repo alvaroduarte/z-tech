@@ -1,0 +1,5 @@
+package br.com.ztech.controller.dto;
+
+public record ClienteDto(String nome, String cpf) { }
+	
+	

@@ -1,0 +1,28 @@
+package br.com.ztech.controller.dto;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class TipoExtratoDto {
+
+	private String nome;
+	private ContaExtratoDto contaTransferencia;
+	
+	public TipoExtratoDto() {}
+	
+	public TipoExtratoDto(String nome, ContaExtratoDto contaTransferencia) {
+		this.nome = nome;
+		this.contaTransferencia = contaTransferencia;
+	}
+	
+	public TipoExtratoDto(String nome) {
+		this.nome = nome;
+	}
+	
+}

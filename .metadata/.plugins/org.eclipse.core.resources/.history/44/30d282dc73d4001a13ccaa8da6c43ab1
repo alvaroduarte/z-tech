@@ -1,0 +1,23 @@
+package br.com.ztech.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Seu saldo não é suficiente para efetuar essa transacção!")
+public class SaldoInsuficienteNotFoundException extends RuntimeException {
+
+	private static final long serialVersionUID = 7227212838595641219L;
+	
+	public SaldoInsuficienteNotFoundException() {
+        super();
+    }
+    public SaldoInsuficienteNotFoundException(String message, Throwable cause) {
+        super(message, cause);
+    }
+    public SaldoInsuficienteNotFoundException(String message) {
+        super(message);
+    }
+    public SaldoInsuficienteNotFoundException(Throwable cause) {
+        super(cause);
+    }
+}

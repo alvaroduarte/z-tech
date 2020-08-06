@@ -1,0 +1,44 @@
+1596240768146	Copy compilation unit
+1596241826480	Rename local variable 'conta'
+1596241833515	Rename local variable 'contaRetorno'
+1596242401123	Rename type 'ClienteConverterClienteDto'
+1596246817121	Rename package 'br.com.ztech.controller.converter'
+1596246842480	Copy compilation unit
+1596246910892	Rename type 'ContaConverterContaDto'
+1596247865949	Copy compilation unit
+1596248049285	Rename type 'ClientePossuiContaAbertaException'
+1596249395541	Rename field 'numeroConta'
+1596254420484	Copy compilation unit
+1596256054810	Rename method 'verificaClienteBaseDados'
+1596257644702	Rename type 'ClienteRequest'
+1596257664383	Rename local variable 'clienteRequest'
+1596257698020	Rename type 'ClienteRequestConverterCliente'
+1596257771806	Copy compilation unit
+1596258978868	Copy compilation unit
+1596262431973	Copy compilation unit
+1596307400570	Rename type 'DepositarContaRequest'
+1596308028316	Copy compilation unit
+1596308107490	Copy compilation unit
+1596308119879	Rename type 'Transacao'
+1596308184186	Copy compilation unit
+1596308279047	Rename type 'TipoTransacao'
+1596311313646	Copy compilation unit
+1596312688226	Delete element
+1596312986482	Copy compilation unit
+1596315645326	Rename type 'ExtratoService'
+1596315654496	Rename field 'extratoService'
+1596315700405	Rename method 'buscarExtrato'
+1596315754311	Copy compilation unit
+1596315961067	Copy compilation unit
+1596315972663	Rename type 'TransacooDto'
+1596318124523	Copy compilation unit
+1596319193239	Copy compilation unit
+1596319983810	Copy compilation unit
+1596320432409	Rename field 'conta'
+1596321652372	Rename enum constant 'DEPOSITO'
+1596321671607	Rename enum constant 'RETIRADA'
+1596321682016	Rename enum constant 'TRANSFERENCIA'
+1596321702223	Rename enum constant 'ENTRADA_TRANSFERENCIA'
+1596322210870	Rename enum constant 'SAQUE_DINHEIRO'
+1596322232327	Rename enum constant 'ENTRADA_DINHEIRO_POR_TRANSFERENCIA'
+1596322750845	Copy compilation unit

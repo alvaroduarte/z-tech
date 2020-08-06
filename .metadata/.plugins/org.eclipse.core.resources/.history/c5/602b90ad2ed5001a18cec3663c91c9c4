@@ -1,0 +1,22 @@
+package br.com.ztech.controller.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import br.com.ztech.domain.TipoTransacao;
+
+public class ExtratoDto {
+	
+	private LocalDateTime data;
+	private BigDecimal valorSaldo;
+	private BigDecimal valorMovimentacao;
+	private BigDecimal porcentagemMovimentacao;
+	private BigDecimal valorTransacao;
+	private BigDecimal valorSaldoAtualizado; 
+	private ContaDto conta; 
+	private ContaDto contaTrasancao; 
+	private TipoTransacaoDto tipoTransacao;
+	
+	
+	
+}	

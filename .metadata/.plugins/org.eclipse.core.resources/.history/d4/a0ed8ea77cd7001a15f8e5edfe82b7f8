@@ -1,0 +1,39 @@
+package br.com.ztech.domain;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
+public class ConfiguracaoPorcentagem {
+	
+	@Id
+	private Integer id;
+	
+	@Column(unique=true, nullable=false) 
+	private String nome;
+	
+	@Column(nullable=false) 
+	private BigDecimal porcentagem;
+
+	/*public ConfiguracaoPorcentagem() {}
+	
+	public ConfiguracaoPorcentagem(String nome, BigDecimal porcentagem) {
+		this.nome = nome;
+		this.porcentagem = porcentagem;
+	}*/
+	
+}

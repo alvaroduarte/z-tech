@@ -1,0 +1,16 @@
+package br.com.ztech.token.eum;
+
+public enum AgenciaEnum {
+
+	AGENCIA_PADRAO(1);
+
+	private Integer codigo;
+
+	AgenciaEnum(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+}

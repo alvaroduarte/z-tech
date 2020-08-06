@@ -1,0 +1,59 @@
+package br.com.ztech.domain;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@EqualsAndHashCode
+@ToString
+public class CriadorTransacao {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Long id;
+
+	@Column(nullable=false)
+	private LocalDateTime data;
+
+	@Column(nullable=false)
+	private BigDecimal valorSaldo;
+
+	@Column(nullable=false)
+	private BigDecimal valorMovimentacao;
+
+	@Column(nullable=true)
+	private BigDecimal porcentagemMovimentacao;
+
+	@Column(nullable=true)
+	private BigDecimal valorTransacao;
+
+	@Column(nullable=false)
+	private BigDecimal valorSaldoAtualizado;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "conta_id", nullable = false) 
+	private Conta conta;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "contatransacao_id", nullable = true) 
+	private Conta contaTrasancao;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "tipotransacao_id", nullable = false) 
+	private TipoTransacao tipoTransacao;
+
+	

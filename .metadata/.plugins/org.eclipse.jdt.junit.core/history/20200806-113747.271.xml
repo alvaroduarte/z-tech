@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="java" project="z-tech-conta-bancodigital" tests="12" started="12" failures="0" errors="1" ignored="0">
+  <testsuite name="br.com.ztech.repository.ContaRepositoryTest" time="1.553" displayname="ContaRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]">
+    <testcase name="contaFindByClienteCpfTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="1.048" displayname="contaFindByClienteCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contaFindByClienteCpfTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="contafindByAgenciaAndNumeroContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.453" displayname="contafindByAgenciaAndNumeroContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:contafindByAgenciaAndNumeroContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+    <testcase name="saveContaTest" classname="br.com.ztech.repository.ContaRepositoryTest" time="0.052" displayname="saveContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ContaRepositoryTest]/[test:saveContaTest(br.com.ztech.repository.ContaRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.TransacaoRepositoryTest" time="0.478" displayname="TransacaoRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]">
+    <testcase name="saveTransacaoTest" classname="br.com.ztech.repository.TransacaoRepositoryTest" time="0.478" displayname="saveTransacaoTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.TransacaoRepositoryTest]/[test:saveTransacaoTest(br.com.ztech.repository.TransacaoRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.repository.ClienteRepositoryTest" time="14.024" displayname="ClienteRepositoryTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]">
+    <testcase name="saveAndfindByCpfTest" classname="br.com.ztech.repository.ClienteRepositoryTest" time="14.024" displayname="saveAndfindByCpfTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.repository.ClienteRepositoryTest]/[test:saveAndfindByCpfTest(br.com.ztech.repository.ClienteRepositoryTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.DepositarControllerTest" time="3.279" displayname="DepositarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]">
+    <testcase name="depositarTest" classname="br.com.ztech.controller.DepositarControllerTest" time="3.279" displayname="depositarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.DepositarControllerTest]/[test:depositarTest(br.com.ztech.controller.DepositarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.TransferirControllerTest" time="0.008" displayname="TransferirControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]">
+    <testcase name="transferirTest" classname="br.com.ztech.controller.TransferirControllerTest" time="0.007" displayname="transferirTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]/[test:transferirTest(br.com.ztech.controller.TransferirControllerTest)]">
+      <error>java.lang.IllegalStateException: Failed to load ApplicationContext&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)&#13;
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:95)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:79)&#13;
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:54)&#13;
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)&#13;
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)&#13;
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)&#13;
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)&#13;
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)&#13;
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)&#13;
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)&#13;
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)&#13;
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)&#13;
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)&#13;
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)&#13;
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.5505921702328577615.0] specified for the base directory is not a directory&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)&#13;
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)&#13;
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)&#13;
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)&#13;
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)&#13;
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:124)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)&#13;
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)&#13;
+	... 46 more&#13;
+Caused by: java.lang.IllegalArgumentException: The location [C:\Users\User\AppData\Local\Temp\tomcat.5505921702328577615.0] specified for the base directory is not a directory&#13;
+	at org.apache.catalina.startup.Tomcat.initBaseDir(Tomcat.java:868)&#13;
+	at org.apache.catalina.startup.Tomcat.getServer(Tomcat.java:657)&#13;
+	at org.apache.catalina.startup.Tomcat.getService(Tomcat.java:589)&#13;
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:182)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)&#13;
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)&#13;
+	... 54 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.RetirarControllerTest" time="6.727" displayname="RetirarControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]">
+    <testcase name="retirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="0.301" displayname="retirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:retirarTest(br.com.ztech.controller.RetirarControllerTest)]"/>
+    <testcase name="depositarAndRetirarTest" classname="br.com.ztech.controller.RetirarControllerTest" time="6.426" displayname="depositarAndRetirarTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.RetirarControllerTest]/[test:depositarAndRetirarTest(br.com.ztech.controller.RetirarControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.controller.ContaControllerTest" time="8.101" displayname="ContaControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]">
+    <testcase name="abrirContaTest" classname="br.com.ztech.controller.ContaControllerTest" time="0.135" displayname="abrirContaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:abrirContaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+    <testcase name="contaTest" classname="br.com.ztech.controller.ContaControllerTest" time="7.966" displayname="contaTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.ContaControllerTest]/[test:contaTest(br.com.ztech.controller.ContaControllerTest)]"/>
+  </testsuite>
+  <testsuite name="br.com.ztech.ZTechBancoApplicationTests" time="0.031" displayname="ZTechBancoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]">
+    <testcase name="contextLoads" classname="br.com.ztech.ZTechBancoApplicationTests" time="0.031" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:br.com.ztech.ZTechBancoApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

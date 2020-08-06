@@ -1,0 +1,22 @@
+package br.com.ztech.controller.request;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class ClienteRequest {
+	
+	private Long id;
+	
+	@NotNull
+	@NotEmpty
+	private String nome;
+	
+	@NotNull
+	@Size(min=11, max=11)
+	private Long cpf;
+	
+    
+	
+	
+}

@@ -1,0 +1,69 @@
+package br.com.ztech.repository;
+
+import static br.com.ztech.eum.TipoTransacaoEnum.DEPOSITO_DINHEIRO;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.math.BigDecimal;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.TipoTransacao;
+import br.com.ztech.domain.Transacao;
+import br.com.ztech.domain.Transacao.Builder;
+
+@RunWith(SpringRunner.class)
+@DataJpaTest
+public class TransacaoRepositoryTest {
+
+	@Autowired
+	private TransacaoRepository transacaoRepository;
+	
+	@Autowired
+	private ContaRepository contaRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+
+	
+	@Test
+	public void contafindByAgenciaAndNumeroContaTest() {
+		
+		var clienteMock1 = new Cliente("Alvaro Duarte", "15723132008");
+		
+		clienteMock1 = clienteRepository.save(clienteMock1);
+		
+		var contaClienteMock1 = new Conta(100, Long.valueOf(88888), clienteMock1);
+		
+		contaClienteMock1 = contaRepository.save(contaClienteMock1);
+	
+		assertThat(contaClienteMock1).isNotNull();
+		
+		var conta = contaRepository.findByAgenciaAndNumeroConta(contaClienteMock1.getAgencia(), contaClienteMock1.getNumeroConta());
+		
+		assertThat(conta.get().getAgencia()).isEqualTo(contaClienteMock1.getAgencia());
+		assertThat(conta.get().getNumeroConta()).isEqualTo(contaClienteMock1.getNumeroConta());
+		assertThat(conta.get().getCliente().getNome()).isEqualTo("Alvaro Duarte");
+		assertThat(conta.get().getCliente().getCpf()).isEqualTo("15723132008");
+				
+				
+		final var transacao = new Builder()
+				.valorSaldo(new BigDecimal(100))
+				.valorMovimentacao(new BigDecimal(200))
+				.porcentagemMovimentacao(new BigDecimal(0.5))
+				.valorTransacao(new BigDecimal(201))
+				.valorSaldoAtualizado(new BigDecimal(301))
+				.conta(conta)
+				.tipoTransacao(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo()))
+				.build();
+		
+		transacaoRepository.save(transacao);	
+		
+ 	}
+
+}

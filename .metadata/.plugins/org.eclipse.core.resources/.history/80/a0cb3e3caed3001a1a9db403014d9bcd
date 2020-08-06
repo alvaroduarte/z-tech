@@ -1,0 +1,32 @@
+package br.com.ztech.controller.dto.converter;
+
+import java.text.DecimalFormat;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import br.com.ztech.controller.dto.ClienteDto;
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.domain.Conta;
+
+@Configuration
+public class ContaConverterContaDto implements Converter<Conta, ContaDto> {
+	
+	private final DecimalFormat df = new DecimalFormat("#,###.00");
+
+	@Override
+	public ContaDto convert(Conta source) {
+		
+		ContaDto dto = new ContaDto();
+		dto.setAgencia(source.getAgencia());
+		dto.setConta(source.getConta());
+		//dto.setSaldo(df.format(source.getSaldo()));
+		dto.setSaldo(NumberFormat.getCurrencyInstance().format(""));
+		dto.setCliente(new ClienteDto());
+		dto.getCliente().setId(source.getCliente().getId());
+		dto.getCliente().setNome(source.getCliente().getNome());
+		dto.getCliente().setCpf(source.getCliente().getCpf());
+		
+		return dto;
+	}
+}

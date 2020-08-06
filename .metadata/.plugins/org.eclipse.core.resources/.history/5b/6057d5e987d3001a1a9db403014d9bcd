@@ -1,0 +1,9 @@
+package br.com.ztech.controller.dto;
+
+public class ContaDto {
+
+	private Long id;
+	private String nome;
+	private Long cpf;
+	
+}

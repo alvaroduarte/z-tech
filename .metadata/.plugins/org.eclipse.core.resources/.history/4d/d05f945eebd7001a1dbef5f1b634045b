@@ -1,0 +1,10 @@
+package br.com.ztech.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.ztech.domain.TipoTransacao;
+import br.com.ztech.domain.Transacao;
+
+public interface TipoTransacaoRepository extends JpaRepository<TipoTransacao, Long> {
+	
+}

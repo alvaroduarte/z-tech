@@ -1,0 +1,15 @@
+package br.com.ztech.controller.dto;
+
+import javax.persistence.Column;
+
+public class TipoTransacao {
+
+	private String nome;
+	
+	public TipoTransacao() {}
+	
+	public TipoTransacao(String nome) {
+		this.nome = nome;
+	}
+
+}

@@ -1,0 +1,261 @@
+package br.com.ztech.domain;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@Entity
+@EqualsAndHashCode
+@ToString
+public class Transacao {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(nullable=false)
+	private LocalDateTime data;
+
+	@Column(nullable=false)
+	private BigDecimal valorSaldo;
+
+	@Column(nullable=false)
+	private BigDecimal valorMovimentacao;
+
+	@Column(nullable=true)
+	private BigDecimal porcentagemMovimentacao;
+
+	@Column(nullable=true)
+	private BigDecimal valorTransacao;
+
+	@Column(nullable=false)
+	private BigDecimal valorSaldoAtualizado;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "conta_id", nullable = false) 
+	private Conta conta;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "contatransacao_id", nullable = true) 
+	private Conta contaTrasancao;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "tipotransacao_id", nullable = false) 
+	private TipoTransacao tipoTransacao;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDateTime getData() {
+		return data;
+	}
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
+
+	public BigDecimal getValorSaldo() {
+		return valorSaldo;
+	}
+
+	public void setValorSaldo(BigDecimal valorSaldo) {
+		this.valorSaldo = valorSaldo;
+	}
+
+	public BigDecimal getValorMovimentacao() {
+		return valorMovimentacao;
+	}
+
+	public void setValorMovimentacao(BigDecimal valorMovimentacao) {
+		this.valorMovimentacao = valorMovimentacao;
+	}
+
+	public BigDecimal getPorcentagemMovimentacao() {
+		return porcentagemMovimentacao;
+	}
+
+	public void setPorcentagemMovimentacao(BigDecimal porcentagemMovimentacao) {
+		this.porcentagemMovimentacao = porcentagemMovimentacao;
+	}
+
+	public BigDecimal getValorTransacao() {
+		return valorTransacao;
+	}
+
+	public void setValorTransacao(BigDecimal valorTransacao) {
+		this.valorTransacao = valorTransacao;
+	}
+
+	public BigDecimal getValorSaldoAtualizado() {
+		return valorSaldoAtualizado;
+	}
+
+	public void setValorSaldoAtualizado(BigDecimal valorSaldoAtualizado) {
+		this.valorSaldoAtualizado = valorSaldoAtualizado;
+	}
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+
+	public Conta getContaTrasancao() {
+		return contaTrasancao;
+	}
+
+	public void setContaTrasancao(Conta contaTrasancao) {
+		this.contaTrasancao = contaTrasancao;
+	}
+
+	public TipoTransacao getTipoTransacao() {
+		return tipoTransacao;
+	}
+
+	public void setTipoTransacao(TipoTransacao tipoTransacao) {
+		this.tipoTransacao = tipoTransacao;
+	}
+
+	/*public Transacao(BigDecimal valorSaldo, 
+			BigDecimal valorMovimentacao, 
+			BigDecimal porcentagemMovimentacao, 
+			BigDecimal valorTransacao, 
+			BigDecimal valorSaldoAtualizado, 
+			Conta conta,
+			TipoTransacao tipoTransacao) {
+
+		this.data = LocalDateTime.now();
+		this.valorSaldo = valorSaldo;
+		this.valorMovimentacao = valorMovimentacao;
+		this.porcentagemMovimentacao = porcentagemMovimentacao;
+		this.valorTransacao = valorTransacao;
+		this.valorSaldoAtualizado = valorSaldoAtualizado;
+		this.conta = conta;
+		this.tipoTransacao = tipoTransacao;
+
+	}
+
+	public Transacao(BigDecimal valorSaldo, 
+			BigDecimal valorMovimentacao, 
+			BigDecimal valorSaldoAtualizado, 
+			Conta conta,
+			Conta contaTrasancao,
+			TipoTransacao tipoTransacao) {
+
+		this.data = LocalDateTime.now();
+		this.valorSaldo = valorSaldo;
+		this.valorMovimentacao = valorMovimentacao;
+		this.valorSaldoAtualizado = valorSaldoAtualizado;
+		this.conta = conta;
+		this.contaTrasancao = contaTrasancao;
+		this.tipoTransacao = tipoTransacao;
+
+	}*/
+	
+	
+	public Transacao(BigDecimal valorSaldo, 
+			BigDecimal valorMovimentacao, 
+			BigDecimal porcentagemMovimentacao, 
+			BigDecimal valorTransacao, 
+			BigDecimal valorSaldoAtualizado, 
+			Conta conta,
+			Conta contaTrasancao,
+			TipoTransacao tipoTransacao) {
+
+		this.data = LocalDateTime.now();
+		this.valorSaldo = valorSaldo;
+		this.valorMovimentacao = valorMovimentacao;
+		this.porcentagemMovimentacao = porcentagemMovimentacao;
+		this.valorTransacao = valorTransacao;
+		this.valorSaldoAtualizado = valorSaldoAtualizado;
+		this.conta = conta;
+		this.contaTrasancao = contaTrasancao;
+		this.tipoTransacao = tipoTransacao;
+
+	}
+	
+	
+	public static  class TransacaoBuilder {
+		
+		private BigDecimal valorSaldo;
+		private BigDecimal valorMovimentacao;
+		private BigDecimal porcentagemMovimentacao;
+		private BigDecimal valorTransacao;
+		private BigDecimal valorSaldoAtualizado; 
+		private Conta conta; 
+		private Conta contaTrasancao; 
+		private TipoTransacao tipoTransacao;
+		
+		
+		public TransacaoBuilder valorSaldo(BigDecimal valorSaldo) {
+			this.valorSaldo = valorSaldo;
+			return this;
+		}
+		
+		public TransacaoBuilder valorMovimentacao(BigDecimal valorMovimentacao) {
+			this.valorMovimentacao = valorMovimentacao;
+			return this;
+		}
+		
+		public TransacaoBuilder porcentagemMovimentacao(BigDecimal porcentagemMovimentacao) {
+			this.porcentagemMovimentacao = porcentagemMovimentacao;
+			return this;
+		}
+		
+		public TransacaoBuilder valorTransacao(BigDecimal valorTransacao) {
+			this.valorTransacao = porcentagemMovimentacao;
+			return this;
+		}
+		
+		public TransacaoBuilder valorSaldoAtualizado(BigDecimal valorSaldoAtualizado) {
+			this.valorSaldoAtualizado = valorSaldoAtualizado;
+			return this;
+		}
+		
+		public TransacaoBuilder conta(Conta conta) {
+			this.conta = conta;
+			return this;
+		}
+		
+		public TransacaoBuilder contaTrasancao(Conta contaTrasancao) {
+			this.contaTrasancao = contaTrasancao;
+			return this;
+		}
+		
+		public TransacaoBuilder tipoTransacao(TipoTransacao tipoTransacao) {
+			this.tipoTransacao = tipoTransacao;
+			return this;
+		}
+		
+		
+		public Transacao build() {
+			return new Transacao(
+					valorSaldo, 
+						valorMovimentacao, 
+							porcentagemMovimentacao, 
+								valorTransacao, 
+									valorSaldoAtualizado, 
+										conta, 
+											contaTrasancao, 
+												tipoTransacao);
+		}
+	}
+}

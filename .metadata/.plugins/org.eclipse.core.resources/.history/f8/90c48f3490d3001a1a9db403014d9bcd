@@ -1,0 +1,25 @@
+package br.com.ztech.controller.converter;
+
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.domain.Conta;
+
+@Configuration
+public class ContaConverterContaDto implements Converter<Conta, ContaDto> {
+
+	@Override
+	public ContaDto convert(Conta source) {
+		
+		ContaDto dto = new ContaDto();
+		dto.setAgencia(source.getAgencia());
+		dto.setNumeroConta(source.getNumeroConta());
+		dto.setSaldo(source.getSaldo());
+		
+		//return  new ClienteDto( source );
+		return null;
+	}
+	
+}

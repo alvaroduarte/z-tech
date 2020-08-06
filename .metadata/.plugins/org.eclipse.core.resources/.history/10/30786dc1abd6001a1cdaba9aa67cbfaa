@@ -1,0 +1,22 @@
+package br.com.ztech;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import br.com.ztech.controller.DepositarController;
+
+@SpringBootTest
+class ZTechBancoApplicationTests {
+	
+	@Autowired
+	private DepositarController teste;
+
+	@Test
+	void contextLoads() {
+		
+		
+		
+	}
+
+}

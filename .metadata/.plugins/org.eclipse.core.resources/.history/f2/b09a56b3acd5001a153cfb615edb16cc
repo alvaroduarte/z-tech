@@ -1,0 +1,20 @@
+package br.com.ztech.controller.dto;
+
+import java.time.LocalDateTime;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class TransacaoDto {
+		
+	private LocalDateTime data;
+	private String valor;
+	private TipoTransacaoDto tipoTransacao;
+	
+}

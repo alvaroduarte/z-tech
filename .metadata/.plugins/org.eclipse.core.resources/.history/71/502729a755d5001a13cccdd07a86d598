@@ -1,0 +1,8 @@
+package br.com.ztech.eum;
+
+public class Snippet {
+	public static void main(String[] args) {
+		configuracaoPorcentagem
+	}
+}
+

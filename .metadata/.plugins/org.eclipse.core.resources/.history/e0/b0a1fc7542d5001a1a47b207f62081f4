@@ -1,0 +1,10 @@
+package br.com.ztech.service;
+
+import lombok.Builder;
+;
+
+@Builder
+public class Widget {
+    private  String name;
+    private  int id;
+}

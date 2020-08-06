@@ -1,0 +1,192 @@
+package br.com.ztech.domain;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import org.immutables.value.Generated;
+
+/**
+ * {@code TransacaoBuilder} collects parameters and invokes the static factory method:
+ * {@code new br.com.ztech.domain.Transacao(..)}.
+ * Call the {@link #build()} method to get a result of type {@code br.com.ztech.domain.Transacao}.
+ * <p><em>{@code TransacaoBuilder} is not thread-safe and generally should not be stored in a field or collection,
+ * but instead used immediately to create instances.</em>
+ */
+@Generated(from = "br.com.ztech.domain.Transacao", generator = "Immutables")
+@SuppressWarnings({"all"})
+@javax.annotation.processing.Generated("org.immutables.processor.ProxyProcessor")
+public final class TransacaoBuilder {
+  private static final long INIT_BIT_VALOR_SALDO = 0x1L;
+  private static final long INIT_BIT_VALOR_MOVIMENTACAO = 0x2L;
+  private static final long INIT_BIT_PORCENTAGEM_MOVIMENTACAO = 0x4L;
+  private static final long INIT_BIT_VALOR_TRANSACAO = 0x8L;
+  private static final long INIT_BIT_VALOR_SALDO_ATUALIZADO = 0x10L;
+  private static final long INIT_BIT_CONTA = 0x20L;
+  private static final long INIT_BIT_TIPO_TRANSACAO = 0x40L;
+  private long initBits = 0x7fL;
+
+  private BigDecimal valorSaldo;
+  private BigDecimal valorMovimentacao;
+  private BigDecimal porcentagemMovimentacao;
+  private BigDecimal valorTransacao;
+  private BigDecimal valorSaldoAtualizado;
+  private Conta conta;
+  private TipoTransacao tipoTransacao;
+
+  /**
+   * Creates a {@code TransacaoBuilder} factory builder.
+   * <pre>
+   * new TransacaoBuilder()
+   *    .valorSaldo(java.math.BigDecimal) // required {@code valorSaldo}
+   *    .valorMovimentacao(java.math.BigDecimal) // required {@code valorMovimentacao}
+   *    .porcentagemMovimentacao(java.math.BigDecimal) // required {@code porcentagemMovimentacao}
+   *    .valorTransacao(java.math.BigDecimal) // required {@code valorTransacao}
+   *    .valorSaldoAtualizado(java.math.BigDecimal) // required {@code valorSaldoAtualizado}
+   *    .conta(br.com.ztech.domain.Conta) // required {@code conta}
+   *    .tipoTransacao(br.com.ztech.domain.TipoTransacao) // required {@code tipoTransacao}
+   *    .build();
+   * </pre>
+   */
+  public TransacaoBuilder() {
+  }
+
+  /**
+   * Initializes the value for the {@code valorSaldo} attribute.
+   * @param valorSaldo The value for valorSaldo 
+   * @return {@code this} builder for use in a chained invocation
+   */
+  public final TransacaoBuilder valorSaldo(BigDecimal valorSaldo) {
+    this.valorSaldo = Objects.requireNonNull(valorSaldo, "valorSaldo");
+    initBits &= ~INIT_BIT_VALOR_SALDO;
+    return this;
+  }
+
+  /**
+   * Initializes the value for the {@code valorMovimentacao} attribute.
+   * @param valorMovimentacao The value for valorMovimentacao 
+   * @return {@code this} builder for use in a chained invocation
+   */
+  public final TransacaoBuilder valorMovimentacao(BigDecimal valorMovimentacao) {
+    this.valorMovimentacao = Objects.requireNonNull(valorMovimentacao, "valorMovimentacao");
+    initBits &= ~INIT_BIT_VALOR_MOVIMENTACAO;
+    return this;
+  }
+
+  /**
+   * Initializes the value for the {@code porcentagemMovimentacao} attribute.
+   * @param porcentagemMovimentacao The value for porcentagemMovimentacao 
+   * @return {@code this} builder for use in a chained invocation
+   */
+  public final TransacaoBuilder porcentagemMovimentacao(BigDecimal porcentagemMovimentacao) {
+    this.porcentagemMovimentacao = Objects.requireNonNull(porcentagemMovimentacao, "porcentagemMovimentacao");
+    initBits &= ~INIT_BIT_PORCENTAGEM_MOVIMENTACAO;
+    return this;
+  }
+
+  /**
+   * Initializes the value for the {@code valorTransacao} attribute.
+   * @param valorTransacao The value for valorTransacao 
+   * @return {@code this} builder for use in a chained invocation
+   */
+  public final TransacaoBuilder valorTransacao(BigDecimal valorTransacao) {
+    this.valorTransacao = Objects.requireNonNull(valorTransacao, "valorTransacao");
+    initBits &= ~INIT_BIT_VALOR_TRANSACAO;
+    return this;
+  }
+
+  /**
+   * Initializes the value for the {@code valorSaldoAtualizado} attribute.
+   * @param valorSaldoAtualizado The value for valorSaldoAtualizado 
+   * @return {@code this} builder for use in a chained invocation
+   */
+  public final TransacaoBuilder valorSaldoAtualizado(BigDecimal valorSaldoAtualizado) {
+    this.valorSaldoAtualizado = Objects.requireNonNull(valorSaldoAtualizado, "valorSaldoAtualizado");
+    initBits &= ~INIT_BIT_VALOR_SALDO_ATUALIZADO;
+    return this;
+  }
+
+  /**
+   * Initializes the value for the {@code conta} attribute.
+   * @param conta The value for conta 
+   * @return {@code this} builder for use in a chained invocation
+   */
+  public final TransacaoBuilder conta(Conta conta) {
+    this.conta = Objects.requireNonNull(conta, "conta");
+    initBits &= ~INIT_BIT_CONTA;
+    return this;
+  }
+
+  /**
+   * Initializes the value for the {@code tipoTransacao} attribute.
+   * @param tipoTransacao The value for tipoTransacao 
+   * @return {@code this} builder for use in a chained invocation
+   */
+  public final TransacaoBuilder tipoTransacao(TipoTransacao tipoTransacao) {
+    this.tipoTransacao = Objects.requireNonNull(tipoTransacao, "tipoTransacao");
+    initBits &= ~INIT_BIT_TIPO_TRANSACAO;
+    return this;
+  }
+
+  /**
+   * Invokes {@code new br.com.ztech.domain.Transacao(..)} using the collected parameters and returns the result of the invocation
+   * @return A result of type {@code br.com.ztech.domain.Transacao}
+   * @throws java.lang.IllegalStateException if any required attributes are missing
+   */
+  public Transacao build() {
+    checkRequiredAttributes();
+    return new Transacao(valorSaldo,
+        valorMovimentacao,
+        porcentagemMovimentacao,
+        valorTransacao,
+        valorSaldoAtualizado,
+        conta,
+        tipoTransacao);
+  }
+
+  private boolean valorSaldoIsSet() {
+    return (initBits & INIT_BIT_VALOR_SALDO) == 0;
+  }
+
+  private boolean valorMovimentacaoIsSet() {
+    return (initBits & INIT_BIT_VALOR_MOVIMENTACAO) == 0;
+  }
+
+  private boolean porcentagemMovimentacaoIsSet() {
+    return (initBits & INIT_BIT_PORCENTAGEM_MOVIMENTACAO) == 0;
+  }
+
+  private boolean valorTransacaoIsSet() {
+    return (initBits & INIT_BIT_VALOR_TRANSACAO) == 0;
+  }
+
+  private boolean valorSaldoAtualizadoIsSet() {
+    return (initBits & INIT_BIT_VALOR_SALDO_ATUALIZADO) == 0;
+  }
+
+  private boolean contaIsSet() {
+    return (initBits & INIT_BIT_CONTA) == 0;
+  }
+
+  private boolean tipoTransacaoIsSet() {
+    return (initBits & INIT_BIT_TIPO_TRANSACAO) == 0;
+  }
+
+  private void checkRequiredAttributes() {
+    if (initBits != 0) {
+      throw new IllegalStateException(formatRequiredAttributesMessage());
+    }
+  }
+
+  private String formatRequiredAttributesMessage() {
+    List<String> attributes = new ArrayList<>();
+    if (!valorSaldoIsSet()) attributes.add("valorSaldo");
+    if (!valorMovimentacaoIsSet()) attributes.add("valorMovimentacao");
+    if (!porcentagemMovimentacaoIsSet()) attributes.add("porcentagemMovimentacao");
+    if (!valorTransacaoIsSet()) attributes.add("valorTransacao");
+    if (!valorSaldoAtualizadoIsSet()) attributes.add("valorSaldoAtualizado");
+    if (!contaIsSet()) attributes.add("conta");
+    if (!tipoTransacaoIsSet()) attributes.add("tipoTransacao");
+    return "Cannot build Transacao, some of required attributes are not set " + attributes;
+  }
+}

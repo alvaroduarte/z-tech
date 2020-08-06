@@ -1,0 +1,10 @@
+package br.com.ztech.controller.dto;
+
+public class ClienteDto {
+	
+	private Long id;
+	private String nome;
+	private Long cpf;
+
+	
+}

@@ -1,0 +1,22 @@
+package br.com.ztech.controller.request.converter;
+
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import br.com.ztech.controller.request.ClienteRequest;
+import br.com.ztech.domain.Cliente;
+
+@Configuration
+public class ClienteRequestConverterCliente implements Converter<ClienteRequest, Cliente> {
+
+	@Override
+	public Cliente convert(ClienteRequest source) {
+		
+		Cliente cliente = new Cliente();
+		cliente.setNome(source.getNome());
+		cliente.setCpf(source.getCpf().replaceAll("[.-]", ""));
+		
+		return cliente;
+	}
+}

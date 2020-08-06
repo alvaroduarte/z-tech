@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TransferirControllerTest" project="z-tech-conta-bancodigital" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.ztech.controller.TransferirControllerTest" time="2.35" displayname="TransferirControllerTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]">
+    <testcase name="transferirTest" classname="br.com.ztech.controller.TransferirControllerTest" time="2.35" displayname="transferirTest" uniqueid="[engine:junit-vintage]/[runner:br.com.ztech.controller.TransferirControllerTest]/[test:transferirTest(br.com.ztech.controller.TransferirControllerTest)]"/>
+  </testsuite>
+</testrun>

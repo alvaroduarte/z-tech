@@ -1,0 +1,70 @@
+package br.com.ztech.controller;
+
+import java.math.BigDecimal;
+
+import org.assertj.core.api.Assertions;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.request.AbrirContaRequest;
+import br.com.ztech.controller.request.MovimentacaoContaRequest;
+
+@Sql(scripts = "classpath:delete_all_junit.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class DepositarControllerTest {
+	
+	@Autowired
+	private TestRestTemplate restTemplate;
+
+	@LocalServerPort
+	private int port;
+	
+	@Test
+	public void  depositarTeste() {
+		
+		var abrirContaRequest = new AbrirContaRequest("Alvaro Duarte", "98933075038");
+
+		var requestEntityAbrirConta = new HttpEntity<>(abrirContaRequest);
+
+		var responseAbrirConta = restTemplate.exchange(
+				"/conta",
+				HttpMethod.POST,
+				requestEntityAbrirConta,
+				ContaDto.class);
+		
+		Assertions.assertThat(responseAbrirConta.getStatusCodeValue()).isEqualTo(201);
+		Assertions.assertThat(responseAbrirConta.getBody().getCliente().getCpf()).isEqualTo("98933075038");
+		Assertions.assertThat(responseAbrirConta.getBody().getCliente().getNome()).isEqualTo("Alvaro Duarte");
+		
+		var conta = responseAbrirConta.getBody();
+		
+		
+		
+		var movimentacaoContaRequest = new MovimentacaoContaRequest(new BigDecimal(500.00));
+		
+		var requestEntityDespositarConta = new HttpEntity<>(movimentacaoContaRequest);
+
+		var reesponseDepositarConta = restTemplate.exchange(
+				"/conta/"+conta.getAgencia()+"/"+conta.getConta(),
+				HttpMethod.PUT,
+				requestEntityDespositarConta,
+				ContaDto.class);
+		
+		Assertions.assertThat(reesponseDepositarConta.getStatusCodeValue()).isEqualTo(200);
+		Assertions.assertThat(reesponseDepositarConta.getBody().getCliente().getCpf()).isEqualTo("98933075038");
+		Assertions.assertThat(reesponseDepositarConta.getBody().getCliente().getNome()).isEqualTo("Alvaro Duarte");
+		Assertions.assertThat(reesponseDepositarConta.getBody().getSaldo()).isEqualTo(new BigDecimal(505.00));	
+	
+	}
+
+}

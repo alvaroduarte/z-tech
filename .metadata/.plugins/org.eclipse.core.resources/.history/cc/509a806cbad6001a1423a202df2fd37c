@@ -1,0 +1,16 @@
+package br.com.ztech.repository;
+
+import org.mockito.Mockito;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+
+@DataJpaTest
+public interface ContaRepositoryTest {
+	
+	private ContaRepository contaRepository = Mockito.mock(ContaRepository.class);
+	
+	
+	
+	
+	
+}

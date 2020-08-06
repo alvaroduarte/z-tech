@@ -1,0 +1,14 @@
+package br.com.ztech.repository;
+
+import org.mockito.Mockito;
+
+
+public class ContaRepositoryTest {
+	
+	private ContaRepository contaRepository = Mockito.mock(ContaRepository.class);
+	
+	
+	
+	
+	
+}

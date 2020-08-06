@@ -1,0 +1,22 @@
+package br.com.ztech.controller.dto;
+
+import java.math.BigDecimal;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class ContaDto {
+
+	private ClienteDto cliente;
+	private Integer agencia;
+	private Integer conta;
+	private BigDecimal saldo;
+	
+
+}

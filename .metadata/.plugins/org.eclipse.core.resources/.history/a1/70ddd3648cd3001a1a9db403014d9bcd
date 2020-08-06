@@ -1,0 +1,35 @@
+package br.com.ztech.controller.dto;
+
+import java.math.BigDecimal;
+
+public class ContaDto {
+
+	private Integer agencia;
+	private Integer numeroConta;
+	private BigDecimal saldo;
+	
+	public Integer getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(Integer agencia) {
+		this.agencia = agencia;
+	}
+	public Integer getDigito() {
+		return digito;
+	}
+	public void setDigito(Integer digito) {
+		this.digito = digito;
+	}
+	public Integer getNumeroConta() {
+		return numeroConta;
+	}
+	public void setNumeroConta(Integer numeroConta) {
+		this.numeroConta = numeroConta;
+	}
+	public BigDecimal getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(BigDecimal saldo) {
+		this.saldo = saldo;
+	}
+}

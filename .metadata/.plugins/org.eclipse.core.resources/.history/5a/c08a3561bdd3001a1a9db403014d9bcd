@@ -1,0 +1,42 @@
+package br.com.ztech.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class TipoTransacao {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable=false)
+	private String nome;
+	
+	public TipoTransacao() {}
+	
+	public TipoTransacao(Long id, String nome) {
+		this.id = id;
+		this.nome = nome;
+	}
+	
+	public TipoTransacao(Long id) {
+		this.id = id;
+	}
+
+	public TipoTransacao(Long id) {
+		this.id = id;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+}

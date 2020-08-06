@@ -1,0 +1,30 @@
+package br.com.ztech.controller.request.converter;
+
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+
+import br.com.ztech.controller.dto.ClienteDto;
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.request.ClienteRequest;
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.domain.Conta;
+
+@Configuration
+public class ClienteRequestConverterCliente implements Converter<ClienteRequest, Cliente> {
+
+	@Override
+	public Cliente convert(ClienteRequest source) {
+		
+		ContaDto dto = new ContaDto();
+		dto.setAgencia(source.getAgencia());
+		dto.setNumeroConta(source.getNumeroConta());
+		dto.setSaldo(source.getSaldo());
+		dto.setCliente(new ClienteDto());
+		dto.getCliente().setId(source.getCliente().getId());
+		dto.getCliente().setNome(source.getCliente().getNome());
+		dto.getCliente().setCpf(source.getCliente().getCpf());
+		
+		return dto;
+	}
+}

@@ -1,0 +1,26 @@
+package br.com.ztech.controller.request;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.validation.constraints.NotNull;
+
+public class MovimentacaoContaRequest implements Serializable  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7289874194846403307L;
+	
+	@NotNull
+	private BigDecimal valor;
+	
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+}

@@ -1,0 +1,21 @@
+package br.com.ztech.token.eum;
+
+import java.math.BigDecimal;
+
+public enum ValoDonusBonus {
+	
+	//botar isso aqui para vim do banco de dados para facilitar a manutenção
+
+	DONUS_PORCETAGEM_BONUS(new BigDecimal(0.05)),
+	DONUS_PORCETAGEM_CUSTO_RETIRADA_DINHEIRO(new BigDecimal(1));
+	
+	private BigDecimal valor;
+
+	ValoDonusBonus(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+}

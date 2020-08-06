@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ClienteConverterClienteDto.java&apos; to &apos;z-tech-banco/src/main/java/br.com.ztech.controller.converter&apos;&#x0D;&#x0A;- Original project: &apos;petz&apos;&#x0D;&#x0A;- Destination element: &apos;z-tech-banco/src/main/java/br.com.ztech.controller.converter&apos;&#x0D;&#x0A;- Original element: &apos;petz.com.br.controller.dto.converter.ClienteConverterClienteDto.java&apos;" description="Copy compilation unit" destination="=z-tech-banco/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.ztech.controller.converter" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;petz.com.br.controller.dto.converter{ClienteConverterClienteDto.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1596242261517" units="1" version="1.0"/>
+</session>

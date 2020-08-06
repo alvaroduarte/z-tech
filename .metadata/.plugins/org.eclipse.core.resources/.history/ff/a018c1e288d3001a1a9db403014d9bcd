@@ -1,0 +1,19 @@
+package br.com.ztech.service;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.controller.ContaController;
+import br.com.ztech.domain.Cliente;
+
+@Service
+public class ClienteService {
+	
+	private Logger logger = LogManager.getLogger(ContaController.class);
+
+	public void buscarCliente(Cliente cliente) {
+		
+	}
+
+}

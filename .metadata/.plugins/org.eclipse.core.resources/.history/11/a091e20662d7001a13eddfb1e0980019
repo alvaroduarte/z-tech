@@ -1,0 +1,16 @@
+package br.com.ztech.eum;
+
+public enum ContextEnum {
+
+	AGENCIA_PADRAO(100);
+
+	private Integer codigo;
+
+	ContextEnum(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+}

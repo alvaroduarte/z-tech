@@ -1,0 +1,8 @@
+package br.com.ztech.service;
+
+@Getter
+@Builder
+public class Widget {
+    private final String name;
+    private final int id;
+}

@@ -1,0 +1,72 @@
+package br.com.ztech.controller;
+
+import javax.validation.Valid;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.ztech.controller.dto.ContaDto;
+import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
+import br.com.ztech.controller.request.TransferenciaContaRequest;
+import br.com.ztech.service.TransferirService;
+
+@RestController
+@RequestMapping("conta")
+public class TransferirController {
+	
+	private final static Logger logger = LogManager.getLogger(TransferirController.class);
+	
+	@Autowired
+	private TransferirService transferirService;
+	
+	@Autowired
+	private ContaConverterContaDto contaConverterContaDto;
+	
+		
+	@PutMapping("/transferir/{agencia}/{numeroConta}")
+	public ResponseEntity<ContaDto> transferir(@PathVariable Integer agencia, 
+			@PathVariable Long numeroConta, 
+				@RequestBody @Valid TransferenciaContaRequest transferenciaContaRequest) {
+		
+		logger.info("transferir agencia {}, conta {}, {}", agencia, numeroConta, transferenciaContaRequest);
+		
+		final var conta = transferirService.buscarConta(agencia, numeroConta);
+		
+		final var contaDestino = transferirService.buscarConta(transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
+		
+		final var valorMovimentacao = transferenciaContaRequest.getValor();
+		
+		final var contaAtualizada = transferirService.transferir(conta, valorMovimentacao, contaDestino);
+		
+		logger.info("Transferencia efetuado com sucesso na {}", contaAtualizada);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+	}
+	
+	@PutMapping("/transferir/{cpf}")
+	public ResponseEntity<ContaDto> transferir(@PathVariable String cpf, 
+			@RequestBody @Valid TransferenciaContaRequest transferenciaContaRequest) {
+		
+		logger.info("transferir cpf {}, {}", cpf, transferenciaContaRequest);
+		
+		final var conta = transferirService.buscarConta(cpf);
+		
+		final var contaDestino = transferirService.buscarConta(transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
+		
+		final var valorMovimentacao = transferenciaContaRequest.getValor();
+		
+		final var contaAtualizada = transferirService.transferir(conta, valorMovimentacao, contaDestino);
+		
+		logger.info("Transferencia efetuado com sucesso na {}", contaAtualizada);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+	}
+}

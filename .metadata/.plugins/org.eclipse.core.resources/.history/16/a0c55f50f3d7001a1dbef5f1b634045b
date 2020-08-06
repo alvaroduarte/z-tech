@@ -1,0 +1,21 @@
+package br.com.ztech.service;
+
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import br.com.ztech.repository.ContaRepository;
+import br.com.ztech.repository.TransacaoRepository;
+
+public class DepositarServiceTest {
+	
+	@MockBean
+	private ContaRepository contaRepository;
+
+	@MockBean
+	private TransacaoRepository transacaoRepository;
+	
+	@InjectMocks
+    private DepositarService depositarService;
+
+}

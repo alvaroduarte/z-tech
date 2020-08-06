@@ -1,0 +1,50 @@
+package br.com.ztech.service;
+
+import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS_DEPOSITO;
+
+import java.math.BigDecimal;
+import java.util.Optional;
+
+import org.junit.Test;
+import org.mockito.BDDMockito;
+import org.mockito.InjectMocks;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.domain.ConfiguracaoPorcentagem;
+import br.com.ztech.domain.Conta;
+import br.com.ztech.repository.ConfiguracaoPorcentagemRepository;
+import br.com.ztech.repository.ContaRepository;
+import br.com.ztech.repository.TransacaoRepository;
+
+public class DepositarServiceTest {
+	
+	@MockBean
+	private ContaRepository contaRepository;
+
+	@MockBean
+	private TransacaoRepository transacaoRepository;
+	
+	@MockBean
+	private ConfiguracaoPorcentagemRepository configuracaoPorcentagemRepository;
+	
+	@InjectMocks
+    private DepositarService depositarService;
+	
+	
+	@Test
+	public void depositarTest() {
+		
+		Conta conta = new Conta(Integer.valueOf(100), Long.valueOf(10378), new Cliente("Alvaro Duarte", "10124769799"));
+		
+		var configuracaoPorcentagem = Optional.of(new ConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor(), "BONUS_DEPOSITO", new BigDecimal(0.05)));
+		BDDMockito.when(configuracaoPorcentagemRepository.findById(BONUS_DEPOSITO.getValor())).thenReturn(configuracaoPorcentagem);	
+		
+		BDDMockito.when(contaRepository.save(conta)).thenReturn(conta);
+		
+		
+		depositarService.depositar(conta, new BigDecimal(100));
+		
+	}
+
+}

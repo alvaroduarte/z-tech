@@ -1,0 +1,18 @@
+package br.com.ztech.domain;
+
+public enum TipoTransacaoEnum {
+
+	MANHA("manhã"),
+	TARDE("tarde"),
+	NOITE("noite");
+
+	private String descricao;
+
+	TipoTransacaoEnum(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+}

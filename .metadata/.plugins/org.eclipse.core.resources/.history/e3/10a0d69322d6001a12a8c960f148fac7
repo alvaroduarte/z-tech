@@ -1,0 +1,29 @@
+package br.com.ztech.controller.request;
+
+import java.math.BigDecimal;
+
+import javax.validation.constraints.NotNull;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class MovimentacaoContaRequest {
+	
+	@NotNull
+	private BigDecimal valor;
+	
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+}

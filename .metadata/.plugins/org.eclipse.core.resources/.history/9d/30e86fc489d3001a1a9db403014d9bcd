@@ -1,0 +1,11 @@
+package br.com.ztech.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.ztech.domain.Cliente;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+	
+	Cliente findByCpf(Long cpf);
+
+}

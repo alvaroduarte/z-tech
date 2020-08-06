@@ -1,0 +1,129 @@
+package br.com.ztech.service;
+
+import static br.com.ztech.eum.AgenciaEnum.AGENCIA_PADRAO;
+
+import java.math.BigDecimal;
+
+import javax.transaction.Transactional;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.caelum.stella.validation.CPFValidator;
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.domain.ConfiguracaoPorcentagem;
+import br.com.ztech.domain.Conta;
+import br.com.ztech.exception.ConfiguracaoPorcentagemNotFoundException;
+import br.com.ztech.exception.ContaNotFoundException;
+import br.com.ztech.exception.CpfInvalidoException;
+import br.com.ztech.exception.SaldoInsuficienteBadRequestException;
+import br.com.ztech.repository.ConfiguracaoPorcentagemRepository;
+import br.com.ztech.repository.ContaRepositoryTest;
+
+@Service
+public class ContaService {
+
+	private final static Logger logger = LogManager.getLogger(ContaService.class);
+
+	@Autowired
+	private ContaRepository contaRepository;
+			
+	@Autowired
+	private ConfiguracaoPorcentagemRepository configuracaoPorcentagemRepository;
+
+	@Autowired
+	private ClienteService clienteService;
+
+	public Conta buscarConta(String cpf) {
+
+		logger.info("buscarConta cpf {}", cpf);
+		
+		validaCpf(cpf);
+
+		return contaRepository.findByClienteCpf(cpf)
+				.orElseThrow(() -> new ContaNotFoundException());
+	}
+
+	public Conta buscarConta(Integer agencia, Long numeroConta) {
+
+		logger.info("buscarConta agencia {}, numeroConta {}", agencia, numeroConta);
+
+		return contaRepository.findByAgenciaAndNumeroConta(agencia, numeroConta)
+				.orElseThrow(() -> new ContaNotFoundException());
+	}
+	
+	public BigDecimal calculoValorTransacao(BigDecimal valorMovimentacao, BigDecimal valor) {
+
+		logger.info("calculoValorTransacao valorMovimentacao {}, valor {}", valor);
+
+		final var valorTransacao = valorMovimentacao.add(valor);
+
+		logger.info("valorTransacao {}", valorTransacao);
+
+		return valorTransacao;
+
+	}
+
+	@Transactional
+	public Conta abrirConta(Cliente cliente) {
+
+		logger.info("abrirConta {}", cliente);
+
+		final var cpf = cliente.getCpf();
+		
+		validaCpf(cpf);
+
+		clienteService.validaCadastroCliente(cpf);
+		
+		cliente = clienteService.salvar(cliente);
+		
+		var numeroConta = contaRepository.getNumeroConta();
+
+		final var conta = contaRepository.save(new Conta(AGENCIA_PADRAO.getCodigo(), numeroConta, cliente));
+
+		logger.info("Conta aberta com suecesso! {}", conta);
+
+		return conta;
+	}
+	
+	public ConfiguracaoPorcentagem getConfiguracaoPorcentagem(Integer id) {
+		
+		return configuracaoPorcentagemRepository.findById(id)
+			.orElseThrow(() -> new ConfiguracaoPorcentagemNotFoundException());
+	}
+	
+
+	public void validaValorSaldo(BigDecimal valor) {
+
+		logger.info("validaValorSaldo valor {}", valor);
+
+		if(valor.signum() < 0){
+
+			logger.error("A Conta não tem saldo suficiente para efetuar essa transação!");
+
+			throw new SaldoInsuficienteBadRequestException();
+		}
+
+	}
+
+	public void validaCpf(String cpf) { 
+
+		logger.info("validaCpf {}", cpf);
+
+		final var cpfValidator = new CPFValidator(); 
+
+		final var erros = cpfValidator.invalidMessagesFor(cpf); 
+		
+		if(erros.stream().findFirst().isPresent()) {
+
+			logger.info("Cpf {} inválido", cpf);
+
+			throw new CpfInvalidoException();
+		}
+
+		logger.info("Cpf {} valido", cpf);
+	}
+
+}

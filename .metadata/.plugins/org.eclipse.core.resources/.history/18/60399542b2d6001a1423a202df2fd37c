@@ -1,0 +1,50 @@
+package br.com.ztech.service;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ztech.domain.Cliente;
+import br.com.ztech.exception.ClienteJaCadastradoException;
+import br.com.ztech.exception.ClienteNotFoundException;
+import br.com.ztech.repository.ClienteRepository;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class ClienteService {
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+
+	public Cliente buscarClientePorCpf(String cpf) {
+		
+		log.info("buscarClientePorCpf {}", cpf);
+		
+		return  clienteRepository.findByCpf(cpf)
+					.orElseThrow(() -> new ClienteNotFoundException());
+	}
+	
+	public void validaCadastroCliente(String cpf) {
+		
+		log.info("verificaExisteCadastroCliente {}", cpf);
+		
+		clienteRepository.findByCpf(cpf)
+			.ifPresent(c -> { throw new ClienteJaCadastradoException(); });
+		
+	}
+	
+	@Transactional
+	public Cliente salvar(Cliente cliente) {
+		
+		log.info("salvar {}", cliente);
+		
+		final var retorno = clienteRepository.save(cliente);
+		
+		log.info("{} Salvo com sucesso!", retorno);
+		
+		return retorno;
+		
+	}
+}

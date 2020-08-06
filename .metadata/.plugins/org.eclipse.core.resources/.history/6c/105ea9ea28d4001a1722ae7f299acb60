@@ -1,0 +1,14 @@
+package br.com.ztech.controller.dto;
+
+public class TipoTransacao {
+
+	private String nome;
+	
+	public TipoTransacao() {}
+	
+	public TipoTransacao(String nome) {
+		this.nome = nome;
+	}
+	
+
+}

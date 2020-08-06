@@ -1,0 +1,48 @@
+package br.com.ztech.controller.dto;
+
+import java.time.LocalDateTime;
+
+public class TransacooDto {
+		
+	private LocalDateTime data;
+	
+	private String valor;
+	
+	private ContaDto conta;
+	 
+	private TipoTransacaoDto tipoTransacao;
+
+	public LocalDateTime getData() {
+		return data;
+	}
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
+
+	public String getValor() {
+		return valor;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+
+	public ContaDto getConta() {
+		return conta;
+	}
+
+	public void setConta(ContaDto conta) {
+		this.conta = conta;
+	}
+
+	public TipoTransacaoDto getTipoTransacao() {
+		return tipoTransacao;
+	}
+
+	public void setTipoTransacao(TipoTransacaoDto tipoTransacao) {
+		this.tipoTransacao = tipoTransacao;
+	}
+}
+	
+	

@@ -1,0 +1,28 @@
+package br.com.ztech.domain;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Configuracao {
+	
+	@Id
+	private Long id;
+	
+	@Column(unique=true, nullable=false) 
+	private String nome;
+	
+	@Column(nullable=false) 
+	private BigDecimal valor;
+
+	public Configuracao() {}
+	
+	public Configuracao(String nome, String valor) {
+		this.nome = nome;
+		this.valor = valor;
+	}
+	
+}
