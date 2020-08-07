@@ -39,11 +39,11 @@ public class ClienteService {
 		
 		validaCadastroCliente(cpf);
 		
-		final var retorno = clienteRepository.save(cliente);
+		cliente = clienteRepository.save(cliente);
 		
-		log.debug("Cliente Salvo com sucesso! {}", retorno);
+		log.debug("Cliente Salvo com sucesso! {}", cliente);
 		
-		return retorno;
+		return cliente;
 		
 	}
 	
