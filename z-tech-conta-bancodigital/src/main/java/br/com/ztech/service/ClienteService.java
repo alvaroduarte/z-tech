@@ -35,9 +35,9 @@ public class ClienteService {
 		
 		var cpf = cliente.getCpf();
 		
-		validaCadastroCliente(cpf);
-		
 		validaCpf(cpf);
+		
+		validaCadastroCliente(cpf);
 		
 		final var retorno = clienteRepository.save(cliente);
 		
