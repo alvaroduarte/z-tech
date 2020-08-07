@@ -60,7 +60,7 @@ public class DepositarService extends ContaService {
 		
 		final var valorTransacao = calculoValorTransacao(valorMovimentacao, valorBonus); 
 
-		log.info("{}, porcentagemBonusDeposito {}, valorSaldo {}, valorBonus {}, valorTransacao {}, valorSaldoAtualizado {}", 
+		log.debug("{}, porcentagemBonusDeposito {}, valorSaldo {}, valorBonus {}, valorTransacao {}, valorSaldoAtualizado {}", 
 				conta, 
 				porcentagemBonusDeposito, 
 				valorSaldo, 
@@ -85,7 +85,7 @@ public class DepositarService extends ContaService {
 		
 		transacaoRepository.save(transacao);	
 		
-		log.info("deposito efetuado com sucesso na {}", conta);
+		log.debug("deposito efetuado com sucesso na {}", conta);
 
 		return conta;
 	}
@@ -96,7 +96,7 @@ public class DepositarService extends ContaService {
 
 		final var saldoAtualizado = valorSaldo.add(valorMovimentacao).add(valorBonus).setScale(2, RoundingMode.HALF_UP);
 
-		log.info("saldoAtualizado {}", saldoAtualizado);
+		log.debug("saldoAtualizado {}", saldoAtualizado);
 
 		return saldoAtualizado;
 	}
@@ -107,7 +107,7 @@ public class DepositarService extends ContaService {
 
 		final var valorCalculado = valor.multiply(valorPorcentagemBonusDeposito).divide(new BigDecimal(100));
 
-		log.info("valorCalculado {}", valorCalculado);
+		log.debug("valorCalculado {}", valorCalculado);
 
 		return valorCalculado;
 

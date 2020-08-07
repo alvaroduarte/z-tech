@@ -40,7 +40,7 @@ public class ContaController {
 
 		final var conta = contaService.abrirConta(clienteRequestConverterCliente.convert(abrirContaRequest));
 		
-		log.info("{}", conta);
+		log.debug("{}", conta);
 		
 		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.CREATED);
 	}
@@ -52,7 +52,7 @@ public class ContaController {
 
 		final var conta = contaService.buscarContaPorId(id);
 		
-		log.info("{}", conta);
+		log.debug("{}", conta);
 		
 		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}
@@ -64,7 +64,7 @@ public class ContaController {
 
 		final var conta = contaService.buscarConta(agencia, numeroConta);
 		
-		log.info("{}", conta);
+		log.debug("{}", conta);
 		
 		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}

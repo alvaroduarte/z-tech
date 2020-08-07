@@ -41,7 +41,7 @@ public class ClienteService {
 		
 		final var retorno = clienteRepository.save(cliente);
 		
-		log.info("Cliente Salvo com sucesso! {}", retorno);
+		log.debug("Cliente Salvo com sucesso! {}", retorno);
 		
 		return retorno;
 		
@@ -62,7 +62,7 @@ public class ClienteService {
 			throw new CpfInvalidoException();
 		}
 
-		log.info("Cpf {} valido", cpf);
+		log.debug("Cpf {} valido", cpf);
 	}
 	
 }

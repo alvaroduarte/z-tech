@@ -38,7 +38,7 @@ public class DepositarController {
 		
 		final var conta = depositarService.depositar(agencia, numeroConta, valorMovimentacao);
 		
-		log.info("deposito efetuado com sucesso! {}", conta);
+		log.debug("deposito efetuado com sucesso! {}", conta);
 				
 		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}
@@ -53,7 +53,7 @@ public class DepositarController {
 		
 		final var conta = depositarService.depositar(id, valorMovimentacao);
 		
-		log.info("deposito efetuado com sucesso! {}", conta);
+		log.debug("deposito efetuado com sucesso! {}", conta);
 		
 		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}

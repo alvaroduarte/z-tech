@@ -21,7 +21,7 @@ public class TransacoesConverterExtratoDto implements Converter<Page<Transacao>,
 	@Override
 	public Page<ExtratoDto> convert(Page<Transacao> source) {
 
-		log.info("TransacoesConverterExtratoDto convert {}", source);
+		log.debug("TransacoesConverterExtratoDto convert {}", source);
 		
 		return new PageImpl<ExtratoDto>(
 				 source

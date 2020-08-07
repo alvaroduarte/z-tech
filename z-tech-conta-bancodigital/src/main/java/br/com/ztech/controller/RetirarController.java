@@ -37,9 +37,11 @@ public class RetirarController {
 				
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var contaAtualizada = retirarService.retirar(agencia, numeroConta, valorMovimentacao);
+		final var conta = retirarService.retirar(agencia, numeroConta, valorMovimentacao);
+		
+		log.debug("{}", conta);
 				
-		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}
 	
 	@PutMapping("/retirar/{id}")
@@ -50,8 +52,10 @@ public class RetirarController {
 		
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var contaAtualizada = retirarService.retirar(id, valorMovimentacao);
+		final var conta = retirarService.retirar(id, valorMovimentacao);
+		
+		log.debug("{}", conta);
 				
-		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}
 }

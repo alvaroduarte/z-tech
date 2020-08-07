@@ -14,7 +14,7 @@ public class AbrirContaRequestConverterCliente implements Converter<AbrirContaRe
 	@Override
 	public Cliente convert(AbrirContaRequest source) {
 		
-		log.info("AbrirContaRequestConverterCliente convert {}", source);
+		log.debug("AbrirContaRequestConverterCliente convert {}", source);
 		
 		final var cliente = new Cliente(source.getNome(), source.getCpf().replaceAll("[.-]", ""));
 		

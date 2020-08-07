@@ -116,7 +116,7 @@ public class TransferirService extends ContaService {
 
 		final var saldoAtualizado = valorSaldo.subtract(valorMovimentacao);
 
-		log.info("saldoAtualizado {}", saldoAtualizado);
+		log.debug("saldoAtualizado {}", saldoAtualizado);
 
 		return saldoAtualizado;
 	}
@@ -127,7 +127,7 @@ public class TransferirService extends ContaService {
 
 		final var saldoAtualizado = saldo.add(valorMovimentacao).setScale(2, RoundingMode.HALF_UP);
 
-		log.info("saldoAtualizado {}", saldoAtualizado);
+		log.debug("saldoAtualizado {}", saldoAtualizado);
 
 		return saldoAtualizado;
 	}

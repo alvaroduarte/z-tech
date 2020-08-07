@@ -38,10 +38,12 @@ public class TransferirController {
 		
 		final var valorMovimentacao = transferenciaContaRequest.getValor();
 		
-		final var contaAtualizada = transferirService.transferir(agencia, numeroConta, 
+		final var conta = transferirService.transferir(agencia, numeroConta, 
 				valorMovimentacao, transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
+		
+		log.debug("{}", conta);
 						
-		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}
 	
 	@PutMapping("/transferir/{id}")
@@ -52,9 +54,11 @@ public class TransferirController {
 		
 		final var valorMovimentacao = transferenciaContaRequest.getValor();
 		
-		final var contaAtualizada = transferirService.transferir(id, valorMovimentacao, 
+		final var conta = transferirService.transferir(id, valorMovimentacao, 
 				transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
 		
-		return new ResponseEntity<>( contaConverterContaDto.convert( contaAtualizada ), HttpStatus.OK);
+		log.debug("{}", conta);
+		
+		return new ResponseEntity<>( contaConverterContaDto.convert( conta ), HttpStatus.OK);
 	}
 }

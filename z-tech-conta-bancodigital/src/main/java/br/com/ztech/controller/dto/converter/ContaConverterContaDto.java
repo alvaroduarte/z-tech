@@ -15,11 +15,13 @@ public class ContaConverterContaDto implements Converter<Conta, ContaDto> {
 	@Override
 	public ContaDto convert(Conta source) {
 				
+		log.debug("{}", source);
+		
 		final var clienteDto = new ClienteDto(source.getCliente().getNome(), source.getCliente().getCpf());
 		
 		final var contaDto = new ContaDto(source.getId(), clienteDto, source.getAgencia(), source.getNumeroConta(), source.getSaldo());
 				
-		log.info("{}", contaDto);
+		log.debug("{}", contaDto);
 		
 		return contaDto;
 	}
