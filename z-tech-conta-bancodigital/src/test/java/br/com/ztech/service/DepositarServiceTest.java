@@ -68,7 +68,7 @@ public class DepositarServiceTest {
 		BDDMockito.when(transacaoRepository.save(Mockito.any())).thenReturn(transacao);
 		
 		final var contaRtorno = depositarService.depositar(conta.getId(), new BigDecimal(100));
-		
+				
 		Assertions.assertThat(contaRtorno.getSaldo()).isNotNull();
 		assertEquals(contaRtorno.getSaldo().setScale(2, RoundingMode.HALF_UP), transacao.getValorSaldoAtualizado().setScale(2, RoundingMode.HALF_UP));
 	}

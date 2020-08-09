@@ -65,7 +65,7 @@ public class ContaService {
 		return conta;
 	}
 	
-	public ConfiguracaoPorcentagem buscarConfiguracaoPorcentagem(Integer id) {
+	protected ConfiguracaoPorcentagem buscarConfiguracaoPorcentagem(Integer id) {
 		
 		log.info("buscarConfiguracaoPorcentagem {}", id);
 		
@@ -74,7 +74,7 @@ public class ContaService {
 		
 	}
 	
-	public BigDecimal calculoValorTransacao(BigDecimal valorMovimentacao, BigDecimal valor) {
+	protected BigDecimal calculoValorTransacao(BigDecimal valorMovimentacao, BigDecimal valor) {
 
 		log.info("calculoValorTransacao valorMovimentacao {}, valor {}", valorMovimentacao, valor);
 
@@ -86,7 +86,7 @@ public class ContaService {
 
 	}
 
-	public void validaValorSaldo(BigDecimal valor) {
+	protected void validaValorSaldo(BigDecimal valor) {
 
 		log.info("validaValorSaldo valor {}", valor);
 
