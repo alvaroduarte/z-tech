@@ -37,7 +37,7 @@ public class RetirarController {
 				
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var conta = retirarService.retirar(agencia, numeroConta, valorMovimentacao);
+		final var conta = retirarService.movimentacao(agencia, numeroConta, valorMovimentacao);
 		
 		log.debug("{}", conta);
 				
@@ -52,7 +52,7 @@ public class RetirarController {
 		
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var conta = retirarService.retirar(id, valorMovimentacao);
+		final var conta = retirarService.movimentacao(id, valorMovimentacao);
 		
 		log.debug("{}", conta);
 				

@@ -31,7 +31,7 @@ public class TransferirService extends ContaService implements Movimentacao {
 	@Autowired
 	private TransacaoRepository transacaoRepository;
 	
-	public Conta transferir(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao, Integer agenciaDestino, Long numeroContaDestino) {
+	public Conta movimentacao(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao, Integer agenciaDestino, Long numeroContaDestino) {
 		
 		final var conta = buscarConta(agencia, numeroConta);
 		
@@ -41,7 +41,7 @@ public class TransferirService extends ContaService implements Movimentacao {
 	
 	}
 	
-	public Conta transferir(Long id, BigDecimal valorMovimentacao, Integer agenciaDestino, Long numeroContaDestino) {
+	public Conta movimentacao(Long id, BigDecimal valorMovimentacao, Integer agenciaDestino, Long numeroContaDestino) {
 	
 		final var conta = buscarContaPorId(id);
 		

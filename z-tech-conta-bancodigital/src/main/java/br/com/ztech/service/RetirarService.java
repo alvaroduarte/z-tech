@@ -30,7 +30,7 @@ public class RetirarService extends ContaService implements Movimentacao {
 	@Autowired
 	private TransacaoRepository transacaoRepository;
 	
-	public Conta retirar(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao) {
+	public Conta movimentacao(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao) {
 		
 		final var conta = buscarConta(agencia, numeroConta);
 		
@@ -38,7 +38,7 @@ public class RetirarService extends ContaService implements Movimentacao {
 	
 	}
 	
-	public Conta retirar(Long id, BigDecimal valorMovimentacao) {
+	public Conta movimentacao(Long id, BigDecimal valorMovimentacao) {
 		
 		final var conta = buscarContaPorId(id);
 		

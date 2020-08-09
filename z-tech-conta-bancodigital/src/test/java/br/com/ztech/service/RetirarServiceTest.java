@@ -67,7 +67,7 @@ public class RetirarServiceTest {
 		
 		BDDMockito.when(transacaoRepository.save(Mockito.any())).thenReturn(transacao);
 		
-		var contaRetorno = retirarService.retirar(conta.getId(), new BigDecimal(100));
+		var contaRetorno = retirarService.movimentacao(conta.getId(), new BigDecimal(100));
 				
 		Assertions.assertThat(contaRetorno.getSaldo()).isNotNull();
 		assertEquals(contaRetorno.getSaldo().setScale(2, RoundingMode.HALF_UP), transacao.getValorSaldoAtualizado().setScale(2, RoundingMode.HALF_UP));

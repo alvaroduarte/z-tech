@@ -38,7 +38,7 @@ public class TransferirController {
 		
 		final var valorMovimentacao = transferenciaContaRequest.getValor();
 		
-		final var conta = transferirService.transferir(agencia, numeroConta, 
+		final var conta = transferirService.movimentacao(agencia, numeroConta, 
 				valorMovimentacao, transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
 		
 		log.debug("{}", conta);
@@ -54,7 +54,7 @@ public class TransferirController {
 		
 		final var valorMovimentacao = transferenciaContaRequest.getValor();
 		
-		final var conta = transferirService.transferir(id, valorMovimentacao, 
+		final var conta = transferirService.movimentacao(id, valorMovimentacao, 
 				transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
 		
 		log.debug("{}", conta);
