@@ -56,13 +56,13 @@ public class Transacao {
 	private BigDecimal valorSaldoAtualizado;
 
 	@ToString.Exclude
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "conta_id", nullable = false) 
 	private Conta conta;
 
-	@ManyToOne(fetch = FetchType.EAGER, optional = true)
-	@JoinColumn(name = "contamovimentacao_id", nullable = true) 
-	private Conta contaMovimentacao;
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "contatransacao_id", nullable = true) 
+	private Conta contaTransacao;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "tipotransacao_id", nullable = false) 

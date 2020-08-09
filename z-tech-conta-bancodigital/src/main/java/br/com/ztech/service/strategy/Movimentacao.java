@@ -8,7 +8,7 @@ import br.com.ztech.domain.Conta;
 
 public interface Movimentacao {
 	
-	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaMovimentacao);
+	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaTransacao);
 	
 	public default BigDecimal calculoValorTransacao(BigDecimal valorMovimentacao, BigDecimal valor) {
 

@@ -1,7 +1,7 @@
 package br.com.ztech.controller;
 
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS_DEPOSITO;
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.CUSTO_RETIRADA;
+import static br.com.ztech.eum.TipoTransacaoEnum.DEPOSITO_DINHEIRO;
+import static br.com.ztech.eum.TipoTransacaoEnum.RETIRAR_DINHEIRO;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -25,8 +25,9 @@ import br.com.ztech.controller.dto.ContaDto;
 import br.com.ztech.controller.request.AbrirContaRequest;
 import br.com.ztech.controller.request.MovimentacaoContaRequest;
 import br.com.ztech.controller.request.TransferenciaContaRequest;
-import br.com.ztech.domain.ConfiguracaoPorcentagem;
-import br.com.ztech.repository.ConfiguracaoPorcentagemRepository;
+import br.com.ztech.domain.TipoTransacao;
+import br.com.ztech.repository.TipoTransacaoRepository;
+
 
 @Sql(scripts = "classpath:delete_all_junit.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 @RunWith(SpringRunner.class)
@@ -40,7 +41,7 @@ public class TransferirControllerTest {
 	private int port;
 	
 	@MockBean
-	private ConfiguracaoPorcentagemRepository configuracaoPorcentagemRepository;
+	private TipoTransacaoRepository tipoTransacaoRepository;
 
 	@Test
 	public void  transferirTest() {
@@ -89,11 +90,11 @@ public class TransferirControllerTest {
 		
 		
 		
-		var configuracaoPorcentagemBonus = Optional.of(new ConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor(), "BONUS_DEPOSITO", new BigDecimal(0.05)));
-		BDDMockito.when(configuracaoPorcentagemRepository.findById(BONUS_DEPOSITO.getValor())).thenReturn(configuracaoPorcentagemBonus);	
+		var configuracaoPorcentagemBonus = Optional.of(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo(), "DEPOSITO DINHEIRO", new BigDecimal(0.05)));
+		BDDMockito.when(tipoTransacaoRepository.findById(DEPOSITO_DINHEIRO.getCodigo())).thenReturn(configuracaoPorcentagemBonus);	
 		
-		var configuracaoPorcentagemRetirada = Optional.of(new ConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor(), "CUSTO_RETIRADA", new BigDecimal(1)));
-		BDDMockito.when(configuracaoPorcentagemRepository.findById(CUSTO_RETIRADA.getValor())).thenReturn(configuracaoPorcentagemRetirada);	
+		var configuracaoPorcentagemRetirada = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR DINHEIRO", new BigDecimal(1)));
+		BDDMockito.when(tipoTransacaoRepository.findById(RETIRAR_DINHEIRO.getCodigo())).thenReturn(configuracaoPorcentagemRetirada);	
 		
 		
 		

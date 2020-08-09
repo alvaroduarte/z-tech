@@ -34,24 +34,24 @@ public class TransacoesConverterExtratoDto implements Converter<Page<Transacao>,
 					.valorTransacao(t.getValorTransacao())
 					.valorSaldoAtualizado(t.getValorSaldoAtualizado())
 					.tipoTransacao(new TipoExtratoDto(t.getTipoTransacao().getNome()))
-					.contaMovimentacao(getContaExtratoDto(t))
+					.contaTransacao(getContaExtratoDto(t))
 					.build())
 				    .collect(Collectors.toList()), source.getPageable(), source.getTotalElements());
 	}
 	
 	private ContaExtratoDto getContaExtratoDto(Transacao t) {
 
-		if(Objects.nonNull(t.getContaMovimentacao())) {
+		if(Objects.nonNull(t.getContaTransacao())) {
 
 			return new ContaExtratoDto(
 					
 					new ClienteDto(
 					
-							t.getContaMovimentacao().getCliente().getNome(), 
-							t.getContaMovimentacao().getCliente().getCpf()),  
+							t.getContaTransacao().getCliente().getNome(), 
+							t.getContaTransacao().getCliente().getCpf()),  
 					
-					t.getContaMovimentacao().getAgencia(), 
-					t.getContaMovimentacao().getNumeroConta());
+					t.getContaTransacao().getAgencia(), 
+					t.getContaTransacao().getNumeroConta());
 
 		}
 

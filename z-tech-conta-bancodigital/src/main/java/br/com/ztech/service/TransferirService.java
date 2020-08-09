@@ -50,13 +50,13 @@ public class TransferirService implements Movimentacao {
 	}
 
 	@Transactional
-	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaMovimentacao) {
+	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaTransacao) {
 
-		log.info("transferir {}, valorMovimentacao {}, contaDestino {}", conta, valorMovimentacao, contaMovimentacao.getNumeroConta());
+		log.info("transferir {}, valorMovimentacao {}, contaTransacao {}", conta, valorMovimentacao, contaTransacao);
 
 		final var valorSaldo = conta.getSaldo();
 
-		final var valorSaldoDestino = contaMovimentacao.getSaldo();
+		final var valorSaldoDestino = contaTransacao.getSaldo();
 
 		final var valorSaldoOriemAtualizado = calculaRetirada(valorSaldo, valorMovimentacao, BigDecimal.ZERO);
 
@@ -68,13 +68,13 @@ public class TransferirService implements Movimentacao {
 
 		final var valorSaldoDestinoAtualizado = calculaSoma(valorSaldoDestino, valorMovimentacao, BigDecimal.ZERO);
 
-		contaMovimentacao.setSaldo(valorSaldoDestinoAtualizado);
+		contaTransacao.setSaldo(valorSaldoDestinoAtualizado);
 
-		contaMovimentacao = contaService.salvar(contaMovimentacao);
+		contaTransacao = contaService.salvar(contaTransacao);
 		
 		log.debug("{}, {}, valorSaldo {}, valorSaldoDestino {}, valorSaldoOriemAtualizado {}, valorSaldoDestinoAtualizado {}", 
 				conta, 
-				contaMovimentacao, 
+				contaTransacao, 
 				valorSaldo, 
 				valorSaldoDestino, 
 				valorSaldoOriemAtualizado, 
@@ -88,7 +88,7 @@ public class TransferirService implements Movimentacao {
 				.porcentagemMovimentacao(BigDecimal.ZERO)
 				.valorTransacao(valorMovimentacao)
 				.conta(conta)
-				.contaMovimentacao(contaMovimentacao)
+				.contaTransacao(contaTransacao)
 				.tipoTransacao(new TipoTransacao(TRANSFERENCIA_SAIDA_DINHEIRO.getCodigo())).build();
 		
 		final var transacaoContaDestino = Transacao.builder()
@@ -98,13 +98,13 @@ public class TransferirService implements Movimentacao {
 				.valorSaldoAtualizado(valorSaldoDestinoAtualizado)
 				.porcentagemMovimentacao(BigDecimal.ZERO)
 				.valorTransacao(valorMovimentacao)
-				.conta(contaMovimentacao)
-				.contaMovimentacao(conta)
+				.conta(contaTransacao)
+				.contaTransacao(conta)
 				.tipoTransacao(new TipoTransacao(TRANSFERENCIA_ENTRADA_DINHEIRO.getCodigo())).build();
 		
 		transacaoRepository.saveAll(Arrays.asList( transacaoConta, transacaoContaDestino ) );
 
-		log.debug("Transferencia efetuado com sucesso da {} para destino {} no valor de {}", conta, contaMovimentacao, valorMovimentacao);
+		log.debug("Transferencia efetuado com sucesso da {} para destino {} no valor de {}", conta, contaTransacao, valorMovimentacao);
 
 		return conta;
 	}

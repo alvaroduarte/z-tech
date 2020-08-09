@@ -1,6 +1,5 @@
 package br.com.ztech.service;
 
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.CUSTO_RETIRADA;
 import static br.com.ztech.eum.TipoTransacaoEnum.RETIRAR_DINHEIRO;
 
 import java.math.BigDecimal;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.ztech.domain.Conta;
-import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
 import br.com.ztech.repository.TransacaoRepository;
 import br.com.ztech.service.strategy.Movimentacao;
@@ -26,7 +24,7 @@ public class RetirarService implements Movimentacao {
 	private ContaService contaService;
 	
 	@Autowired
-	private ConfiguracaoPorcetagemService configuracaoPorcetagemServicee;
+	private TipoTransacaoService tipoTransacaoService;
 
 	@Autowired
 	private TransacaoRepository transacaoRepository;
@@ -51,7 +49,9 @@ public class RetirarService implements Movimentacao {
 
 		log.info("retirar {}, valorMovimentacao {}", conta, valorMovimentacao);
 		
-		final var porcentagemRetirada = configuracaoPorcetagemServicee.buscarConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor()).getPorcentagem();
+		final var tipoTransacao = tipoTransacaoService.burcarPorId(RETIRAR_DINHEIRO.getCodigo());
+		
+		final var porcentagemRetirada = tipoTransacao.getPorcentagem();
 
 		final var valorSaldo = conta.getSaldo();
 		
@@ -85,7 +85,7 @@ public class RetirarService implements Movimentacao {
 				.valorTransacao(valorTransacao)
 				.valorSaldoAtualizado(valorSaldoAtualizado)
 				.conta(conta)
-				.tipoTransacao(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo()))
+				.tipoTransacao(tipoTransacao)
 				.build();
 
 		transacaoRepository.save(transacao);

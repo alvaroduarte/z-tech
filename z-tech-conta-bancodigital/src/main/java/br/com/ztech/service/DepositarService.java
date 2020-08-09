@@ -1,6 +1,5 @@
 package br.com.ztech.service;
 
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS_DEPOSITO;
 import static br.com.ztech.eum.TipoTransacaoEnum.DEPOSITO_DINHEIRO;
 
 import java.math.BigDecimal;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.ztech.domain.Conta;
-import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
 import br.com.ztech.repository.TransacaoRepository;
 import br.com.ztech.service.strategy.Movimentacao;
@@ -26,7 +24,7 @@ public class DepositarService implements Movimentacao {
 	private ContaService contaService;
 	
 	@Autowired
-	private ConfiguracaoPorcetagemService configuracaoPorcetagemService;
+	private TipoTransacaoService tipoTransacaoService;
 
 	@Autowired
 	private TransacaoRepository transacaoRepository;
@@ -48,11 +46,13 @@ public class DepositarService implements Movimentacao {
 	}
 
 	@Transactional
-	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaMovimentacao) {
+	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaTransacao) {
 
-		log.info("depositar {}, valorMovimentacao {}", conta, valorMovimentacao);
+		log.info("movimentacao {}, valorMovimentacao {}", conta, valorMovimentacao);
 		
-		final var porcentagemBonusDeposito = configuracaoPorcetagemService.buscarConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor()).getPorcentagem();
+		final var tipotransacao = tipoTransacaoService.burcarPorId(DEPOSITO_DINHEIRO.getCodigo());
+		
+		final var porcentagemBonusDeposito =  tipotransacao.getPorcentagem();
 
 		final var valorSaldo = conta.getSaldo();
 
@@ -82,7 +82,7 @@ public class DepositarService implements Movimentacao {
 				.valorTransacao(valorTransacao)
 				.valorSaldoAtualizado(valorSaldoAtualizado)
 				.conta(conta)
-				.tipoTransacao(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo()))
+				.tipoTransacao(tipotransacao)
 				.build();
 		
 		transacaoRepository.save(transacao);	

@@ -23,6 +23,6 @@ public class ExtratoDto {
 	private BigDecimal valorTransacao;
 	private BigDecimal valorSaldoAtualizado;
 	private TipoExtratoDto tipoTransacao;
-	private ContaExtratoDto contaMovimentacao;
+	private ContaExtratoDto contaTransacao;
 	
 }	

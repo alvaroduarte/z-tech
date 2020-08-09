@@ -1,10 +1,11 @@
 package br.com.ztech.service;
 
 import static org.junit.Assert.assertEquals;
-
+import static br.com.ztech.eum.TipoTransacaoEnum.RETIRAR_DINHEIRO;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -17,7 +18,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import br.com.ztech.domain.Cliente;
 import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
+import br.com.ztech.repository.TipoTransacaoRepository;
 import br.com.ztech.repository.TransacaoRepository;
 
 @RunWith(SpringRunner.class)
@@ -27,10 +30,13 @@ public class TransferirServiceTest {
 	private ContaService contaService;
 	
 	@Mock
-	private ConfiguracaoPorcetagemService configuracaoPorcetagemService;
+	private TipoTransacaoService tipoTransacaoService;
 
 	@Mock
 	private TransacaoRepository transacaoRepository;
+	
+	@Mock
+	private TipoTransacaoRepository tipoTransacaoRepository;
 	
 	@InjectMocks
     private TransferirService transferirService;
@@ -54,8 +60,8 @@ public class TransferirServiceTest {
 				.conta(conta)
 				.build();
 		
-		//final var configuracaoPorcentagem = Optional.of(new ConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor(), "CUSTO_RETIRADA", new BigDecimal(1)));
-		//BDDMockito.when(configuracaoPorcentagemRepository.findById(CUSTO_RETIRADA.getValor())).thenReturn(configuracaoPorcentagem);	
+		final var tipoTransacao = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR_DINHEIRO", new BigDecimal(1)));
+		BDDMockito.when(tipoTransacaoRepository.findById(RETIRAR_DINHEIRO.getCodigo())).thenReturn(tipoTransacao);	
 		
 		BDDMockito.when(contaService.salvar(Mockito.any())).thenReturn(conta);
 		

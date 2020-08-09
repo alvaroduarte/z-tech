@@ -1,7 +1,7 @@
 package br.com.ztech.controller;
 
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS_DEPOSITO;
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.CUSTO_RETIRADA;
+import static br.com.ztech.eum.TipoTransacaoEnum.DEPOSITO_DINHEIRO;
+import static br.com.ztech.eum.TipoTransacaoEnum.RETIRAR_DINHEIRO;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -24,8 +24,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import br.com.ztech.controller.dto.ContaDto;
 import br.com.ztech.controller.request.AbrirContaRequest;
 import br.com.ztech.controller.request.MovimentacaoContaRequest;
-import br.com.ztech.domain.ConfiguracaoPorcentagem;
-import br.com.ztech.repository.ConfiguracaoPorcentagemRepository;
+import br.com.ztech.domain.TipoTransacao;
+import br.com.ztech.repository.TipoTransacaoRepository;
+
 
 @Sql(scripts = "classpath:delete_all_junit.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 @RunWith(SpringRunner.class)
@@ -39,7 +40,7 @@ public class RetirarControllerTest {
 	private int port;
 	
 	@MockBean
-	private ConfiguracaoPorcentagemRepository configuracaoPorcentagemRepository;
+	private TipoTransacaoRepository tipoTransacaoRepository;
 	
 	@Test
 	public void  retirarTest() {
@@ -60,8 +61,8 @@ public class RetirarControllerTest {
 		
 		var conta = responseAbrirConta.getBody();
 		
-		var configuracaoPorcentagem = Optional.of(new ConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor(), "BONUS_DEPOSITO", new BigDecimal(0.05)));
-		BDDMockito.when(configuracaoPorcentagemRepository.findById(CUSTO_RETIRADA.getValor())).thenReturn(configuracaoPorcentagem);	
+		var tipoTransacao = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR DINHEIRO", new BigDecimal(0.05)));
+		BDDMockito.when(tipoTransacaoRepository.findById(RETIRAR_DINHEIRO.getCodigo())).thenReturn(tipoTransacao);	
 		
 		var movimentacaoContaRequest = new MovimentacaoContaRequest(new BigDecimal(500.00));
 		movimentacaoContaRequest.setValor(new BigDecimal(500.00));
@@ -97,11 +98,11 @@ public class RetirarControllerTest {
 		
 		var conta = responseAbrirConta.getBody();
 		
-		var configuracaoPorcentagemBonus = Optional.of(new ConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor(), "BONUS_DEPOSITO", new BigDecimal(0.05)));
-		BDDMockito.when(configuracaoPorcentagemRepository.findById(BONUS_DEPOSITO.getValor())).thenReturn(configuracaoPorcentagemBonus);	
+		var tipoTransacaoPorcentagemBonus = Optional.of(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo(), "DEPOSITO_DINHEIRO", new BigDecimal(0.05)));
+		BDDMockito.when(tipoTransacaoRepository.findById(DEPOSITO_DINHEIRO.getCodigo())).thenReturn(tipoTransacaoPorcentagemBonus);	
 		
-		var configuracaoPorcentagemRetirada = Optional.of(new ConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor(), "CUSTO_RETIRADA", new BigDecimal(1)));
-		BDDMockito.when(configuracaoPorcentagemRepository.findById(CUSTO_RETIRADA.getValor())).thenReturn(configuracaoPorcentagemRetirada);	
+		var tipoTransacaoPorcentagemRetirada = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR DINHEIRO", new BigDecimal(1)));
+		BDDMockito.when(tipoTransacaoRepository.findById(RETIRAR_DINHEIRO.getCodigo())).thenReturn(tipoTransacaoPorcentagemRetirada);	
 		
 		var movimentacaoContaRequest = new MovimentacaoContaRequest(new BigDecimal(500.00));
 		movimentacaoContaRequest.setValor(new BigDecimal(500.00));

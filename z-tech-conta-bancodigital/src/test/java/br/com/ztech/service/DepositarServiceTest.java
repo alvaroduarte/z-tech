@@ -1,6 +1,6 @@
 package br.com.ztech.service;
 
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS_DEPOSITO;
+import static br.com.ztech.eum.TipoTransacaoEnum.DEPOSITO_DINHEIRO;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
@@ -17,8 +17,8 @@ import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import br.com.ztech.domain.Cliente;
-import br.com.ztech.domain.ConfiguracaoPorcentagem;
 import br.com.ztech.domain.Conta;
+import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
 import br.com.ztech.repository.TransacaoRepository;
 
@@ -29,7 +29,7 @@ public class DepositarServiceTest {
 	private ContaService contaService;
 	
 	@Mock
-	private ConfiguracaoPorcetagemService configuracaoPorcetagemService;
+	private TipoTransacaoService tipoTransacaoService;
 
 	@Mock
 	private TransacaoRepository transacaoRepository;
@@ -53,8 +53,8 @@ public class DepositarServiceTest {
 				.conta(conta)
 				.build();
 		
-		final var configuracaoPorcentagem = new ConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor(), "BONUS_DEPOSITO", new BigDecimal(0.05));
-		BDDMockito.when( configuracaoPorcetagemService.buscarConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor()) ).thenReturn(configuracaoPorcentagem);	
+		final var tipoTransacao = new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo(), "DEPOSITO DINHEIRO", new BigDecimal(0.05));
+		BDDMockito.when( tipoTransacaoService.burcarPorId(DEPOSITO_DINHEIRO.getCodigo()) ).thenReturn(tipoTransacao);	
 		
 		BDDMockito.when(contaService.buscarContaPorId(Mockito.any())).thenReturn(conta);
 		
