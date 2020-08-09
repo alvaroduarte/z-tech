@@ -66,7 +66,7 @@ public class TransferirServiceTest {
 		
 		BDDMockito.when(transacaoRepository.save(Mockito.any())).thenReturn(transacao);
 		
-		var contaRetorno = transferirService.transferir(conta, new BigDecimal(100), contaDestino);
+		var contaRetorno = transferirService.movimentacao(conta, new BigDecimal(100), contaDestino);
 				
 		Assertions.assertThat(contaRetorno.getSaldo()).isNotNull();
 		assertEquals(contaRetorno.getSaldo().setScale(2, RoundingMode.HALF_UP), transacao.getValorSaldoAtualizado().setScale(2, RoundingMode.HALF_UP));

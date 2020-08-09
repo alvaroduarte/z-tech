@@ -17,11 +17,12 @@ import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
 import br.com.ztech.repository.ContaRepository;
 import br.com.ztech.repository.TransacaoRepository;
+import br.com.ztech.service.strategy.Movimentacao;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class RetirarService extends ContaService {
+public class RetirarService extends ContaService implements Movimentacao {
 
 	@Autowired
 	private ContaRepository contaRepository;
@@ -33,7 +34,7 @@ public class RetirarService extends ContaService {
 		
 		final var conta = buscarConta(agencia, numeroConta);
 		
-		return retirar( conta  , valorMovimentacao);
+		return movimentacao( conta  , valorMovimentacao, null );
 	
 	}
 	
@@ -41,11 +42,11 @@ public class RetirarService extends ContaService {
 		
 		final var conta = buscarContaPorId(id);
 		
-		return retirar( conta , valorMovimentacao);
+		return movimentacao( conta , valorMovimentacao, null );
 	}
 
 	@Transactional
-	public Conta retirar(Conta conta, BigDecimal valorMovimentacao) {
+	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaMovimentacao) {
 
 		log.info("retirar {}, valorMovimentacao {}", conta, valorMovimentacao);
 		
@@ -53,7 +54,7 @@ public class RetirarService extends ContaService {
 
 		final var valorSaldo = conta.getSaldo();
 
-		final var valorRetirada = calculoRetirada( porcentagemRetirada, valorMovimentacao ); 
+		final var valorRetirada = calculoRetirada( porcentagemRetirada.multiply(new BigDecimal(-1)) , valorMovimentacao ); 
 		
 		final var valorSaldoAtualizado = calculaSaldoRetirada( valorSaldo, valorMovimentacao, valorRetirada );
 		
@@ -77,7 +78,8 @@ public class RetirarService extends ContaService {
 				.data(LocalDateTime.now())
 				.valorSaldo(valorSaldo)
 				.valorMovimentacao(valorMovimentacao)
-				.porcentagemMovimentacao(porcentagemRetirada.multiply(new BigDecimal(-1)))
+				.porcentagemMovimentacao(porcentagemRetirada)
+				//.porcentagemMovimentacao(porcentagemRetirada.multiply(new BigDecimal(-1)))
 				.valorTransacao(valorTransacao)
 				.valorSaldoAtualizado(valorSaldoAtualizado)
 				.conta(conta)
@@ -91,7 +93,7 @@ public class RetirarService extends ContaService {
 		return conta;
 	}
 
-	private BigDecimal calculaSaldoRetirada(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorRetirada) {
+	protected BigDecimal calculaSaldoRetirada(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorRetirada) {
 
 		log.info("calculaSaldoRetirada valorSaldo {}, valorMovimentacao {},  valorRetirada {}", valorSaldo, valorMovimentacao, valorRetirada);
 
@@ -103,7 +105,7 @@ public class RetirarService extends ContaService {
 	}
 	
 
-	private BigDecimal calculoRetirada(BigDecimal valorPorcentagemRetirada, BigDecimal valor) {
+	protected BigDecimal calculoRetirada(BigDecimal valorPorcentagemRetirada, BigDecimal valor) {
 
 		log.info("calculoDebeito valorPorcentagemRetirada {}, valor {}", valorPorcentagemRetirada, valor);
 

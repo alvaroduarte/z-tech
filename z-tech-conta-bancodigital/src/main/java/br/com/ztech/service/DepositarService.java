@@ -17,11 +17,12 @@ import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
 import br.com.ztech.repository.ContaRepository;
 import br.com.ztech.repository.TransacaoRepository;
+import br.com.ztech.service.strategy.Movimentacao;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class DepositarService extends ContaService {
+public class DepositarService extends ContaService implements Movimentacao {
 
 	@Autowired
 	private ContaRepository contaRepository;
@@ -33,7 +34,7 @@ public class DepositarService extends ContaService {
 		
 		final var conta = buscarConta(agencia, numeroConta);
 		
-		return depositar( conta , valorMovimentacao );
+		return movimentacao( conta , valorMovimentacao, null );
 	
 	}
 	
@@ -41,12 +42,12 @@ public class DepositarService extends ContaService {
 		
 		final var conta = buscarContaPorId(id);
 		
-		return depositar( conta , valorMovimentacao );
+		return movimentacao( conta , valorMovimentacao, null );
 	
 	}
 
 	@Transactional
-	public Conta depositar(Conta conta, BigDecimal valorMovimentacao) {
+	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaMovimentacao) {
 
 		log.info("depositar {}, valorMovimentacao {}", conta, valorMovimentacao);
 		
@@ -90,7 +91,7 @@ public class DepositarService extends ContaService {
 		return conta;
 	}
 
-	private BigDecimal calculaSaldoDeposito(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorBonus) {
+	protected BigDecimal calculaSaldoDeposito(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorBonus) {
 
 		log.info("calculaSaldoDeposito valorSaldo {}, valorMovimentacao {},  valorBonus {}", valorSaldo, valorMovimentacao, valorBonus);
 
@@ -101,7 +102,7 @@ public class DepositarService extends ContaService {
 		return saldoAtualizado;
 	}
 
-	private BigDecimal calculoBonusDeposito(BigDecimal valorPorcentagemBonusDeposito, BigDecimal valor) {
+	protected BigDecimal calculoBonusDeposito(BigDecimal valorPorcentagemBonusDeposito, BigDecimal valor) {
 
 		log.info("calculoBonusDeposito valorPorcentagemBonusDeposito {}, valor {}", valorPorcentagemBonusDeposito, valor);
 

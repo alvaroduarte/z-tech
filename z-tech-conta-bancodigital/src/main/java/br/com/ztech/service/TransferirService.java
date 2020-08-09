@@ -18,11 +18,12 @@ import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
 import br.com.ztech.repository.ContaRepository;
 import br.com.ztech.repository.TransacaoRepository;
+import br.com.ztech.service.strategy.Movimentacao;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class TransferirService extends ContaService {
+public class TransferirService extends ContaService implements Movimentacao {
 
 	@Autowired
 	private ContaRepository contaRepository;
@@ -36,7 +37,7 @@ public class TransferirService extends ContaService {
 		
 		final var contaDestino = buscarConta(agenciaDestino, numeroContaDestino);
 		
-		return transferir(conta, valorMovimentacao, contaDestino);
+		return movimentacao(conta, valorMovimentacao, contaDestino);
 	
 	}
 	
@@ -46,18 +47,18 @@ public class TransferirService extends ContaService {
 		
 		final var contaDestino = buscarConta(agenciaDestino, numeroContaDestino);
 		
-		return transferir(conta, valorMovimentacao, contaDestino);
+		return movimentacao(conta, valorMovimentacao, contaDestino);
 	
 	}
 
 	@Transactional
-	public Conta transferir(Conta conta, BigDecimal valorMovimentacao, Conta contaDestino) {
+	public Conta movimentacao(Conta conta, BigDecimal valorMovimentacao, Conta contaMovimentacao) {
 
-		log.info("transferir {}, valorMovimentacao {}, contaDestino {}", conta, valorMovimentacao, contaDestino.getNumeroConta());
+		log.info("transferir {}, valorMovimentacao {}, contaDestino {}", conta, valorMovimentacao, contaMovimentacao.getNumeroConta());
 
 		final var valorSaldo = conta.getSaldo();
 
-		final var valorSaldoDestino = contaDestino.getSaldo();
+		final var valorSaldoDestino = contaMovimentacao.getSaldo();
 
 		final var valorSaldoOriemAtualizado = calculaSaldoTransferenciaOrigem(valorSaldo, valorMovimentacao);
 
@@ -69,13 +70,13 @@ public class TransferirService extends ContaService {
 
 		final var valorSaldoDestinoAtualizado = calculaSaldoTransferenciaDestino(valorSaldoDestino, valorMovimentacao);
 
-		contaDestino.setSaldo(valorSaldoDestinoAtualizado);
+		contaMovimentacao.setSaldo(valorSaldoDestinoAtualizado);
 
-		contaDestino = contaRepository.save(contaDestino);
+		contaMovimentacao = contaRepository.save(contaMovimentacao);
 		
 		log.debug("{}, {}, valorSaldo {}, valorSaldoDestino {}, valorSaldoOriemAtualizado {}, valorSaldoDestinoAtualizado {}", 
 				conta, 
-				contaDestino, 
+				contaMovimentacao, 
 				valorSaldo, 
 				valorSaldoDestino, 
 				valorSaldoOriemAtualizado, 
@@ -89,7 +90,7 @@ public class TransferirService extends ContaService {
 				.porcentagemMovimentacao(BigDecimal.ZERO)
 				.valorTransacao(BigDecimal.ZERO)
 				.conta(conta)
-				.contaTrasancao(contaDestino)
+				.contaMovimentacao(contaMovimentacao)
 				.tipoTransacao(new TipoTransacao(TRANSFERENCIA_SAIDA_DINHEIRO.getCodigo())).build();
 		
 		final var transacaoContaDestino = Transacao.builder()
@@ -99,13 +100,13 @@ public class TransferirService extends ContaService {
 				.valorSaldoAtualizado(valorSaldoDestinoAtualizado)
 				.porcentagemMovimentacao(BigDecimal.ZERO)
 				.valorTransacao(BigDecimal.ZERO)
-				.conta(contaDestino)
-				.contaTrasancao(conta)
+				.conta(contaMovimentacao)
+				.contaMovimentacao(conta)
 				.tipoTransacao(new TipoTransacao(TRANSFERENCIA_ENTRADA_DINHEIRO.getCodigo())).build();
 		
 		transacaoRepository.saveAll(Arrays.asList( transacaoConta, transacaoContaDestino ) );
 
-		log.debug("Transferencia efetuado com sucesso da {} para destino {} no valor de {}", conta, contaDestino, valorMovimentacao);
+		log.debug("Transferencia efetuado com sucesso da {} para destino {} no valor de {}", conta, contaMovimentacao, valorMovimentacao);
 
 		return conta;
 	}

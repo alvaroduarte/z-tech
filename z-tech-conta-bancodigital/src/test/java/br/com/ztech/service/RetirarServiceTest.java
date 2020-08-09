@@ -59,11 +59,15 @@ public class RetirarServiceTest {
 		final var configuracaoPorcentagem = Optional.of(new ConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor(), "CUSTO_RETIRADA", new BigDecimal(1)));
 		BDDMockito.when(configuracaoPorcentagemRepository.findById(CUSTO_RETIRADA.getValor())).thenReturn(configuracaoPorcentagem);	
 		
+		BDDMockito.when(contaRepository.findById(Mockito.any())).thenReturn(Optional.of(conta));
+		
+		BDDMockito.when(contaRepository.findByAgenciaAndNumeroConta(Mockito.any(), Mockito.any())).thenReturn(Optional.of(conta));
+		
 		BDDMockito.when(contaRepository.save(Mockito.any())).thenReturn(conta);
 		
 		BDDMockito.when(transacaoRepository.save(Mockito.any())).thenReturn(transacao);
 		
-		var contaRetorno = retirarService.retirar(conta, new BigDecimal(100));
+		var contaRetorno = retirarService.retirar(conta.getId(), new BigDecimal(100));
 				
 		Assertions.assertThat(contaRetorno.getSaldo()).isNotNull();
 		assertEquals(contaRetorno.getSaldo().setScale(2, RoundingMode.HALF_UP), transacao.getValorSaldoAtualizado().setScale(2, RoundingMode.HALF_UP));

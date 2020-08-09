@@ -59,11 +59,15 @@ public class DepositarServiceTest {
 		final var configuracaoPorcentagem = Optional.of(new ConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor(), "BONUS_DEPOSITO", new BigDecimal(0.05)));
 		BDDMockito.when(configuracaoPorcentagemRepository.findById(BONUS_DEPOSITO.getValor())).thenReturn(configuracaoPorcentagem);	
 		
+		BDDMockito.when(contaRepository.findById(Mockito.any())).thenReturn(Optional.of(conta));
+		
+		BDDMockito.when(contaRepository.findByAgenciaAndNumeroConta(Mockito.any(), Mockito.any())).thenReturn(Optional.of(conta));
+		
 		BDDMockito.when(contaRepository.save(Mockito.any())).thenReturn(conta);
 		
 		BDDMockito.when(transacaoRepository.save(Mockito.any())).thenReturn(transacao);
 		
-		final var contaRtorno = depositarService.depositar(conta, new BigDecimal(100));
+		final var contaRtorno = depositarService.depositar(conta.getId(), new BigDecimal(100));
 		
 		Assertions.assertThat(contaRtorno.getSaldo()).isNotNull();
 		assertEquals(contaRtorno.getSaldo().setScale(2, RoundingMode.HALF_UP), transacao.getValorSaldoAtualizado().setScale(2, RoundingMode.HALF_UP));

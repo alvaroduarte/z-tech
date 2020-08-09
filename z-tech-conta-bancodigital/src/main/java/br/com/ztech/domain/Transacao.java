@@ -19,6 +19,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+//
+//@AllArgsConstructor
+//@NoArgsConstructor
+//
+
 @Entity
 @Getter
 @AllArgsConstructor
@@ -56,8 +61,8 @@ public class Transacao {
 	private Conta conta;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = true)
-	@JoinColumn(name = "contatransacao_id", nullable = true) 
-	private Conta contaTrasancao;
+	@JoinColumn(name = "contamovimentacao_id", nullable = true) 
+	private Conta contaMovimentacao;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "tipotransacao_id", nullable = false) 
