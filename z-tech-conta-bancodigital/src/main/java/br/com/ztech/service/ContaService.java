@@ -85,6 +85,22 @@ public class ContaService {
 		return valorTransacao;
 
 	}
+	
+	protected BigDecimal calculoValorPorcentagem(BigDecimal valorPorcentagem, BigDecimal valor) {
+
+		log.info("calculoValorPorcentagemRetirada valorPorcentagem {}, valor {}", valorPorcentagem, valor);
+		
+		if(valorPorcentagem.signum() > 0) {
+		
+			final var valorCalculado = valor.multiply(valorPorcentagem).divide(new BigDecimal(100));
+
+			log.debug("valorCalculado {}", valorCalculado);
+			
+			return valorCalculado;
+		}
+
+		return BigDecimal.ZERO;
+	}
 
 	protected void validaValorSaldo(BigDecimal valor) {
 

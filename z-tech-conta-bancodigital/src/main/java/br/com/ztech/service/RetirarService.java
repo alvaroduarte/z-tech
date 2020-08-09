@@ -53,8 +53,10 @@ public class RetirarService extends ContaService implements Movimentacao {
 		final var porcentagemRetirada = buscarConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor()).getPorcentagem();
 
 		final var valorSaldo = conta.getSaldo();
+		
+		final var valorPorcentagem = getValorPorcentagem ( porcentagemRetirada );
 
-		final var valorRetirada = calculoRetirada( porcentagemRetirada.multiply(new BigDecimal(-1)) , valorMovimentacao ); 
+		final var valorRetirada = calculoValorPorcentagem( valorPorcentagem , valorMovimentacao ); 
 		
 		final var valorSaldoAtualizado = calculaSaldoRetirada( valorSaldo, valorMovimentacao, valorRetirada );
 		
@@ -79,7 +81,6 @@ public class RetirarService extends ContaService implements Movimentacao {
 				.valorSaldo(valorSaldo)
 				.valorMovimentacao(valorMovimentacao)
 				.porcentagemMovimentacao(porcentagemRetirada)
-				//.porcentagemMovimentacao(porcentagemRetirada.multiply(new BigDecimal(-1)))
 				.valorTransacao(valorTransacao)
 				.valorSaldoAtualizado(valorSaldoAtualizado)
 				.conta(conta)
@@ -104,16 +105,20 @@ public class RetirarService extends ContaService implements Movimentacao {
 		return saldoAtualizado;
 	}
 	
-
-	protected BigDecimal calculoRetirada(BigDecimal valorPorcentagemRetirada, BigDecimal valor) {
-
-		log.info("calculoDebeito valorPorcentagemRetirada {}, valor {}", valorPorcentagemRetirada, valor);
-
-		final var valorCalculado = valor.multiply(valorPorcentagemRetirada).divide(new BigDecimal(100));
-
-		log.debug("valorCalculado {}", valorCalculado);
-
-		return valorCalculado;
-
+	protected BigDecimal getValorPorcentagem(BigDecimal porcentagemRetirada) {
+		
+		log.info("getValorPorcentagem porcentagemRetirada {}", porcentagemRetirada);
+		
+		if(porcentagemRetirada.signum() < 0) {
+			
+			var porcentagemRetiradaRetorno =  porcentagemRetirada.multiply(new BigDecimal(-1));
+			
+			log.debug("porcentagemRetiradaRetorno {}", porcentagemRetiradaRetorno);
+			
+			return porcentagemRetiradaRetorno;
+		}
+		
+		return porcentagemRetirada;
 	}
+	
 }

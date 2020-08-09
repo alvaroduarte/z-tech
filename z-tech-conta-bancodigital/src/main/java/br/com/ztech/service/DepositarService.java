@@ -55,7 +55,7 @@ public class DepositarService extends ContaService implements Movimentacao {
 
 		final var valorSaldo = conta.getSaldo();
 
-		final var valorBonus = calculoBonusDeposito(porcentagemBonusDeposito, valorMovimentacao);
+		final var valorBonus = calculoValorPorcentagem(porcentagemBonusDeposito, valorMovimentacao);
 
 		final var valorSaldoAtualizado = calculaSaldoDeposito(valorSaldo, valorMovimentacao, valorBonus);
 		
@@ -101,17 +101,5 @@ public class DepositarService extends ContaService implements Movimentacao {
 
 		return saldoAtualizado;
 	}
-
-	protected BigDecimal calculoBonusDeposito(BigDecimal valorPorcentagemBonusDeposito, BigDecimal valor) {
-
-		log.info("calculoBonusDeposito valorPorcentagemBonusDeposito {}, valor {}", valorPorcentagemBonusDeposito, valor);
-
-		final var valorCalculado = valor.multiply(valorPorcentagemBonusDeposito).divide(new BigDecimal(100));
-
-		log.debug("valorCalculado {}", valorCalculado);
-
-		return valorCalculado;
-
-	}
-
+	
 }
