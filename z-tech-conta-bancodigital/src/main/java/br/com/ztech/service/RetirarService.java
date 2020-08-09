@@ -4,7 +4,6 @@ import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.CUSTO_RETIRADA;
 import static br.com.ztech.eum.TipoTransacaoEnum.RETIRAR_DINHEIRO;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 import javax.transaction.Transactional;
@@ -15,24 +14,26 @@ import org.springframework.stereotype.Service;
 import br.com.ztech.domain.Conta;
 import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
-import br.com.ztech.repository.ContaRepository;
 import br.com.ztech.repository.TransacaoRepository;
 import br.com.ztech.service.strategy.Movimentacao;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class RetirarService extends ContaService implements Movimentacao {
+public class RetirarService implements Movimentacao {
 
 	@Autowired
-	private ContaRepository contaRepository;
+	private ContaService contaService;
+	
+	@Autowired
+	private ConfiguracaoPorcetagemService configuracaoPorcetagemServicee;
 
 	@Autowired
 	private TransacaoRepository transacaoRepository;
 	
 	public Conta movimentacao(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao) {
 		
-		final var conta = buscarConta(agencia, numeroConta);
+		final var conta = contaService.buscarConta(agencia, numeroConta);
 		
 		return movimentacao( conta  , valorMovimentacao, null );
 	
@@ -40,7 +41,7 @@ public class RetirarService extends ContaService implements Movimentacao {
 	
 	public Conta movimentacao(Long id, BigDecimal valorMovimentacao) {
 		
-		final var conta = buscarContaPorId(id);
+		final var conta = contaService.buscarContaPorId(id);
 		
 		return movimentacao( conta , valorMovimentacao, null );
 	}
@@ -50,15 +51,15 @@ public class RetirarService extends ContaService implements Movimentacao {
 
 		log.info("retirar {}, valorMovimentacao {}", conta, valorMovimentacao);
 		
-		final var porcentagemRetirada = buscarConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor()).getPorcentagem();
+		final var porcentagemRetirada = configuracaoPorcetagemServicee.buscarConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor()).getPorcentagem();
 
 		final var valorSaldo = conta.getSaldo();
 		
 		final var valorPorcentagem = getValorPorcentagem ( porcentagemRetirada );
 
-		final var valorRetirada = calculoValorPorcentagem( valorPorcentagem , valorMovimentacao ); 
+		final var valorRetirada = calculoPorcentagem( valorPorcentagem , valorMovimentacao ); 
 		
-		final var valorSaldoAtualizado = calculaSaldoRetirada( valorSaldo, valorMovimentacao, valorRetirada );
+		final var valorSaldoAtualizado = calculaRetirada( valorSaldo, valorMovimentacao, valorRetirada );
 		
 		final var valorTransacao = calculoValorTransacao(valorMovimentacao, valorRetirada);
 
@@ -70,11 +71,11 @@ public class RetirarService extends ContaService implements Movimentacao {
 				valorTransacao,
 				valorSaldoAtualizado);
 
-		validaValorSaldo(valorSaldoAtualizado);
+		contaService.validaValorSaldoConta(valorSaldoAtualizado);
 
 		conta.setSaldo(valorSaldoAtualizado);
 
-		conta = contaRepository.save(conta);
+		conta = contaService.salvar(conta);
 		
 		final var transacao = Transacao.builder()
 				.data(LocalDateTime.now())
@@ -92,17 +93,6 @@ public class RetirarService extends ContaService implements Movimentacao {
 		log.debug("retirada efetuado com sucesso na {}", conta);
 
 		return conta;
-	}
-
-	protected BigDecimal calculaSaldoRetirada(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorRetirada) {
-
-		log.info("calculaSaldoRetirada valorSaldo {}, valorMovimentacao {},  valorRetirada {}", valorSaldo, valorMovimentacao, valorRetirada);
-
-		final var saldoAtualizado = valorSaldo.subtract( valorMovimentacao ).subtract( valorRetirada ).setScale(2, RoundingMode.HALF_UP);;
-
-		log.debug("saldoAtualizado {}", saldoAtualizado);
-
-		return saldoAtualizado;
 	}
 	
 	protected BigDecimal getValorPorcentagem(BigDecimal porcentagemRetirada) {

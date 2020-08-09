@@ -1,12 +1,10 @@
 package br.com.ztech.service;
 
-import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.CUSTO_RETIRADA;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -18,24 +16,21 @@ import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import br.com.ztech.domain.Cliente;
-import br.com.ztech.domain.ConfiguracaoPorcentagem;
 import br.com.ztech.domain.Conta;
 import br.com.ztech.domain.Transacao;
-import br.com.ztech.repository.ConfiguracaoPorcentagemRepository;
-import br.com.ztech.repository.ContaRepository;
 import br.com.ztech.repository.TransacaoRepository;
 
 @RunWith(SpringRunner.class)
 public class TransferirServiceTest {
 	
 	@Mock
-	private ContaRepository contaRepository;
+	private ContaService contaService;
+	
+	@Mock
+	private ConfiguracaoPorcetagemService configuracaoPorcetagemService;
 
 	@Mock
 	private TransacaoRepository transacaoRepository;
-	
-	@Mock
-	private ConfiguracaoPorcentagemRepository configuracaoPorcentagemRepository;
 	
 	@InjectMocks
     private TransferirService transferirService;
@@ -59,10 +54,10 @@ public class TransferirServiceTest {
 				.conta(conta)
 				.build();
 		
-		final var configuracaoPorcentagem = Optional.of(new ConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor(), "CUSTO_RETIRADA", new BigDecimal(1)));
-		BDDMockito.when(configuracaoPorcentagemRepository.findById(CUSTO_RETIRADA.getValor())).thenReturn(configuracaoPorcentagem);	
+		//final var configuracaoPorcentagem = Optional.of(new ConfiguracaoPorcentagem(CUSTO_RETIRADA.getValor(), "CUSTO_RETIRADA", new BigDecimal(1)));
+		//BDDMockito.when(configuracaoPorcentagemRepository.findById(CUSTO_RETIRADA.getValor())).thenReturn(configuracaoPorcentagem);	
 		
-		BDDMockito.when(contaRepository.save(Mockito.any())).thenReturn(conta);
+		BDDMockito.when(contaService.salvar(Mockito.any())).thenReturn(conta);
 		
 		BDDMockito.when(transacaoRepository.save(Mockito.any())).thenReturn(transacao);
 		

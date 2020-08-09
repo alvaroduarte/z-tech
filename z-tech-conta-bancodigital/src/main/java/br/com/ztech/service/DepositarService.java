@@ -4,7 +4,6 @@ import static br.com.ztech.eum.ConfiguracaoPorcentagemEnum.BONUS_DEPOSITO;
 import static br.com.ztech.eum.TipoTransacaoEnum.DEPOSITO_DINHEIRO;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 import javax.transaction.Transactional;
@@ -15,24 +14,26 @@ import org.springframework.stereotype.Service;
 import br.com.ztech.domain.Conta;
 import br.com.ztech.domain.TipoTransacao;
 import br.com.ztech.domain.Transacao;
-import br.com.ztech.repository.ContaRepository;
 import br.com.ztech.repository.TransacaoRepository;
 import br.com.ztech.service.strategy.Movimentacao;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class DepositarService extends ContaService implements Movimentacao {
+public class DepositarService implements Movimentacao {
 
 	@Autowired
-	private ContaRepository contaRepository;
+	private ContaService contaService;
+	
+	@Autowired
+	private ConfiguracaoPorcetagemService configuracaoPorcetagemService;
 
 	@Autowired
 	private TransacaoRepository transacaoRepository;
 
 	public Conta movimentacao(Integer agencia, Long numeroConta, BigDecimal valorMovimentacao) {
 		
-		final var conta = buscarConta(agencia, numeroConta);
+		final var conta = contaService.buscarConta(agencia, numeroConta);
 		
 		return movimentacao( conta , valorMovimentacao, null );
 	
@@ -40,7 +41,7 @@ public class DepositarService extends ContaService implements Movimentacao {
 	
 	public Conta movimentacao(Long id, BigDecimal valorMovimentacao) {
 		
-		final var conta = buscarContaPorId(id);
+		final var conta = contaService.buscarContaPorId(id);
 		
 		return movimentacao( conta , valorMovimentacao, null );
 	
@@ -51,13 +52,13 @@ public class DepositarService extends ContaService implements Movimentacao {
 
 		log.info("depositar {}, valorMovimentacao {}", conta, valorMovimentacao);
 		
-		final var porcentagemBonusDeposito = buscarConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor()).getPorcentagem();
+		final var porcentagemBonusDeposito = configuracaoPorcetagemService.buscarConfiguracaoPorcentagem(BONUS_DEPOSITO.getValor()).getPorcentagem();
 
 		final var valorSaldo = conta.getSaldo();
 
-		final var valorBonus = calculoValorPorcentagem(porcentagemBonusDeposito, valorMovimentacao);
+		final var valorBonus = calculoPorcentagem(porcentagemBonusDeposito, valorMovimentacao);
 
-		final var valorSaldoAtualizado = calculaSaldoDeposito(valorSaldo, valorMovimentacao, valorBonus);
+		final var valorSaldoAtualizado = calculaSoma(valorSaldo, valorMovimentacao, valorBonus);
 		
 		final var valorTransacao = calculoValorTransacao(valorMovimentacao, valorBonus); 
 
@@ -71,7 +72,7 @@ public class DepositarService extends ContaService implements Movimentacao {
 
 		conta.setSaldo( valorSaldoAtualizado );
 
-		conta = contaRepository.save(conta);
+		conta = contaService.salvar(conta);
 		
 		final var transacao = Transacao.builder()
 				.data(LocalDateTime.now())
@@ -89,17 +90,6 @@ public class DepositarService extends ContaService implements Movimentacao {
 		log.debug("deposito efetuado com sucesso na {}", conta);
 
 		return conta;
-	}
-
-	protected BigDecimal calculaSaldoDeposito(BigDecimal valorSaldo, BigDecimal valorMovimentacao, BigDecimal valorBonus) {
-
-		log.info("calculaSaldoDeposito valorSaldo {}, valorMovimentacao {},  valorBonus {}", valorSaldo, valorMovimentacao, valorBonus);
-
-		final var saldoAtualizado = valorSaldo.add(valorMovimentacao).add(valorBonus).setScale(2, RoundingMode.HALF_UP);
-
-		log.debug("saldoAtualizado {}", saldoAtualizado);
-
-		return saldoAtualizado;
 	}
 	
 }
