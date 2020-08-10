@@ -86,4 +86,20 @@ public class ContaControllerTest {
 			
 	}
 	
+	
+	@Test
+	public void  validaCadastroClienteCpfInvalidoTest() {
+		
+		var requestTesteCpfInvalidoCliente = new AbrirContaRequest("Alvaro Duarte", "98933075038777777");
+		var requestEntityTesteCpfInvalidoCliente = new HttpEntity<>(requestTesteCpfInvalidoCliente);
+		var responseTesteCpfInvalidoCliente = restTemplate.exchange(
+				"/conta",
+				HttpMethod.POST,
+				requestEntityTesteCpfInvalidoCliente,
+				ContaDto.class);
+		
+		Assertions.assertThat(responseTesteCpfInvalidoCliente.getStatusCodeValue()).isEqualTo(400);
+	
+	}
+	
 }
