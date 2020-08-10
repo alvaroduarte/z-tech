@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class TransferirService implements Movimentacao {
+public class TransferirMovimentacaoService implements Movimentacao {
 
 	@Autowired
 	private ContaService contaService;

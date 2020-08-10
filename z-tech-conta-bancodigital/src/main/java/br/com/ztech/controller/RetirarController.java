@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ztech.controller.dto.ContaDto;
 import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
 import br.com.ztech.controller.request.MovimentacaoContaRequest;
-import br.com.ztech.service.RetirarService;
+import br.com.ztech.service.RetirarMovimentacaoService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class RetirarController {
 	
 	@Autowired
-	private RetirarService retirarService;
+	private RetirarMovimentacaoService retirarMovimentacaoService;
 	
 	@Autowired
 	private ContaConverterContaDto contaConverterContaDto;
@@ -37,7 +37,7 @@ public class RetirarController {
 				
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var conta = retirarService.movimentacao(agencia, numeroConta, valorMovimentacao);
+		final var conta = retirarMovimentacaoService.movimentacao(agencia, numeroConta, valorMovimentacao);
 		
 		log.debug("{}", conta);
 				
@@ -52,7 +52,7 @@ public class RetirarController {
 		
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var conta = retirarService.movimentacao(id, valorMovimentacao);
+		final var conta = retirarMovimentacaoService.movimentacao(id, valorMovimentacao);
 		
 		log.debug("{}", conta);
 				

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import br.com.ztech.domain.Cliente;
 import br.com.ztech.domain.Conta;
 import br.com.ztech.exception.ContaNotFoundException;
-import br.com.ztech.exception.ContaPorIdNotFoundException;
 import br.com.ztech.exception.SaldoInsuficienteBadRequestException;
 import br.com.ztech.repository.ContaRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +31,7 @@ public class ContaService {
 		log.info("buscarConta id {}", id);
 		
 		return contaRepository.findById(id)
-				.orElseThrow(() -> new ContaPorIdNotFoundException());
+				.orElseThrow(() -> new ContaNotFoundException());
 	}
 
 	public Conta buscarConta(Integer agencia, Long numeroConta) {
@@ -64,9 +63,9 @@ public class ContaService {
 		
 		log.info("salvar {}", conta);
 		
-		var retorno = contaRepository.save(conta);
+		conta = contaRepository.save(conta);
 		
-		log.debug("{}", retorno);
+		log.debug("{}", conta);
 		
 		return conta;
 	}

@@ -23,7 +23,7 @@ import br.com.ztech.domain.Transacao;
 import br.com.ztech.repository.TransacaoRepository;
 
 @RunWith(SpringRunner.class)
-public class DepositarServiceTest {
+public class DepositarMovimentacaoServiceTest {
 	
 	@Mock
 	private ContaService contaService;
@@ -35,7 +35,7 @@ public class DepositarServiceTest {
 	private TransacaoRepository transacaoRepository;
 	
 	@InjectMocks
-    private DepositarService depositarService;
+    private DepositarMovimentacaoService depositarMovimentacaoService;
 	
 	@Test
 	public void depositarTest() {
@@ -64,7 +64,7 @@ public class DepositarServiceTest {
 		
 		BDDMockito.when(transacaoRepository.save(Mockito.any())).thenReturn(transacao);
 		
-		final var contaRtorno = depositarService.movimentacao(conta.getId(), new BigDecimal(100));
+		final var contaRtorno = depositarMovimentacaoService.movimentacao(conta.getId(), new BigDecimal(100));
 				
 		Assertions.assertThat(contaRtorno.getSaldo()).isNotNull();
 		assertEquals(contaRtorno.getSaldo().setScale(2, RoundingMode.HALF_UP), transacao.getValorSaldoAtualizado().setScale(2, RoundingMode.HALF_UP));

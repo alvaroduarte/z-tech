@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ztech.controller.dto.ContaDto;
 import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
 import br.com.ztech.controller.request.MovimentacaoContaRequest;
-import br.com.ztech.service.DepositarService;
+import br.com.ztech.service.DepositarMovimentacaoService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class DepositarController {
 	
 	@Autowired
-	private DepositarService depositarService;
+	private DepositarMovimentacaoService depositarMovimentacaoService;
 	
 	@Autowired
 	private ContaConverterContaDto contaConverterContaDto;
@@ -36,7 +36,7 @@ public class DepositarController {
 		
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var conta = depositarService.movimentacao(agencia, numeroConta, valorMovimentacao);
+		final var conta = depositarMovimentacaoService.movimentacao(agencia, numeroConta, valorMovimentacao);
 		
 		log.debug("deposito efetuado com sucesso! {}", conta);
 				
@@ -51,7 +51,7 @@ public class DepositarController {
 		
 		final var valorMovimentacao = movimentacaoContaRequest.getValor();
 		
-		final var conta = depositarService.movimentacao(id, valorMovimentacao);
+		final var conta = depositarMovimentacaoService.movimentacao(id, valorMovimentacao);
 		
 		log.debug("deposito efetuado com sucesso! {}", conta);
 		

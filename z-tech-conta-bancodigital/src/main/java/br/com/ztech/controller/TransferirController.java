@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ztech.controller.dto.ContaDto;
 import br.com.ztech.controller.dto.converter.ContaConverterContaDto;
 import br.com.ztech.controller.request.TransferenciaContaRequest;
-import br.com.ztech.service.TransferirService;
+import br.com.ztech.service.TransferirMovimentacaoService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class TransferirController {
 		
 	@Autowired
-	private TransferirService transferirService;
+	private TransferirMovimentacaoService transferirMovimentacaoService;
 	
 	@Autowired
 	private ContaConverterContaDto contaConverterContaDto;
@@ -38,7 +38,7 @@ public class TransferirController {
 		
 		final var valorMovimentacao = transferenciaContaRequest.getValor();
 		
-		final var conta = transferirService.movimentacao(agencia, numeroConta, 
+		final var conta = transferirMovimentacaoService.movimentacao(agencia, numeroConta, 
 				valorMovimentacao, transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
 		
 		log.debug("{}", conta);
@@ -54,7 +54,7 @@ public class TransferirController {
 		
 		final var valorMovimentacao = transferenciaContaRequest.getValor();
 		
-		final var conta = transferirService.movimentacao(id, valorMovimentacao, 
+		final var conta = transferirMovimentacaoService.movimentacao(id, valorMovimentacao, 
 				transferenciaContaRequest.getAgencia(), transferenciaContaRequest.getConta());
 		
 		log.debug("{}", conta);

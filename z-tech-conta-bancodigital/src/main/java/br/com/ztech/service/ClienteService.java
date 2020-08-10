@@ -33,7 +33,7 @@ public class ClienteService {
 		
 		log.info("salvar {}", cliente);
 		
-		var cpf = cliente.getCpf();
+		final var cpf = cliente.getCpf();
 		
 		validaCpf(cpf);
 		
