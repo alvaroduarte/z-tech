@@ -56,7 +56,7 @@ public class DepositarControllerTest {
 		
 		var conta = responseAbrirConta.getBody();
 		
-		var tipoTransacao = Optional.of(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo(), "DEPOSITO DINHEIRO", new BigDecimal(0.05)));
+		var tipoTransacao = Optional.of(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo(), "DEPOSITO DINHEIRO", new BigDecimal(0.50)));
 		BDDMockito.when(tipoTransacaoRepository.findById(DEPOSITO_DINHEIRO.getCodigo())).thenReturn(tipoTransacao);	
 		
 		var movimentacaoContaRequest = new MovimentacaoContaRequest(new BigDecimal(500.00));
@@ -75,7 +75,7 @@ public class DepositarControllerTest {
 		Assertions.assertThat(responseDepositarConta.getBody().getCliente().getNome()).isEqualTo("Alvaro Duarte");
 		
 		Assertions.assertThat(responseDepositarConta.getBody().getSaldo().setScale(2, RoundingMode.HALF_UP))
-		.isEqualTo(new BigDecimal(500.25).setScale(2, RoundingMode.HALF_UP));
+		.isEqualTo(new BigDecimal(502.5).setScale(2, RoundingMode.HALF_UP));
 		
 	}
 
