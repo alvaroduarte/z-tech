@@ -80,6 +80,7 @@ public class ContaControllerTest {
 		Assertions.assertThat(responseGetAgenciaConta.getBody().getCliente().getCpf()).isEqualTo("98933075038");
 		
 		var responseGetId = restTemplate.getForEntity("/conta/"+conta.getId(), ContaDto.class);
+		
 		Assertions.assertThat(responseGetId.getStatusCodeValue()).isEqualTo(200);
 		Assertions.assertThat(responseGetId.getBody().getCliente().getCpf()).isEqualTo("98933075038");
 			
