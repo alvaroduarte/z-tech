@@ -61,7 +61,7 @@ public class RetirarControllerTest {
 		
 		var conta = responseAbrirConta.getBody();
 		
-		var tipoTransacao = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR DINHEIRO", new BigDecimal(0.05)));
+		var tipoTransacao = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR DINHEIRO", new BigDecimal(-11)));
 		BDDMockito.when(tipoTransacaoRepository.findById(RETIRAR_DINHEIRO.getCodigo())).thenReturn(tipoTransacao);	
 		
 		var movimentacaoContaRequest = new MovimentacaoContaRequest(new BigDecimal(500.00));
@@ -98,10 +98,10 @@ public class RetirarControllerTest {
 		
 		var conta = responseAbrirConta.getBody();
 		
-		var tipoTransacaoPorcentagemBonus = Optional.of(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo(), "DEPOSITO_DINHEIRO", new BigDecimal(0.05)));
+		var tipoTransacaoPorcentagemBonus = Optional.of(new TipoTransacao(DEPOSITO_DINHEIRO.getCodigo(), "DEPOSITO_DINHEIRO", new BigDecimal(0.50)));
 		BDDMockito.when(tipoTransacaoRepository.findById(DEPOSITO_DINHEIRO.getCodigo())).thenReturn(tipoTransacaoPorcentagemBonus);	
 		
-		var tipoTransacaoPorcentagemRetirada = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR DINHEIRO", new BigDecimal(1)));
+		var tipoTransacaoPorcentagemRetirada = Optional.of(new TipoTransacao(RETIRAR_DINHEIRO.getCodigo(), "RETIRAR DINHEIRO", new BigDecimal(-1)));
 		BDDMockito.when(tipoTransacaoRepository.findById(RETIRAR_DINHEIRO.getCodigo())).thenReturn(tipoTransacaoPorcentagemRetirada);	
 		
 		var movimentacaoContaRequest = new MovimentacaoContaRequest(new BigDecimal(500.00));
@@ -119,7 +119,7 @@ public class RetirarControllerTest {
 		Assertions.assertThat(responseDepositarConta.getBody().getCliente().getCpf()).isEqualTo("98933075038");
 		Assertions.assertThat(responseDepositarConta.getBody().getCliente().getNome()).isEqualTo("Alvaro Duarte");
 		Assertions.assertThat(responseDepositarConta.getBody().getSaldo().setScale(2, RoundingMode.HALF_UP))
-			.isEqualTo(new BigDecimal(500.25).setScale(2, RoundingMode.HALF_UP));
+			.isEqualTo(new BigDecimal(502.50).setScale(2, RoundingMode.HALF_UP));
 		
 		var movimentacaoContaRetiradaRequest = new MovimentacaoContaRequest(new BigDecimal(50.00));
 		var requestEntityRetirarConta = new HttpEntity<>(movimentacaoContaRetiradaRequest);
@@ -134,7 +134,7 @@ public class RetirarControllerTest {
 		Assertions.assertThat(responseRetirarConta.getBody().getCliente().getCpf()).isEqualTo("98933075038");
 		Assertions.assertThat(responseRetirarConta.getBody().getCliente().getNome()).isEqualTo("Alvaro Duarte");
 		Assertions.assertThat(responseRetirarConta.getBody().getSaldo().setScale(2, RoundingMode.HALF_UP))
-		.isEqualTo(new BigDecimal(449.75).setScale(2, RoundingMode.HALF_UP));
+		.isEqualTo(new BigDecimal(452).setScale(2, RoundingMode.HALF_UP));
 		
 	}
 
